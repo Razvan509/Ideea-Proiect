@@ -5,7 +5,10 @@
  */
 package server.dao;
 
+import db.Activitate;
+import db.Dictionar;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -18,4 +21,9 @@ public class ActivitateDao {
     public ActivitateDao(EntityManager em){
         this.em = em;
     }
+    
+    public void adaugaActivitate(Activitate activitate){
+        em.persist(activitate);
+    }
+    
 }

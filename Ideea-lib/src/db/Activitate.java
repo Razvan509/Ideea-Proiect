@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,9 +29,11 @@ public class Activitate implements Serializable{
     private long id;
     
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Angajat angajat;
     
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Proiect proiect;
     
     @Column(nullable = false)
@@ -38,10 +41,15 @@ public class Activitate implements Serializable{
     private Date dataOra;
     
     @Column(nullable = false)
-    private String etapaProiectare;
+    private int cod;
     
     @Column(nullable = false)
     private int oreMunca;
+    
+    @Column(nullable = false)
+    private int minuteMunca;
+    
+    private int etaj;
 
     public long getId() {
         return id;
@@ -71,12 +79,12 @@ public class Activitate implements Serializable{
         this.dataOra = dataOra;
     }
 
-    public String getEtapaProiectare() {
-        return etapaProiectare;
+    public int getCod() {
+        return cod;
     }
 
-    public void setEtapaProiectare(String etapaProiectare) {
-        this.etapaProiectare = etapaProiectare;
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
     public int getOreMunca() {
@@ -87,11 +95,29 @@ public class Activitate implements Serializable{
         this.oreMunca = oreMunca;
     }
 
+    public int getEtaj() {
+        return etaj;
+    }
+
+    public void setEtaj(int etaj) {
+        this.etaj = etaj;
+    }
+
+    public int getMinuteMunca() {
+        return minuteMunca;
+    }
+
+    public void setMinuteMunca(int minuteMunca) {
+        this.minuteMunca = minuteMunca;
+    }
+    
+    
+    
     
     
     @Override
     public String toString() {
-        return proiect.getNume() + angajat.toString() + dataOra.toLocaleString() + oreMunca + etapaProiectare;
+        return proiect.getNume() + " " + dataOra.toLocaleString()+ " " + oreMunca + " ore si "+minuteMunca + " minute";
     }
     
     

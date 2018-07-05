@@ -17,4 +17,6 @@ import java.util.List;
 public interface IProiectService extends Remote{
     public void adaugaProiect(Proiect proiect) throws RemoteException;
     public List<Proiect> getAll() throws RemoteException;
+    public Proiect findByNume(String nume) throws RemoteException;
+    public long oreProiect(Proiect proiect) throws RemoteException;
 }

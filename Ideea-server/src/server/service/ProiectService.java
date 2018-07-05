@@ -44,6 +44,21 @@ public class ProiectService extends UnicastRemoteObject implements IProiectServi
         EntityManager em = emf.createEntityManager();
         ProiectDao proiectDao = new ProiectDao(em);
         
-        return proiectDao.getAll();
+        return proiectDao.getAll();       
+    }
+
+    @Override
+    public Proiect findByNume(String nume) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        
+        return proiectDao.findByNume(nume);
+    }
+
+    @Override
+    public long oreProiect(Proiect proiect) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        return ((Long) proiectDao.oreProiect(proiect)).longValue();
     }
 }

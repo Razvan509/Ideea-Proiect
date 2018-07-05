@@ -23,7 +23,8 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Proiect.getAll", query = "SELECT p FROM Proiect p")
+    @NamedQuery(name = "Proiect.getAll", query = "SELECT p FROM Proiect p"),
+    @NamedQuery(name = "Proiect.findByNume", query = "SELECT p FROM Proiect p WHERE p.nume = :nume")
 })
 public class Proiect implements Serializable{
     
@@ -60,6 +61,12 @@ public class Proiect implements Serializable{
     
     @Column(nullable = false)
     private int nrOreAlocate;
+    
+    @Column(nullable = false)
+    private int nrEtajeSubsol;
+    
+    @Column(nullable = false)
+    private float pret;
 
     public String getNume() {
         return nume;
@@ -125,6 +132,16 @@ public class Proiect implements Serializable{
         this.suprafataTotala = suprafataTotala;
     }
 
+    public float getPret() {
+        return pret;
+    }
+
+    public void setPret(float pret) {
+        this.pret = pret;
+    }
+    
+    
+
     @Override
     public String toString() {
         return nume + " " + adresa + " " + buget;
@@ -153,6 +170,16 @@ public class Proiect implements Serializable{
     public void setNrOreAlocate(int nrOreAlocate) {
         this.nrOreAlocate = nrOreAlocate;
     }
+
+    public int getNrEtajeSubsol() {
+        return nrEtajeSubsol;
+    }
+
+    public void setNrEtajeSubsol(int nrEtajeSubsol) {
+        this.nrEtajeSubsol = nrEtajeSubsol;
+    }
+    
+    
     
     
 }

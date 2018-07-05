@@ -5,12 +5,15 @@
  */
 package rmi;
 
+import db.Activitate;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  *
  * @author razvan
  */
 public interface IActivitateService extends Remote{
-    
+    public void adaugaActivitate(Activitate activitate) throws RemoteException;
+    public String findByCod(Activitate activitate) throws RemoteException;
 }

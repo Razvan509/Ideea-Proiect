@@ -35,4 +35,30 @@ public class ProiectDao {
             return null;
         }
     }
+    
+    public Proiect findByNume(String nume){
+        Query query = em.createNamedQuery("Proiect.findByNume");
+        query.setParameter("nume", nume);
+        
+        try{
+            return (Proiect) query.getSingleResult();
+        }catch(Exception e){
+            return null;
+        }
+    }
+    
+    public long oreProiect(Proiect proiect){
+        Query query = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect",Long.class);
+        query.setParameter("proiect", proiect);
+        
+        try{
+            Object o = query.getSingleResult();
+            if (o == null) return 0;
+            return (long)o;
+        }catch(Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+    
 }

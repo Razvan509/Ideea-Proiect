@@ -5,7 +5,7 @@
  */
 package client.gui;
 
-import client.controller.ClientController;
+import client.controller.ProiectController;
 import db.Angajat;
 import db.Proiect;
 import java.awt.Font;
@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdminFrame extends javax.swing.JFrame {
     
+    public static DefaultTableModel model;
+    
     public AdminFrame(Angajat angajat) {
         initComponents();
         
@@ -26,23 +28,27 @@ public class AdminFrame extends javax.swing.JFrame {
         
         setTitle(angajat.getNume());
         jTable1.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 18));
+        //model = (DefaultTableModel) jTable1.getModel();
         
         afisare();
     }
     
     public static void afisare(){
         try{
-            DefaultTableModel model2 = (DefaultTableModel) jTable1.getModel();
-            List<Proiect> proiecte = ClientController.getInstance().getAll();
+            model = new DefaultTableModel(null,new String[]{"Nume","Adresa","Buget","Ore alocate","Ore lucrate","Procent ore"});
+            jTable1.setModel(model);
+            List<Proiect> proiecte = ProiectController.getInstance().getAll();
             Object [] row = new Object[6];
             for (int i=0;i<proiecte.size();i++){
+                long nrOre = (long)ProiectController.getInstance().oreProiect(proiecte.get(i));
+                double procent = (nrOre*100.0)/proiecte.get(i).getNrOreAlocate();
                 row[0] = proiecte.get(i).getNume();
                 row[1] = proiecte.get(i).getAdresa();
                 row[2] = proiecte.get(i).getBuget();
                 row[3] = proiecte.get(i).getNrOreAlocate();
-                row[4] = proiecte.get(i).getNume();
-                row[5] = proiecte.get(i).getNume();
-                model2.addRow(row);
+                row[4] = nrOre;
+                row[5] = procent + "%";
+                model.addRow(row);
             }
         }catch(Exception e){
             e.printStackTrace();

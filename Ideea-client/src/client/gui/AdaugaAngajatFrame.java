@@ -5,9 +5,8 @@
  */
 package client.gui;
 
-import client.controller.ClientController;
+import client.controller.AngajatController;
 import db.Angajat;
-import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,7 +46,7 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Nume:");
@@ -125,7 +124,7 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
                 angajat.setNume(nume);
                 angajat.setParola(password);
                 angajat.setUsername(jTextField3.getText());
-                ClientController.getInstance().adaugaAngajat(angajat);
+                AngajatController.getInstance().adaugaAngajat(angajat);
                 dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Unul din campuri nu este completat!");

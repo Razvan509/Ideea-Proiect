@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/programare/Java/teste/Ideea-client/src/client/gui/AdaugaAngajatFrame.java</file>
-            <file>file:/D:/programare/Java/teste/Ideea-client/src/client/gui/AdminFrame.java</file>
-            <file>file:/D:/programare/Java/teste/Ideea-client/src/client/controller/ClientController.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/controller/AngajatController.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/gui/AdminFrame.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/controller/ActivitateController.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/gui/ClientFrame.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/gui/AdaugaProiectFrame.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/Client.java</file>
+            <file>file:/D:/razvan/download/proiect/Ideea-client/src/client/gui/LoginFrame.java</file>
         </group>
     </open-files>
 </project-private>

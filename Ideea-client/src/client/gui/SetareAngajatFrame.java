@@ -5,7 +5,7 @@
  */
 package client.gui;
 
-import client.controller.ClientController;
+import client.controller.AngajatController;
 import javax.swing.JOptionPane;
 
 /**
@@ -43,7 +43,7 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Username:");
@@ -104,7 +104,7 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
         
         if (!username.equals("") && !password.equals("") && !password.equals("1234")){
             try{
-                ClientController.getInstance().setareAngajat(id, username, password);
+                AngajatController.getInstance().setareAngajat(id, username, password);
                 dispose();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "Eroare");
