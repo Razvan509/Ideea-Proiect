@@ -6,7 +6,10 @@
 package db;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,6 +51,12 @@ public class Activitate implements Serializable{
     
     @Column(nullable = false)
     private int minuteMunca;
+    
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date dataPontaj;
+    
+    private char corp;
     
     private int etaj;
 
@@ -110,14 +119,28 @@ public class Activitate implements Serializable{
     public void setMinuteMunca(int minuteMunca) {
         this.minuteMunca = minuteMunca;
     }
-    
-    
-    
-    
-    
+
+    public Date getDataPontaj() {
+        return dataPontaj;
+    }
+
+    public void setDataPontaj(Date dataPontaj) {
+        this.dataPontaj = dataPontaj;
+    }
+
+    public char getCorp() {
+        return corp;
+    }
+
+    public void setCorp(char corp) {
+        this.corp = corp;
+    }
+
+
     @Override
     public String toString() {
-        return proiect.getNume() + " " + dataOra.toLocaleString()+ " " + oreMunca + " ore si "+minuteMunca + " minute";
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return proiect.getNume() + " " + dateFormat.format(dataPontaj) + " " + oreMunca + " ore si "+minuteMunca + " minute";
     }
     
     

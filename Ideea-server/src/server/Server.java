@@ -7,6 +7,7 @@ package server;
 
 import db.Activitate;
 import java.rmi.RemoteException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import server.gui.ServerFrame;

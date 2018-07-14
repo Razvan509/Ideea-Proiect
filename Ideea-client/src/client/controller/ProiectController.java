@@ -5,10 +5,13 @@
  */
 package client.controller;
 
+import db.Activitate;
+import db.Angajat;
 import db.Proiect;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import rmi.IAngajatService;
@@ -56,4 +59,6 @@ public class ProiectController {
     public long oreProiect(Proiect proiect) throws RemoteException{
         return proiectService.oreProiect(proiect);
     }
+    
+    
 }

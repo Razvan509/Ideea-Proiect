@@ -35,10 +35,10 @@ public class AdminFrame extends javax.swing.JFrame {
     
     public static void afisare(){
         try{
-            model = new DefaultTableModel(null,new String[]{"Nume","Adresa","Buget","Ore alocate","Ore lucrate","Procent ore"});
+            model = new DefaultTableModel(null,new String[]{"Nume","Adresa","Buget","Ore alocate","Ore lucrate","Procent ore","Corpuri"});
             jTable1.setModel(model);
             List<Proiect> proiecte = ProiectController.getInstance().getAll();
-            Object [] row = new Object[6];
+            Object [] row = new Object[7];
             for (int i=0;i<proiecte.size();i++){
                 long nrOre = (long)ProiectController.getInstance().oreProiect(proiecte.get(i));
                 double procent = (nrOre*100.0)/proiecte.get(i).getNrOreAlocate();
@@ -48,6 +48,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 row[3] = proiecte.get(i).getNrOreAlocate();
                 row[4] = nrOre;
                 row[5] = procent + "%";
+                row[6] = proiecte.get(i).getCorpuri();
                 model.addRow(row);
             }
         }catch(Exception e){

@@ -24,6 +24,8 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
     public AdaugaProiectFrame() {
         initComponents();
         
+        jTextField11.setText("1");
+        
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -44,8 +46,6 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -53,11 +53,11 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -82,12 +82,6 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Nume Arh:");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Suprafata:");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText("Supraf. Etaj:");
-
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -102,10 +96,6 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Adauga");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +108,11 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         jLabel10.setText("Pret ora:");
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Corpuri:");
+
+        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,13 +130,10 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                             .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
@@ -149,11 +141,12 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                             .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-                            .addComponent(jTextField10)))
+                            .addComponent(jTextField10)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(208, 208, 208)
                         .addComponent(jButton1)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,17 +183,13 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33))
         );
@@ -220,22 +209,37 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            proiect.setBeneficiar(jTextField3.getText());
-            if (jTextField1.getText().isEmpty()){
+            proiect.setBeneficiar(jTextField2.getText());
+            if (jTextField3.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            proiect.setBuget(Integer.parseInt(jTextField3.getText()));
+            int buget = Integer.parseInt(jTextField3.getText());
+            if (buget <= 0){
+                JOptionPane.showMessageDialog(null, "Bugetul este incorect!");
+                return;
+            }
+            proiect.setBuget(buget);
             if (jTextField4.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            proiect.setNrEtaje(Integer.parseInt(jTextField4.getText()));
+            int etaj = Integer.parseInt(jTextField4.getText());
+            if (etaj < 0){
+                JOptionPane.showMessageDialog(null, "Nr de etaje este incorect!");
+                return;
+            }
+            proiect.setNrEtaje(etaj);
             if (jTextField5.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            proiect.setNrEtajeSubsol(Integer.parseInt(jTextField5.getText()));
+            etaj = Integer.parseInt(jTextField5.getText());
+            if (etaj < 0){
+                JOptionPane.showMessageDialog(null, "Nr de etaje de subsol incorect!");
+                return;
+            }
+            proiect.setNrEtajeSubsol(etaj);
             if (jTextField6.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
@@ -246,24 +250,51 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                 return;
             }
             proiect.setNumeArhitect(jTextField7.getText());
-            if (jTextField9.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
-                return;
-            }
-            proiect.setSuprafataEtaj(Integer.parseInt(jTextField9.getText()));
-            if (jTextField8.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
-                return;
-            }
-            proiect.setSuprafataTotala(Integer.parseInt(jTextField8.getText()));
             if (jTextField10.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            proiect.setPret(Integer.parseInt(jTextField10.getText()));
+            int pret = Integer.parseInt(jTextField10.getText());
+            
+            if (pret <= 0){
+                JOptionPane.showMessageDialog(null, "Pretul nu poate fi mai mic sau egala cu 0!");
+                return;
+            }
+            
+            proiect.setPret(pret);
+            
+            if (jTextField11.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
+                return;
+            }
+            
+            int corpuri = Integer.parseInt(jTextField11.getText());
+            
+            if (corpuri < 0){
+                JOptionPane.showMessageDialog(null, "Nr de corpuri incorect!");
+                return;
+            }
+            proiect.setCorpuri(corpuri);
             proiect.setNrOreAlocate((int)(proiect.getBuget()/proiect.getPret()));
+            Proiect check = ProiectController.getInstance().findByNume(proiect.getNume());
+            
+            if (proiect.equals(check)) {
+                JOptionPane.showMessageDialog(null, "Acest nume de proiect a mai fost folosit!");
+                return;
+            }
        
-            ProiectController.getInstance().adaugaProiect(proiect);
+            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol()).setVisible(true);
+            
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            jTextField7.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            
             AdminFrame.afisare();
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
@@ -279,23 +310,21 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

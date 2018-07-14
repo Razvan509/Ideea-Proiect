@@ -6,9 +6,13 @@
 package client.controller;
 
 import db.Activitate;
+import db.Angajat;
+import db.Proiect;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import rmi.IActivitateService;
 
@@ -41,6 +45,14 @@ public class ActivitateController {
     
     public void adaugaActivitate(Activitate activitate) throws RemoteException{
         activitateService.adaugaActivitate(activitate);
+    }
+    
+    public List<Activitate> getActivitatiAngajatProiect(Angajat a,Proiect p) throws RemoteException{
+        return activitateService.getActivitatiAngajatProiect(a, p);
+    }
+    
+    public List<Activitate> getActivitatiAngajatZi(Angajat a,Date data) throws RemoteException{
+        return activitateService.getActivitatiAngajatZi(a, data);
     }
     
 }

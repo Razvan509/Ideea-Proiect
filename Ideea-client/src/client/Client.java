@@ -5,7 +5,7 @@
  */
 package client;
 
-import client.gui.AdaugaAngajatFrame;
+import client.gui.EtajeFrame;
 import client.gui.LoginFrame;
 
 /**

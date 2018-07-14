@@ -6,8 +6,12 @@
 package rmi;
 
 import db.Activitate;
+import db.Angajat;
+import db.Proiect;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -16,4 +20,6 @@ import java.rmi.RemoteException;
 public interface IActivitateService extends Remote{
     public void adaugaActivitate(Activitate activitate) throws RemoteException;
     public String findByCod(Activitate activitate) throws RemoteException;
+    public List<Activitate> getActivitatiAngajatProiect(Angajat a,Proiect p) throws RemoteException;
+    public List<Activitate> getActivitatiAngajatZi(Angajat a,Date data) throws RemoteException;
 }

@@ -6,8 +6,12 @@
 package server.service;
 
 import db.Activitate;
+import db.Angajat;
+import db.Proiect;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -47,6 +51,22 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         return dictionarDao.findByCod(activitate);
         
         //em.close();
+    }
+
+    @Override
+    public List<Activitate> getActivitatiAngajatProiect(Angajat a, Proiect p) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        return activitateDao.getActivitatiAngajatProiect(a, p);
+    }
+
+    @Override
+    public List<Activitate> getActivitatiAngajatZi(Angajat a, Date data) {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        return activitateDao.getActivitatiAngajatZi(a, data);
     }
     
     

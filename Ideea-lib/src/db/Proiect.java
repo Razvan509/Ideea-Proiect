@@ -54,7 +54,7 @@ public class Proiect implements Serializable{
     private int buget;
     
     @Column(nullable = false)
-    private int suprafataEtaj;
+    private String suprafataEtaj;
     
     @Column(nullable = false)
     private int suprafataTotala;
@@ -67,6 +67,9 @@ public class Proiect implements Serializable{
     
     @Column(nullable = false)
     private float pret;
+    
+    @Column(nullable = false)
+    private int corpuri;
 
     public String getNume() {
         return nume;
@@ -116,11 +119,11 @@ public class Proiect implements Serializable{
         this.buget = buget;
     }
 
-    public int getSuprafataEtaj() {
+    public String getSuprafataEtaj() {
         return suprafataEtaj;
     }
 
-    public void setSuprafataEtaj(int suprafataEtaj) {
+    public void setSuprafataEtaj(String suprafataEtaj) {
         this.suprafataEtaj = suprafataEtaj;
     }
 
@@ -139,6 +142,14 @@ public class Proiect implements Serializable{
     public void setPret(float pret) {
         this.pret = pret;
     }
+
+    public int getCorpuri() {
+        return corpuri;
+    }
+
+    public void setCorpuri(int corpuri) {
+        this.corpuri = corpuri;
+    }
     
     
 
@@ -146,6 +157,25 @@ public class Proiect implements Serializable{
     public String toString() {
         return nume + " " + adresa + " " + buget;
     }
+
+    
+    public boolean equals(Proiect obj) {
+        if (obj == null) return false;
+        if (!nume.equals(obj.nume)) return false;
+        if (!adresa.equals(obj.adresa)) return false;
+        if (!beneficiar.equals(obj.beneficiar)) return false;
+        if (obj.buget != buget) return false;
+        if (obj.nrEtaje != nrEtaje) return false;
+        if (obj.nrEtajeSubsol != nrEtajeSubsol) return false;
+        if (!numeArhitect.equals(obj.numeArhitect)) return false;
+        if (obj.pret != pret) return false;
+        if (obj.suprafataEtaj != suprafataEtaj) return false;
+        if (obj.suprafataTotala != suprafataTotala) return false;
+        return true;
+        
+    }
+    
+    
 
     public long getId() {
         return id;
