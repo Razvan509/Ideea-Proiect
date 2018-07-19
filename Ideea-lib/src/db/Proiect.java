@@ -57,9 +57,6 @@ public class Proiect implements Serializable{
     private String suprafataEtaj;
     
     @Column(nullable = false)
-    private int suprafataTotala;
-    
-    @Column(nullable = false)
     private int nrOreAlocate;
     
     @Column(nullable = false)
@@ -70,6 +67,9 @@ public class Proiect implements Serializable{
     
     @Column(nullable = false)
     private int corpuri;
+    
+    @Column(nullable = false)
+    private int stare;
 
     public String getNume() {
         return nume;
@@ -127,14 +127,6 @@ public class Proiect implements Serializable{
         this.suprafataEtaj = suprafataEtaj;
     }
 
-    public int getSuprafataTotala() {
-        return suprafataTotala;
-    }
-
-    public void setSuprafataTotala(int suprafataTotala) {
-        this.suprafataTotala = suprafataTotala;
-    }
-
     public float getPret() {
         return pret;
     }
@@ -150,6 +142,16 @@ public class Proiect implements Serializable{
     public void setCorpuri(int corpuri) {
         this.corpuri = corpuri;
     }
+
+    public int getStare() {
+        return stare;
+    }
+
+    public void setStare(int stare) {
+        this.stare = stare;
+    }
+    
+    
     
     
 
@@ -169,8 +171,7 @@ public class Proiect implements Serializable{
         if (obj.nrEtajeSubsol != nrEtajeSubsol) return false;
         if (!numeArhitect.equals(obj.numeArhitect)) return false;
         if (obj.pret != pret) return false;
-        if (obj.suprafataEtaj != suprafataEtaj) return false;
-        if (obj.suprafataTotala != suprafataTotala) return false;
+        if (obj.suprafataEtaj.equals(suprafataEtaj)) return false;
         return true;
         
     }

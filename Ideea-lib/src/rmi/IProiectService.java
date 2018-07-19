@@ -19,4 +19,6 @@ public interface IProiectService extends Remote{
     public List<Proiect> getAll() throws RemoteException;
     public Proiect findByNume(String nume) throws RemoteException;
     public long oreProiect(Proiect proiect) throws RemoteException;
+    public List<Proiect> getAllProjectsByStare(int stare) throws RemoteException;
+    public void modifyProject(Proiect proiect) throws RemoteException;
 }

@@ -44,7 +44,10 @@ public class ProiectService extends UnicastRemoteObject implements IProiectServi
         EntityManager em = emf.createEntityManager();
         ProiectDao proiectDao = new ProiectDao(em);
         
-        return proiectDao.getAll();       
+        List<Proiect> proiecte = proiectDao.getAll();
+        em.close();
+        
+        return proiecte;       
     }
 
     @Override
@@ -52,13 +55,44 @@ public class ProiectService extends UnicastRemoteObject implements IProiectServi
         EntityManager em = emf.createEntityManager();
         ProiectDao proiectDao = new ProiectDao(em);
         
-        return proiectDao.findByNume(nume);
+        Proiect p = proiectDao.findByNume(nume);
+        em.close();
+        
+        return p;
     }
 
     @Override
     public long oreProiect(Proiect proiect) throws RemoteException {
         EntityManager em = emf.createEntityManager();
         ProiectDao proiectDao = new ProiectDao(em);
-        return ((Long) proiectDao.oreProiect(proiect)).longValue();
+        
+        long ore = ((Long) proiectDao.oreProiect(proiect)).longValue();
+        em.close();
+        return ore;
+    }
+
+    @Override
+    public List<Proiect> getAllProjectsByStare(int stare) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        
+        List<Proiect> proiecte = proiectDao.getAllProjectsByStare(stare);
+        
+        em.close();
+        
+        return proiecte;
+    }
+
+    @Override
+    public void modifyProject(Proiect proiect) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        
+        em.getTransaction().begin();
+        //Proiect p = findByNume(proiect.getNume());
+        proiectDao.modifyProject(proiect);
+        em.getTransaction().commit();
+        
+        em.close();
     }
 }

@@ -43,30 +43,27 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         em.close();
     }
 
-    @Override
-    public String findByCod(Activitate activitate) throws RemoteException {
-        EntityManager em = emf.createEntityManager();
-        DictionarDao dictionarDao = new DictionarDao(em);
-        
-        return dictionarDao.findByCod(activitate);
-        
-        //em.close();
-    }
 
     @Override
     public List<Activitate> getActivitatiAngajatProiect(Angajat a, Proiect p) throws RemoteException {
         EntityManager em = emf.createEntityManager();
         ActivitateDao activitateDao = new ActivitateDao(em);
         
-        return activitateDao.getActivitatiAngajatProiect(a, p);
+        List<Activitate> activitati = activitateDao.getActivitatiAngajatProiect(a, p);
+        em.close();
+        
+        return activitati;
     }
 
     @Override
     public List<Activitate> getActivitatiAngajatZi(Angajat a, Date data) {
         EntityManager em = emf.createEntityManager();
         ActivitateDao activitateDao = new ActivitateDao(em);
+        List<Activitate> activitati = activitateDao.getActivitatiAngajatZi(a, data);
         
-        return activitateDao.getActivitatiAngajatZi(a, data);
+        em.close();
+        
+        return activitati;
     }
     
     

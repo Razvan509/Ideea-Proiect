@@ -19,7 +19,6 @@ import java.util.List;
  */
 public interface IActivitateService extends Remote{
     public void adaugaActivitate(Activitate activitate) throws RemoteException;
-    public String findByCod(Activitate activitate) throws RemoteException;
     public List<Activitate> getActivitatiAngajatProiect(Angajat a,Proiect p) throws RemoteException;
     public List<Activitate> getActivitatiAngajatZi(Angajat a,Date data) throws RemoteException;
 }

@@ -58,7 +58,7 @@ public class Activitate implements Serializable{
     
     private char corp;
     
-    private int etaj;
+    private String etaj;
 
     public long getId() {
         return id;
@@ -104,11 +104,11 @@ public class Activitate implements Serializable{
         this.oreMunca = oreMunca;
     }
 
-    public int getEtaj() {
+    public String getEtaj() {
         return etaj;
     }
 
-    public void setEtaj(int etaj) {
+    public void setEtaj(String etaj) {
         this.etaj = etaj;
     }
 

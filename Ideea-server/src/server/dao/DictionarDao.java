@@ -22,9 +22,9 @@ public class DictionarDao {
         this.em = em;
     }
     
-    public String findByCod(Activitate activitate){
+    public String findByCod(int cod){
         Query query = em.createQuery("SELECT d FROM Dictionar d WHERE d.cod = :cod",String.class);
-        query.setParameter("cod", activitate.getCod());
+        query.setParameter("cod", cod);
         
         try{
             Dictionar d = (Dictionar)query.getSingleResult();

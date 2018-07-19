@@ -27,7 +27,7 @@ public class ProiectController {
     private ProiectController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry("localhost",4444);
+            Registry registry = LocateRegistry.getRegistry("192.168.153.124",4444);
             proiectService = (IProiectService) registry.lookup("proiectservice");
         }catch(Exception e){
             e.printStackTrace();
@@ -60,5 +60,11 @@ public class ProiectController {
         return proiectService.oreProiect(proiect);
     }
     
+    public List<Proiect> getAllProjectsByStare(int stare) throws RemoteException{
+        return proiectService.getAllProjectsByStare(stare);
+    }
     
+    public void modifyProject(Proiect proiect) throws RemoteException{
+        proiectService.modifyProject(proiect);
+    }
 }

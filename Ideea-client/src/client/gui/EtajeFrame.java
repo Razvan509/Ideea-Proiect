@@ -29,10 +29,15 @@ public class EtajeFrame extends javax.swing.JFrame {
     private int subsol;
     private JTable tabel;
     private Proiect proiect;
+    private int nr;
     
-    public EtajeFrame(Proiect proiect,int etaje,int subsol) {
+    public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr) {
         initComponents();
         String []header = {"Etaj","Suprafata"};
+        this.nr = nr;
+        
+        setTitle("Corp "+nr);
+        JOptionPane.showMessageDialog(null, "Suprafata etajelor pentru corpul cu numarul "+nr);
         
         this.etaje = etaje;
         this.subsol = subsol;
@@ -127,24 +132,32 @@ public class EtajeFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Un camp este gol!");
                     return;
                 }
-                if (Integer.parseInt((String)tabel.getValueAt(i, 1))<=0){
+                if (Integer.parseInt((String)tabel.getValueAt(i, 1))<0){
                     JOptionPane.showMessageDialog(null, "Un numar nu este corect!");
                 }
                 etaj=etaj+tabel.getValueAt(i, 1)+" ";
                 suma+= Integer.parseInt((String)tabel.getValueAt(i, 1));
             }
             JOptionPane.showMessageDialog(null, "Suprafata desfasurata este: "+suma);
-            proiect.setSuprafataEtaj(etaj);
-            proiect.setSuprafataTotala(suma);
-
-
-            ProiectController.getInstance().adaugaProiect(proiect);
-            AdminFrame.afisare();
+            if (nr==1) proiect.setSuprafataEtaj(etaj);
+            else proiect.setSuprafataEtaj(proiect.getSuprafataEtaj()+'\n'+etaj);
+            proiect.setStare(0);
+            
+            if(nr<proiect.getCorpuri()){
+                dispose();
+                new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),nr+1).setVisible(true);
+            }else{
+                if(nr==proiect.getCorpuri()){
+                    dispose();
+                    ProiectController.getInstance().adaugaProiect(proiect);
+                    AdminFrame.afisare();
+                }
+            }
             dispose();
-        } catch (RemoteException ex) {
-            Logger.getLogger(EtajeFrame.class.getName()).log(Level.SEVERE, null, ex);
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
+        } catch (RemoteException ex) {
+            Logger.getLogger(EtajeFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

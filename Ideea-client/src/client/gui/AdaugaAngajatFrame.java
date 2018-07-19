@@ -121,7 +121,7 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
             String password = "1234";
             if (! nume.equals("_") && ! password.equals("")){
                 Angajat angajat = new Angajat();
-                angajat.setNume(nume);
+                angajat.setNume(jTextField1.getText() + " " + jTextField2.getText());
                 angajat.setParola(password);
                 angajat.setUsername(jTextField3.getText());
                 AngajatController.getInstance().adaugaAngajat(angajat);

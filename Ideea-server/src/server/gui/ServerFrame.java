@@ -9,6 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import server.service.ActivitateService;
 import server.service.AngajatService;
+import server.service.DictionarService;
 import server.service.ProiectService;
 
 /**
@@ -33,6 +34,7 @@ public class ServerFrame extends javax.swing.JFrame {
             registry.rebind("activitateservice",new ActivitateService());
             registry.rebind("proiectservice",new ProiectService());
             registry.rebind("angajatservice",new AngajatService());
+            registry.rebind("dictionarservice",new DictionarService());
         }catch(Exception e){
             e.printStackTrace();
         }

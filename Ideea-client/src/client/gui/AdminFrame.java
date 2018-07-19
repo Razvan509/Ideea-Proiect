@@ -5,12 +5,21 @@
  */
 package client.gui;
 
+import ComboCell.ComboCellEditor;
+import ComboCell.ComboCellRenderer;
+import ComboCell.ComboTableModel;
 import client.controller.ProiectController;
+import static client.gui.ProiecteSuspendateFrame.afisare;
 import db.Angajat;
 import db.Proiect;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -18,39 +27,45 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdminFrame extends javax.swing.JFrame {
     
-    public static DefaultTableModel model;
+    private static ComboTableModel model;
+    private static JTable table;
     
     public AdminFrame(Angajat angajat) {
         initComponents();
         
+        table = new JTable();
+        
         setLocationRelativeTo(null);
         setVisible(true);
-        
         setTitle(angajat.getNume());
-        jTable1.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 18));
-        //model = (DefaultTableModel) jTable1.getModel();
+        jPanel1.setLayout(new BorderLayout());
         
         afisare();
+        
+        table.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        table.setRowHeight(30);
+        table.setName("In derulare");
+        
+        JScrollPane scrollpane = new JScrollPane(table);
+        scrollpane.setPreferredSize(new Dimension(500, 700));
+         
+        jPanel1.add(scrollpane, BorderLayout.CENTER);
     }
     
     public static void afisare(){
         try{
-            model = new DefaultTableModel(null,new String[]{"Nume","Adresa","Buget","Ore alocate","Ore lucrate","Procent ore","Corpuri"});
-            jTable1.setModel(model);
-            List<Proiect> proiecte = ProiectController.getInstance().getAll();
-            Object [] row = new Object[7];
-            for (int i=0;i<proiecte.size();i++){
-                long nrOre = (long)ProiectController.getInstance().oreProiect(proiecte.get(i));
-                double procent = (nrOre*100.0)/proiecte.get(i).getNrOreAlocate();
-                row[0] = proiecte.get(i).getNume();
-                row[1] = proiecte.get(i).getAdresa();
-                row[2] = proiecte.get(i).getBuget();
-                row[3] = proiecte.get(i).getNrOreAlocate();
-                row[4] = nrOre;
-                row[5] = procent + "%";
-                row[6] = proiecte.get(i).getCorpuri();
-                model.addRow(row);
-            }
+            List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            List<String> stari = new ArrayList<>();
+            stari.add("In derulare");
+            stari.add("Suspendat");
+            stari.add("Terminat");
+            
+            model = new ComboTableModel(proiecte);
+            //table.set();
+            table.setModel(model);
+            table.setDefaultRenderer(Proiect.class, new ComboCellRenderer());
+            table.setDefaultEditor(String.class, new ComboCellEditor(stari));
+            
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -65,27 +80,28 @@ public class AdminFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nume", "Adresa", "Buget", "Ore alocate", "Ore lucrate", "Procent ore"
-            }
-        ));
-        jTable1.setRowHeight(26);
-        jScrollPane2.setViewportView(jTable1);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1060, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 747, Short.MAX_VALUE)
+        );
 
         jMenu1.setText("Angajat");
 
@@ -109,7 +125,36 @@ public class AdminFrame extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setText("Proiecte suspendate");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Proiecte terminate");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Delogare");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -117,11 +162,11 @@ public class AdminFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -135,14 +180,34 @@ public class AdminFrame extends javax.swing.JFrame {
         new AdaugaProiectFrame();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        new ProiecteSuspendateFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        new ProiecteTerminateFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        dispose();
+        new LoginFrame().setVisible(true);
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        dispose();
+        new LoginFrame().setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private static javax.swing.JTable jTable1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
