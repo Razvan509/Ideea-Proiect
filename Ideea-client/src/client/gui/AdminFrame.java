@@ -5,21 +5,29 @@
  */
 package client.gui;
 
-import ComboCell.ComboCellEditor;
-import ComboCell.ComboCellRenderer;
-import ComboCell.ComboTableModel;
+import ComboCellProiect.ComboCellEditor;
+import ComboCellProiect.ComboCellRenderer;
+import ComboCellProiect.ComboTableModel;
+import client.controller.ActivitateController;
+import client.controller.AngajatController;
 import client.controller.ProiectController;
-import static client.gui.ProiecteSuspendateFrame.afisare;
 import db.Angajat;
 import db.Proiect;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.text.DecimalFormat;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 
 /**
  *
@@ -45,11 +53,31 @@ public class AdminFrame extends javax.swing.JFrame {
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
         table.setRowHeight(30);
         table.setName("In derulare");
+        //table.getColumnModel().getColumn(0).setMaxWidth(50);
         
         JScrollPane scrollpane = new JScrollPane(table);
         scrollpane.setPreferredSize(new Dimension(500, 700));
          
         jPanel1.add(scrollpane, BorderLayout.CENTER);
+        
+        ArrayList<String> angjPontVechi = new ArrayList<>();
+        try {
+            Calendar today = Calendar.getInstance();
+            today.add(Calendar.DATE,-4);
+            List<Angajat> angajati = AngajatController.getInstance().getAll();
+            String output = "Cei care nu au mai bagat un pontaj de 3 zile sau mai mult sunt: \n";
+            Date lastDate;
+            for(int i=0;i<angajati.size();i++){
+                lastDate = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
+                if((lastDate==null || today.getTime().after(lastDate)) && !angajati.get(i).isAdmin()){
+                    output+= angajati.get(i).getNume() + "\n";
+                }
+            }
+            UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
+            JOptionPane.showMessageDialog(null, output);
+        } catch (RemoteException ex) {
+            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void afisare(){
@@ -65,11 +93,13 @@ public class AdminFrame extends javax.swing.JFrame {
             table.setModel(model);
             table.setDefaultRenderer(Proiect.class, new ComboCellRenderer());
             table.setDefaultEditor(String.class, new ComboCellEditor(stari));
+            table.getColumnModel().getColumn(0).setMaxWidth(50);
             
         }catch(Exception e){
             e.printStackTrace();
         }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,10 +114,15 @@ public class AdminFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,6 +147,38 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem6.setText("Angajati Activi");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem8.setText("Angajati Inactivi");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        jMenuItem7.setText("Modifica pontaj");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
+
+        jMenuItem9.setText("Pontaje");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem9);
 
         jMenuBar1.add(jMenu1);
 
@@ -140,6 +207,14 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Schimba proiect");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -198,6 +273,50 @@ public class AdminFrame extends javax.swing.JFrame {
         new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        try {
+            JComboBox combo = new JComboBox();
+            List<Proiect> proiecte = ProiectController.getInstance().getAll();
+            combo.removeAllItems();
+            for (Proiect p:proiecte){
+                combo.addItem(p);
+            }
+            JOptionPane.showMessageDialog(null, combo,"Ce proiect doriti sa modificati?",JOptionPane.QUESTION_MESSAGE);
+            Proiect proiect = (Proiect)combo.getSelectedItem();
+            new ModificaProiectFrame(proiect).setVisible(true);
+        } catch (RemoteException ex) {
+            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new AngajatiActiviFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        try {
+            JComboBox combo = new JComboBox();
+            List<Angajat> angajati = AngajatController.getInstance().getAll();
+            combo.removeAllItems();
+            for (Angajat p:angajati){
+                combo.addItem(p);
+            }
+            JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
+            Angajat angajat = (Angajat)combo.getSelectedItem();
+            new AlegePontajFrame(angajat,true,null).setVisible(true);
+        } catch (RemoteException ex) {
+            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        new AngajatiInactiviFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        new PontajeAngajatFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -208,6 +327,11 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

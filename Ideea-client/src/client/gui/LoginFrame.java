@@ -43,6 +43,7 @@ public class LoginFrame extends javax.swing.JFrame {
     public void apasa(){
         String username = jTextField1.getText();
         String password = new String(jPasswordField1.getPassword());
+        username = username.replaceAll("\\s+","");
        
         try{
            Angajat angajat = AngajatController.getInstance().findByUsernameAndPass(username, password);
@@ -52,11 +53,12 @@ public class LoginFrame extends javax.swing.JFrame {
                jTextField1.setText("");
                jPasswordField1.setText("");
            }else{
-                if (angajat.getParola().equals("1234")){
+                if (angajat.getPassword().equals("1234")){
                     new SetareAngajatFrame(angajat.getId());
                     jTextField1.setText("");
                     jPasswordField1.setText("");
                 }else{
+                    dispose();
                     if (angajat.isAdmin()){
                         new AdminFrame(angajat);
                     }else{

@@ -67,4 +67,8 @@ public class ProiectController {
     public void modifyProject(Proiect proiect) throws RemoteException{
         proiectService.modifyProject(proiect);
     }
+    
+    public Proiect findById(int id) throws RemoteException{
+        return proiectService.findById(id);
+    }
 }

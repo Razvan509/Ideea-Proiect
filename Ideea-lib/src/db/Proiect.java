@@ -23,10 +23,10 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Proiect.getAll", query = "SELECT p FROM Proiect p"),
+    @NamedQuery(name = "Proiect.getAll", query = "SELECT p FROM Proiect p ORDER BY p.nume ASC"),
     @NamedQuery(name = "Proiect.findByNume", query = "SELECT p FROM Proiect p WHERE p.nume = :nume")
 })
-public class Proiect implements Serializable{
+public class Proiect implements Serializable, Comparable<Proiect>{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,6 +70,8 @@ public class Proiect implements Serializable{
     
     @Column(nullable = false)
     private int stare;
+    
+    //private String faza;
 
     public String getNume() {
         return nume;
@@ -150,28 +152,25 @@ public class Proiect implements Serializable{
     public void setStare(int stare) {
         this.stare = stare;
     }
-    
-    
-    
-    
 
+    /*public String getFaza() {
+        return faza;
+    }
+
+    public void setFaza(String faza) {
+        this.faza = faza;
+    }*/
+    
+    
     @Override
     public String toString() {
-        return nume + " " + adresa + " " + buget;
+        return nume;
     }
 
     
     public boolean equals(Proiect obj) {
         if (obj == null) return false;
         if (!nume.equals(obj.nume)) return false;
-        if (!adresa.equals(obj.adresa)) return false;
-        if (!beneficiar.equals(obj.beneficiar)) return false;
-        if (obj.buget != buget) return false;
-        if (obj.nrEtaje != nrEtaje) return false;
-        if (obj.nrEtajeSubsol != nrEtajeSubsol) return false;
-        if (!numeArhitect.equals(obj.numeArhitect)) return false;
-        if (obj.pret != pret) return false;
-        if (obj.suprafataEtaj.equals(suprafataEtaj)) return false;
         return true;
         
     }
@@ -208,6 +207,11 @@ public class Proiect implements Serializable{
 
     public void setNrEtajeSubsol(int nrEtajeSubsol) {
         this.nrEtajeSubsol = nrEtajeSubsol;
+    }
+
+    @Override
+    public int compareTo(Proiect o) {
+        return this.nume.compareTo(o.getNume());
     }
     
     

@@ -65,6 +65,63 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         
         return activitati;
     }
+
+    @Override
+    public Activitate findById(int id) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        Activitate activitate = activitateDao.findById(id);
+        em.close();
+        return activitate;
+    }
+
+    @Override
+    public void modifyActivity(Activitate a) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        em.getTransaction().begin();
+        activitateDao.modifyActivity(a);
+        em.getTransaction().commit();
+        
+        em.close();
+    }    
+
+    @Override
+    public void deleteActivity(Activitate a) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        em.getTransaction().begin();
+        a = activitateDao.modifyActivity(a);
+        activitateDao.deleteActivity(a);
+        em.getTransaction().commit();
+        
+        em.close();
+    }
+
+    @Override
+    public Date getLastDateActivityByAngajat(Angajat angajat) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        Date data = activitateDao.getLastDateActivityByAngajat(angajat);
+        em.close();
+        return data;
+    }
+
+    @Override
+    public List<Activitate> getActivitatiPerioada(Angajat angajat, Date startDate, Date endDate) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Activitate> pontaje = activitateDao.getActivitatiPerioada(angajat, startDate, endDate);
+        em.close();
+        return pontaje;
+    }
+    
+    
     
     
 }

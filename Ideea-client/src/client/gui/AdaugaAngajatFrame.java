@@ -7,6 +7,7 @@ package client.gui;
 
 import client.controller.AngajatController;
 import db.Angajat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +28,7 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
         jLabel3.setVisible(false);
         jTextField3.setVisible(false);
         jTextField3.setText("");
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -116,18 +118,22 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             String nume = ""+jTextField1.getText() + "_" + jTextField2.getText();
+            nume = nume.replaceAll("\\s+","");
             if (jTextField3.getText().equals(""))
                 jTextField3.setText(nume);
             String password = "1234";
             if (! nume.equals("_") && ! password.equals("")){
                 Angajat angajat = new Angajat();
                 angajat.setNume(jTextField1.getText() + " " + jTextField2.getText());
-                angajat.setParola(password);
+                angajat.setPassword(password);
                 angajat.setUsername(jTextField3.getText());
+                angajat.setStare("activ");
+                angajat.setDataAngajare(new Date());
                 AngajatController.getInstance().adaugaAngajat(angajat);
-                dispose();
+                //dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Unul din campuri nu este completat!");
+                return;
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Eroare la adaugare. Incercati sa schimbati username-ul implicit!");

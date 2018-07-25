@@ -29,6 +29,7 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
         setVisible(true);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -122,9 +123,6 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -147,8 +145,11 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
                                 .addComponent(jTextField10)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(78, Short.MAX_VALUE))
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jButton1)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,9 +192,9 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addComponent(jButton1)
-                .addGap(33, 33, 33))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -256,7 +257,7 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Un camp nu este completat!");
                 return;
             }
-            int pret = Integer.parseInt(jTextField10.getText());
+            float pret = Float.parseFloat(jTextField10.getText());
             
             if (pret <= 0){
                 JOptionPane.showMessageDialog(null, "Pretul nu poate fi mai mic sau egala cu 0!");
@@ -287,7 +288,7 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
             
             
             
-            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1).setVisible(true);
+            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1,false).setVisible(true);
             
             
             

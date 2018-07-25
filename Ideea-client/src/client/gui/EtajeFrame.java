@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -30,11 +30,13 @@ public class EtajeFrame extends javax.swing.JFrame {
     private JTable tabel;
     private Proiect proiect;
     private int nr;
+    boolean mod;
     
-    public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr) {
+    public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr,boolean mod) {
         initComponents();
         String []header = {"Etaj","Suprafata"};
         this.nr = nr;
+        this.mod = mod;
         
         setTitle("Corp "+nr);
         JOptionPane.showMessageDialog(null, "Suprafata etajelor pentru corpul cu numarul "+nr);
@@ -47,6 +49,7 @@ public class EtajeFrame extends javax.swing.JFrame {
         
         for(int i=-subsol;i<=etaje;i++){
             data[i+subsol][0] = "Etaj "+ i;
+            data[i+subsol][1] = "0";
         }
         
         tabel = new JTable(data,header){
@@ -65,7 +68,7 @@ public class EtajeFrame extends javax.swing.JFrame {
         
         
         setLocationRelativeTo(null);
-        
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
 
@@ -134,6 +137,7 @@ public class EtajeFrame extends javax.swing.JFrame {
                 }
                 if (Integer.parseInt((String)tabel.getValueAt(i, 1))<0){
                     JOptionPane.showMessageDialog(null, "Un numar nu este corect!");
+                    return;
                 }
                 etaj=etaj+tabel.getValueAt(i, 1)+" ";
                 suma+= Integer.parseInt((String)tabel.getValueAt(i, 1));
@@ -145,11 +149,12 @@ public class EtajeFrame extends javax.swing.JFrame {
             
             if(nr<proiect.getCorpuri()){
                 dispose();
-                new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),nr+1).setVisible(true);
+                new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),nr+1,mod).setVisible(true);
             }else{
                 if(nr==proiect.getCorpuri()){
                     dispose();
-                    ProiectController.getInstance().adaugaProiect(proiect);
+                    if(mod) ProiectController.getInstance().modifyProject(proiect);
+                    else ProiectController.getInstance().adaugaProiect(proiect);
                     AdminFrame.afisare();
                 }
             }

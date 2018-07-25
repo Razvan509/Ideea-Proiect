@@ -95,4 +95,22 @@ public class ProiectService extends UnicastRemoteObject implements IProiectServi
         
         em.close();
     }
+    
+    public void deleteCache(){
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        
+        proiectDao.deleteCache();
+        em.close();
+    }
+
+    @Override
+    public Proiect findById(int id) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ProiectDao proiectDao = new ProiectDao(em);
+        
+        Proiect proiect = proiectDao.findById(id);
+        em.close();
+        return proiect;
+    }
 }

@@ -11,6 +11,7 @@ import client.controller.ProiectController;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
@@ -37,7 +38,7 @@ public class ClientFrame extends javax.swing.JFrame {
     private DefaultListModel model;
     private int sumaOre=0;
     private int sumaMinute=0;
-    private JPopupMenu popUp;
+    //private JPopupMenu popUp;
     
     public ClientFrame(Angajat angajat) {
         initComponents();
@@ -52,6 +53,11 @@ public class ClientFrame extends javax.swing.JFrame {
         
         populareComboProiect();
         populareComboEtapa();
+        
+        //jComboBox1.setSize(100, 50);
+        jComboBox1.setPreferredSize(new Dimension(200,28));
+        //jComboBox1.setPrototypeDisplayValue("XXXXXXXXXXXXXXXXXXXX");
+        jComboBox1.setMaximumSize(new Dimension(100,50));
         
         /*jComboBox3.setVisible(false);
         jLabel3.setVisible(false);*/
@@ -77,9 +83,19 @@ public class ClientFrame extends javax.swing.JFrame {
         //populareLista();
         
         //jDateChooser1
-        
-        
-        //jButton1.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "COPY");
+        try {
+            //jButton1.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "COPY");
+            
+            Date lastDate = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
+            today.add(Calendar.DATE,-2);
+            if(today.getTime().after(lastDate) || lastDate==null) 
+                JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
+                + "pontaj de ceva timp!");
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        today = Calendar.getInstance();
     }
     
     public void populareComboProiect(){
@@ -173,10 +189,13 @@ public class ClientFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox1.setMaximumSize(new java.awt.Dimension(100, 28));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -284,6 +303,22 @@ public class ClientFrame extends javax.swing.JFrame {
         });
         jMenuBar2.add(jMenu1);
 
+        jMenu2.setText("Modifica pontaje");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Modifica informatii");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu3);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -331,17 +366,17 @@ public class ClientFrame extends javax.swing.JFrame {
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(157, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
-                        .addGap(456, 456, 456))))
+                        .addGap(456, 456, 456))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,14 +501,14 @@ public class ClientFrame extends javax.swing.JFrame {
                 return;
             }else{
                 today.add(Calendar.DATE,-8);
-                if(data.before(today.getTime())){
+                /*if(data.before(today.getTime())){
                     JOptionPane.showMessageDialog(null, "Data introdusa nu este valida! Poti inscrie un pontaj cu maxim 7 zile in urma!");
                     today = Calendar.getInstance();
                     return;
-                }
-                else{
+                }*/
+                //else{
                     pontaj.setDataPontaj(data);
-                }
+                //}
                 today = Calendar.getInstance();
             }
             if (jComboBox5.isVisible())
@@ -533,11 +568,11 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox3.addItem("Pereti");
                 jComboBox3.addItem("Placi");
                 jComboBox3.addItem("Altele");
+                jComboBox3.addItem("Neatribuit");
                 jLabel4.setVisible(false);
                 jComboBox4.setVisible(false);
                 
-                jLabel5.setVisible(true);
-                jTextField1.setVisible(true);
+                
                 //jTextField1.setSize(390, 200);
             }break;
             case "Reproiectare":{
@@ -636,6 +671,13 @@ public class ClientFrame extends javax.swing.JFrame {
                 }
             }break;
             case 13:{
+                if (jComboBox3.getSelectedItem() != null && jComboBox3.getSelectedItem().equals("Neatribuit")){
+                    jLabel5.setVisible(false);
+                    jTextField1.setVisible(false);
+                }else{
+                    jLabel5.setVisible(true);
+                    jTextField1.setVisible(true);
+                }
                 
             }break;
             case 14:{
@@ -706,15 +748,7 @@ public class ClientFrame extends javax.swing.JFrame {
         } catch (RemoteException ex) {
             Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        try {
-            List<Activitate> list = ActivitateController.getInstance().getActivitatiAngajatProiect(angajat, proiect);
-            /*for(Activitate a:list){
-                //System.out.println(a.getEtaj());
-            }*/
-        } catch (RemoteException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
@@ -729,6 +763,15 @@ public class ClientFrame extends javax.swing.JFrame {
         dispose();
         new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        new AlegePontajFrame(angajat,false,this);
+        populareLista();
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        new SetareAngajatFrame(angajat.getId()).setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -752,6 +795,8 @@ public class ClientFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

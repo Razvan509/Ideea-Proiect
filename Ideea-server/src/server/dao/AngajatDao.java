@@ -6,6 +6,7 @@
 package server.dao;
 
 import db.Angajat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -39,5 +40,31 @@ public class AngajatDao{
         }catch(Exception e){
             return null;
         }
+    }
+    
+    public List<Angajat> getAll(){
+        Query query = em.createQuery("SELECT a FROM Angajat a ORDER BY a.nume ASC");
+        try{
+            List<Angajat> list = query.getResultList();
+            return list;
+        }catch(Exception e){
+            return null;
+        }
+    }
+    
+    public List<Angajat> getAngajatiByStare(String stare){
+        Query query = em.createQuery("SELECT a FROM Angajat a WHERE a.stare = :stare AND a.admin = 0 ORDER BY a.nume ASC");
+        query.setParameter("stare", stare);
+        
+        try{
+            return query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public void modificaAngajat(Angajat a){
+        em.merge(a);
     }
 }

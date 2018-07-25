@@ -6,7 +6,9 @@
 package server.dao;
 
 import db.Proiect;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -30,17 +32,19 @@ public class ProiectDao {
         Query query = em.createNamedQuery("Proiect.getAll");
         
         try{
-            return query.getResultList();
+            List<Proiect> list = query.getResultList();
+            return list;
         }catch(Exception e){
             return null;
         }
     }
     
     public List<Proiect> getAllProjectsByStare(int stare){
-        Query query = em.createQuery("SELECT p FROM Proiect p WHERE p.stare = :stare");
+        Query query = em.createQuery("SELECT p FROM Proiect p WHERE p.stare = :stare ORDER BY p.nume ASC");
         query.setParameter("stare", stare);
         try{
-            return query.getResultList();
+            List<Proiect> list = query.getResultList();
+            return list;
         }catch(Exception e){
             e.printStackTrace();
             return null;
@@ -84,6 +88,21 @@ public class ProiectDao {
     
     public void modifyProject(Proiect p){
         em.merge(p);
+    }
+    
+    public void deleteCache(){
+        em.getEntityManagerFactory().getCache().evictAll();
+    }
+    
+    public Proiect findById(int id){
+        Query q = em.createQuery("SELECT p FROM Proiect p WHERE p.id = :id");
+        q.setParameter("id", id);
+        try{
+            return (Proiect)q.getSingleResult();
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
     
 }

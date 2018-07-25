@@ -6,6 +6,7 @@
 package db;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -44,6 +47,15 @@ public class Angajat implements Serializable{
     private String username;
     
     private boolean admin;
+    
+    @Column(nullable = false)
+    private String stare;
+    
+    @Temporal(TemporalType.DATE)
+    private Date dataAngajare;
+    
+    @Temporal(TemporalType.DATE)
+    private Date dataIesire;
 
     public long getId() {
         return id;
@@ -61,11 +73,11 @@ public class Angajat implements Serializable{
         this.nume = nume;
     }
 
-    public String getParola() {
+    public String getPassword() {
         return password;
     }
 
-    public void setParola(String parola) {
+    public void setPassword(String parola) {
         this.password = parola;
     }
 
@@ -92,6 +104,32 @@ public class Angajat implements Serializable{
     public void setAdmin(boolean admin) {
         this.admin = admin;
     }
+
+
+    public String getStare() {
+        return stare;
+    }
+
+    public void setStare(String stare) {
+        this.stare = stare;
+    }
+
+    public Date getDataAngajare() {
+        return dataAngajare;
+    }
+
+    public void setDataAngajare(Date dataAngajare) {
+        this.dataAngajare = dataAngajare;
+    }
+
+    public Date getDataIesire() {
+        return dataIesire;
+    }
+
+    public void setDataIesire(Date dataIesire) {
+        this.dataIesire = dataIesire;
+    }
+    
     
     
 

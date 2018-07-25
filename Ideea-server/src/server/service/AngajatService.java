@@ -9,6 +9,7 @@ import server.dao.AngajatDao;
 import db.Angajat;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -56,10 +57,40 @@ public class AngajatService extends UnicastRemoteObject implements IAngajatServi
         em.getTransaction().begin();
         Angajat a = angajatDao.findById(id);
         a.setUsername(username);
-        a.setParola(password);
+        a.setPassword(password);
         em.getTransaction().commit();
         
         em.close();
+    }
+
+    @Override
+    public List<Angajat> getAll() throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        AngajatDao angajatDao = new AngajatDao(em); 
+        
+        List<Angajat> angajati = angajatDao.getAll();
+        em.close();
+        return angajati;
+    }
+
+    @Override
+    public List<Angajat> getAngajatiBYStare(String stare) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        AngajatDao angajatDao = new AngajatDao(em); 
+        
+        List<Angajat> angajati = angajatDao.getAngajatiByStare(stare);
+        em.close();
+        return angajati;
+    }
+
+    @Override
+    public void modificaAngajat(Angajat a) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        AngajatDao angajatDao = new AngajatDao(em); 
+        
+        em.getTransaction().begin();
+        angajatDao.modificaAngajat(a);
+        em.getTransaction().commit();
     }
     
     

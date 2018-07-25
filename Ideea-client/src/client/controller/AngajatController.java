@@ -9,8 +9,8 @@ import db.Angajat;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.List;
 import javax.swing.JOptionPane;
-import rmi.IActivitateService;
 import rmi.IAngajatService;
 
 /**
@@ -49,5 +49,17 @@ public class AngajatController {
     
     public void setareAngajat(long id, String username, String password) throws RemoteException{
         angajatService.setareAngajat(id, username, password);
+    }
+    
+    public List<Angajat> getAll() throws RemoteException{
+        return angajatService.getAll();
+    }
+    
+    public List<Angajat> getAngajatiByStare(String stare) throws RemoteException{
+        return angajatService.getAngajatiBYStare(stare);
+    }
+    
+    public void modificaAngajat(Angajat a) throws RemoteException{
+        angajatService.modificaAngajat(a);
     }
 }

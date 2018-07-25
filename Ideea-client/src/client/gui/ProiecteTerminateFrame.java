@@ -5,9 +5,9 @@
  */
 package client.gui;
 
-import ComboCell.ComboCellEditor;
-import ComboCell.ComboCellRenderer;
-import ComboCell.ComboTableModel;
+import ComboCellProiect.ComboCellEditor;
+import ComboCellProiect.ComboCellRenderer;
+import ComboCellProiect.ComboTableModel;
 import client.controller.ProiectController;
 import static client.gui.ProiecteSuspendateFrame.afisare;
 import db.Proiect;
@@ -75,7 +75,7 @@ public class ProiecteTerminateFrame extends javax.swing.JFrame {
             table.setModel(model);
             table.setDefaultRenderer(Proiect.class, new ComboCellRenderer());
             table.setDefaultEditor(String.class, new ComboCellEditor(stari));
-            
+            table.getColumnModel().getColumn(0).setMaxWidth(50);
             
             
             
@@ -95,7 +95,7 @@ public class ProiecteTerminateFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(722, 518));
+        setPreferredSize(new java.awt.Dimension(1060, 747));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

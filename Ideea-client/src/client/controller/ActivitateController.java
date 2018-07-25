@@ -55,4 +55,24 @@ public class ActivitateController {
         return activitateService.getActivitatiAngajatZi(a, data);
     }
     
+    public Activitate findById(int id) throws RemoteException{
+        return activitateService.findById(id);
+    }
+    
+    public void modifyActivity(Activitate a)throws RemoteException{
+        activitateService.modifyActivity(a);
+    }
+    
+    public void deleteActivity(Activitate a)throws RemoteException{
+        activitateService.deleteActivity(a);
+    }
+    
+    public Date getLastDateActivityByAngajat(Angajat angajat) throws RemoteException{
+        return activitateService.getLastDateActivityByAngajat(angajat);
+    }
+    
+    public List<Activitate> getActivitatiPerioada(Angajat angajat,Date startDate,Date endDate) throws RemoteException{
+        return activitateService.getActivitatiPerioada(angajat, startDate, endDate);
+    }
+    
 }
