@@ -88,9 +88,16 @@ public class ClientFrame extends javax.swing.JFrame {
             
             Date lastDate = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
             today.add(Calendar.DATE,-2);
-            if(today.getTime().after(lastDate) || lastDate==null) 
+            if(lastDate==null){
                 JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
                 + "pontaj de ceva timp!");
+            }
+            else{
+                if(today.getTime().after(lastDate)){
+                    JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
+                    + "pontaj de ceva timp!");
+                }
+            }
             
         } catch (RemoteException ex) {
             Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);

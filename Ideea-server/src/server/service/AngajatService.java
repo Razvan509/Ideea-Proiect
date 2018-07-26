@@ -7,9 +7,16 @@ package server.service;
 
 import server.dao.AngajatDao;
 import db.Angajat;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import static java.lang.System.setOut;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -22,6 +29,7 @@ import rmi.IAngajatService;
 public class AngajatService extends UnicastRemoteObject implements IAngajatService{
     
     private EntityManagerFactory emf;
+    //private static final Logger log = Logger.getLogger(AngajatService.class.getName());
     
     public AngajatService() throws RemoteException{
         emf = Persistence.createEntityManagerFactory("Ideea-serverPU");
@@ -44,6 +52,15 @@ public class AngajatService extends UnicastRemoteObject implements IAngajatServi
         EntityManager em = emf.createEntityManager();
         AngajatDao angajatDao = new AngajatDao(em);
         Angajat angajat = angajatDao.findByUsernameAndPass(username, password);
+        
+        Date data = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            System.setOut(new PrintStream("log/logger"+f.format(data)+".log"));
+            System.out.println("Eroare " +username);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AngajatService.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         em.close();
         return angajat;

@@ -23,7 +23,7 @@ public class AngajatController {
     private AngajatController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry("192.168.153.124",4444);
+            Registry registry = LocateRegistry.getRegistry("192.168.1.18",4444);
             angajatService = (IAngajatService) registry.lookup("angajatservice");
         }catch(Exception e){
             e.printStackTrace();

@@ -27,7 +27,7 @@ public class ProiectController {
     private ProiectController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry("192.168.153.124",4444);
+            Registry registry = LocateRegistry.getRegistry("192.168.1.18",4444);
             proiectService = (IProiectService) registry.lookup("proiectservice");
         }catch(Exception e){
             e.printStackTrace();

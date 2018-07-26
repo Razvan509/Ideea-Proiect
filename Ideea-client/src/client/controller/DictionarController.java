@@ -20,7 +20,7 @@ public class DictionarController {
     
     private DictionarController(){
         try{
-            Registry registry = LocateRegistry.getRegistry("192.168.153.124",4444);
+            Registry registry = LocateRegistry.getRegistry("192.168.1.18",4444);
             dictionarService = (IDictionarService) registry.lookup("dictionarservice");
         }catch(Exception e){
             e.printStackTrace();
