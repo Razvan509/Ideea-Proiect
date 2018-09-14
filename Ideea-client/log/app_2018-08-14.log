@@ -1,0 +1,83 @@
+INFO    2018-08-14 10:34:04,237 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 10:36:08,728 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 10:44:42,311 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 10:45:28,126 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:03:09,255 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:04:35,189 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:06:39,408 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:14:46,139 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:15:05,594 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:15:30,328 [AWT-EventQueue-0] client.gui.ClientFrame  1000 - S-a oprit aplicatia!
+INFO    2018-08-14 11:15:45,696 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:16:10,322 [AWT-EventQueue-0] client.gui.ClientFrame  1000 - S-a oprit aplicatia!
+INFO    2018-08-14 11:17:37,039 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:18:56,334 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:19:27,050 [AWT-EventQueue-0] client.gui.ClientFrame  1000 - S-a oprit aplicatia!
+INFO    2018-08-14 11:19:39,485 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:21:29,883 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:23:09,594 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-14 11:23:26,444 [AWT-EventQueue-0] client.gui.ClientFrame  1000 - S-a oprit aplicatia!
+INFO    2018-08-14 11:30:08,877 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:30:33,776 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:31:36,960 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:31:56,106 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:32:08,243 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:35:24,833 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:35:46,366 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:38:17,287 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+ERROR   2018-08-14 11:38:29,062 [AWT-EventQueue-0] client.gui.AdminFrame  197 - java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1967)
+	at client.gui.AngajatiLenesiFrame.jButton2ActionPerformed(AngajatiLenesiFrame.java:189)
+	at client.gui.AngajatiLenesiFrame.access$100(AngajatiLenesiFrame.java:28)
+	at client.gui.AngajatiLenesiFrame$2.actionPerformed(AngajatiLenesiFrame.java:129)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6533)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6298)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4888)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4525)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4466)
+	at java.awt.Container.dispatchEventImpl(Container.java:2280)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2018-08-14 11:38:31,707 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:41:11,447 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:42:01,429 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:42:19,915 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:46:37,930 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:47:32,829 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 11:47:59,593 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 11:48:53,420 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 12:03:17,733 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 12:03:38,751 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 12:04:20,107 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 12:04:52,945 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-08-14 12:07:23,613 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-14 12:08:03,627 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!

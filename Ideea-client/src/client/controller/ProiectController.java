@@ -5,16 +5,12 @@
  */
 package client.controller;
 
-import db.Activitate;
-import db.Angajat;
 import db.Proiect;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
-import rmi.IAngajatService;
 import rmi.IProiectService;
 
 /**
@@ -27,7 +23,8 @@ public class ProiectController {
     private ProiectController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry("192.168.1.18",4444);
+            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),4444);
+            //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             proiectService = (IProiectService) registry.lookup("proiectservice");
         }catch(Exception e){
             e.printStackTrace();

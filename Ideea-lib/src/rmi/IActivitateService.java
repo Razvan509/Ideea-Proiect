@@ -24,6 +24,6 @@ public interface IActivitateService extends Remote{
     public Activitate findById(int id) throws RemoteException;
     public void modifyActivity(Activitate a) throws RemoteException;
     public void deleteActivity(Activitate a) throws RemoteException;
-    public Date getLastDateActivityByAngajat(Angajat angajat) throws RemoteException;
+    public Activitate getLastDateActivityByAngajat(Angajat angajat) throws RemoteException;
     public List<Activitate> getActivitatiPerioada(Angajat angajat,Date startDate,Date endDate) throws RemoteException;
 }

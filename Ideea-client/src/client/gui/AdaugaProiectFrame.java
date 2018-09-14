@@ -7,11 +7,13 @@ package client.gui;
 
 import client.controller.ProiectController;
 import db.Proiect;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -19,11 +21,15 @@ import javax.swing.JOptionPane;
  */
 public class AdaugaProiectFrame extends javax.swing.JFrame {
 
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AdaugaProiectFrame.class);
+    
     /**
      * Creates new form AdaugaProiectFrame
      */
     public AdaugaProiectFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         jTextField11.setText("1");
         
@@ -307,7 +313,7 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
         }catch (RemoteException ex) {
-            Logger.getLogger(AdaugaProiectFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Eroare la adaugarea unui proiect!",ex);
             JOptionPane.showMessageDialog(null, "Eroare la adaugare!");
         }
         //dispose();

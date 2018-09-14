@@ -9,12 +9,12 @@ import client.controller.ProiectController;
 import db.Proiect;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -31,9 +31,12 @@ public class EtajeFrame extends javax.swing.JFrame {
     private Proiect proiect;
     private int nr;
     boolean mod;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(EtajeFrame.class);
     
     public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr,boolean mod) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         String []header = {"Etaj","Suprafata"};
         this.nr = nr;
         this.mod = mod;
@@ -86,7 +89,7 @@ public class EtajeFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("ok");
+        jButton1.setText("Adauga");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -110,7 +113,7 @@ public class EtajeFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(216, 216, 216))
         );
@@ -162,13 +165,13 @@ public class EtajeFrame extends javax.swing.JFrame {
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
         } catch (RemoteException ex) {
-            Logger.getLogger(EtajeFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

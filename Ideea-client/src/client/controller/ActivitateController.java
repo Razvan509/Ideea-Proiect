@@ -27,7 +27,8 @@ public class ActivitateController {
     private ActivitateController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry("192.168.1.18",4444);
+            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),4444);
+            //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             activitateService = (IActivitateService) registry.lookup("activitateservice");
         }catch(Exception e){
             e.printStackTrace();
@@ -67,7 +68,7 @@ public class ActivitateController {
         activitateService.deleteActivity(a);
     }
     
-    public Date getLastDateActivityByAngajat(Angajat angajat) throws RemoteException{
+    public Activitate getLastDateActivityByAngajat(Angajat angajat) throws RemoteException{
         return activitateService.getLastDateActivityByAngajat(angajat);
     }
     

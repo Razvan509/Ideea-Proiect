@@ -9,16 +9,21 @@ import ComboCellAngajat.AngajatCellEditor;
 import ComboCellAngajat.AngajatCellRenderer;
 import ComboCellAngajat.AngajatTableModel;
 import client.controller.AngajatController;
-import static client.gui.AngajatiActiviFrame.afisare;
+import static client.gui.AdminFrame.logger;
 import db.Angajat;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -27,12 +32,15 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 public class AngajatiInactiviFrame extends javax.swing.JFrame {
     private static AngajatTableModel model;
     private static JTable table;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(AngajatiInactiviFrame.class);
 
     /**
      * Creates new form AngajatiInactiviFrame
      */
     public AngajatiInactiviFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -72,8 +80,11 @@ public class AngajatiInactiviFrame extends javax.swing.JFrame {
             table.setDefaultEditor(String.class, new AngajatCellEditor(stari));
             table.getColumnModel().getColumn(0).setMaxWidth(50);
             
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(RemoteException e){
+            logger.error(e);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
 

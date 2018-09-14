@@ -13,14 +13,14 @@ import db.Proiect;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -30,10 +30,15 @@ public class ComboCellEditor extends AbstractCellEditor
         implements TableCellEditor, ActionListener{
     
     private String stare;
-    private List<String> stari;
+    //private String[] stari;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    private static JComboBox<String> combo;
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ComboCellEditor.class);
     
-    public ComboCellEditor(List<String> stari){
-        this.stari = stari;
+    public ComboCellEditor(JComboBox comb){
+        //this.stari = stari;
+        combo = comb;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
 
     @Override
@@ -47,11 +52,7 @@ public class ComboCellEditor extends AbstractCellEditor
             stare = (String) value;
         }
         
-        JComboBox<String> combo = new JComboBox<String>();
         
-        for(String s: stari){
-            combo.addItem(s);
-        }
         
         combo.setSelectedItem(stare);
         combo.addActionListener(this);
@@ -62,39 +63,42 @@ public class ComboCellEditor extends AbstractCellEditor
             combo.setBackground(table.getSelectionForeground());
         }*/
         
-        return combo;
+        return combo; 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
+            System.out.println("ActionPerformed");
             JComboBox c = (JComboBox) e.getSource();
             stare = (String)c.getSelectedItem();
             //System.out.println(stare);
             JTable t = (JTable) c.getParent();
-            int index = t.getSelectedRow();
-            int index2=-1;
-            
-            switch(t.getName()){
-                case "In derulare":
-                    index2=0;
-                    break;
-                case "Suspendat":
-                    index2=1;
-                    break;
-                case "Terminat":
-                    index2=2;
-                    break;
+            if (t!=null){
+                int index = t.getSelectedRow();
+                int index2=-1;
+
+                switch(t.getName()){
+                    case "In derulare":
+                        index2=0;
+                        break;
+                    case "Suspendat":
+                        index2=1;
+                        break;
+                    case "Terminat":
+                        index2=2;
+                        break;
+                }
+
+                List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(index2);
+                proiecte.get(index).setStare(c.getSelectedIndex());
+                ProiectController.getInstance().modifyProject(proiecte.get(index));
+                AdminFrame.afisare();
+                if (ProiecteSuspendateFrame.isVisi()) ProiecteSuspendateFrame.afisare();
+                if (ProiecteTerminateFrame.isVisi()) ProiecteTerminateFrame.afisare();
             }
-            
-            List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(index2);
-            proiecte.get(index).setStare(c.getSelectedIndex());
-            ProiectController.getInstance().modifyProject(proiecte.get(index));
-            AdminFrame.afisare();
-            if (ProiecteSuspendateFrame.isVisi()) ProiecteSuspendateFrame.afisare();
-            if (ProiecteTerminateFrame.isVisi()) ProiecteTerminateFrame.afisare();
         } catch (RemoteException ex) {
-            Logger.getLogger(ComboCellEditor.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Nu s.a putut efectua modificarea unui proiect!",ex);
         }
     }
     

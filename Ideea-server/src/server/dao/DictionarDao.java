@@ -7,8 +7,11 @@ package server.dao;
 
 import db.Activitate;
 import db.Dictionar;
+import java.nio.file.Paths;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -17,9 +20,12 @@ import javax.persistence.Query;
 public class DictionarDao {
     
     private EntityManager em;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(DictionarDao.class);
     
     public DictionarDao(EntityManager em){
         this.em = em;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
     
     public String findByCod(int cod){
@@ -30,7 +36,7 @@ public class DictionarDao {
             Dictionar d = (Dictionar)query.getSingleResult();
             return d.getDescriere();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error("Nu a fost gasit codul in dictionar!", e);
             return null;
         }
     }

@@ -7,10 +7,10 @@ package client.gui;
 
 import client.controller.ProiectController;
 import db.Proiect;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -19,12 +19,15 @@ import javax.swing.JOptionPane;
 public class ModificaProiectFrame extends javax.swing.JFrame {
     
     private Proiect proiect;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ModificaProiectFrame.class);
 
     /**
      * Creates new form ModificaProiectFrame
      */
     public ModificaProiectFrame(Proiect proiect) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         this.proiect = proiect;
         
@@ -292,12 +295,7 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
             }
             proiect.setCorpuri(corpuri);
             proiect.setNrOreAlocate((int)(proiect.getBuget()/proiect.getPret()));
-            Proiect check = ProiectController.getInstance().findByNume(proiect.getNume());
             
-            if (proiect.equals(check)) {
-                JOptionPane.showMessageDialog(null, "Acest nume de proiect a mai fost folosit!");
-                return;
-            }
             
             
             
@@ -308,9 +306,8 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
             dispose();
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
-        }catch (RemoteException ex) {
-            Logger.getLogger(AdaugaProiectFrame.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Eroare la adaugare!");
+        }catch(Exception ex){
+            logger.error(ex);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

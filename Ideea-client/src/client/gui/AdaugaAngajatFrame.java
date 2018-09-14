@@ -7,8 +7,11 @@ package client.gui;
 
 import client.controller.AngajatController;
 import db.Angajat;
+import java.nio.file.Paths;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -19,11 +22,15 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
     /**
      * Creates new form AdaugaAngajatFrame
      */
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(AdaugaAngajatFrame.class);
+    
     public AdaugaAngajatFrame() {
         initComponents();
         
         setLocationRelativeTo(null);
         setVisible(true);
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         jLabel3.setVisible(false);
         jTextField3.setVisible(false);
@@ -124,20 +131,22 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
             String password = "1234";
             if (! nume.equals("_") && ! password.equals("")){
                 Angajat angajat = new Angajat();
-                angajat.setNume(jTextField1.getText() + " " + jTextField2.getText());
+                String numele = jTextField1.getText() + " " + jTextField2.getText();
+                numele = numele.replaceAll("\\s+","");
+                angajat.setNume(numele);
                 angajat.setPassword(password);
                 angajat.setUsername(jTextField3.getText());
                 angajat.setStare("activ");
                 angajat.setDataAngajare(new Date());
                 AngajatController.getInstance().adaugaAngajat(angajat);
-                //dispose();
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Unul din campuri nu este completat!");
                 return;
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Eroare la adaugare. Incercati sa schimbati username-ul implicit!");
-            e.printStackTrace();
+            logger.error("Eroare la adaugarea unui angajat!",e);
             jLabel3.setVisible(true);
             jTextField3.setVisible(true);
         }

@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/controller/DictionarController.java</file>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/gui/LoginFrame.java</file>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/controller/ProiectController.java</file>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/controller/AngajatController.java</file>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/controller/ActivitateController.java</file>
-            <file>file:/D:/programare/Java/Ideea-Proiect/Ideea-client/src/client/gui/ClientFrame.java</file>
+            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/ComboCellProiect/ComboCellRenderer.java</file>
+            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/ComboCellProiect/ComboCellEditor.java</file>
+            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/ComboCellProiect/ComboTableModel.java</file>
         </group>
     </open-files>
 </project-private>

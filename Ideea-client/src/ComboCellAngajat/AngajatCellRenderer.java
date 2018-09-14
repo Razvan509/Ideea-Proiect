@@ -5,7 +5,6 @@
  */
 package ComboCellAngajat;
 
-import ComboCellProiect.*;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -16,6 +15,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class AngajatCellRenderer extends DefaultTableCellRenderer{
     
+    @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         if (value instanceof String) {
@@ -28,8 +28,9 @@ public class AngajatCellRenderer extends DefaultTableCellRenderer{
         } else {
             setBackground(table.getSelectionForeground());
         }*/
-         
-        return this;
+        Component c = super.getTableCellRendererComponent(
+                table, value, isSelected, hasFocus, row, column); 
+        return c;
     }
     
 }

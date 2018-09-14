@@ -13,10 +13,15 @@ import db.Angajat;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -25,12 +30,15 @@ import javax.swing.JTable;
 public class AngajatiActiviFrame extends javax.swing.JFrame {
     private static AngajatTableModel model;
     private static JTable table;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(AngajatiActiviFrame.class);
 
     /**
      * Creates new form AngajatiFrame
      */
     public AngajatiActiviFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -70,8 +78,11 @@ public class AngajatiActiviFrame extends javax.swing.JFrame {
             table.setDefaultEditor(String.class, new AngajatCellEditor(stari));
             table.getColumnModel().getColumn(0).setMaxWidth(50);
             
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(RemoteException e){
+            logger.error(e);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
     

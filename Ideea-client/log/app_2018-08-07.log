@@ -1,0 +1,56 @@
+INFO    2018-08-07 10:50:40,203 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 10:51:17,498 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 10:53:27,056 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 10:54:32,596 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 10:55:13,131 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 10:55:31,207 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 10:58:28,950 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 10:59:17,603 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:06:46,000 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 11:07:14,865 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:32:35,674 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+ERROR   2018-08-07 11:32:43,535 [AWT-EventQueue-0] client.gui.ModificaPontajFrame  403 - java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Character
+INFO    2018-08-07 11:32:53,174 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:33:57,984 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+ERROR   2018-08-07 11:34:07,678 [AWT-EventQueue-0] client.gui.ModificaPontajFrame  404 - java.lang.ClassCastException: java.lang.String cannot be cast to java.lang.Character
+INFO    2018-08-07 11:36:17,026 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 11:36:51,303 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:37:29,507 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 11:38:00,697 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:38:46,590 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 11:39:23,309 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 11:41:18,116 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-07 11:41:22,791 [AWT-EventQueue-0] client.gui.AdminFrame  365 - S-a oprit aplicatia!
+INFO    2018-08-07 13:07:18,130 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+ERROR   2018-08-07 13:07:28,201 [AWT-EventQueue-0] client.gui.ClientFrame  604 - Un cod s-a generat prost!
+ERROR   2018-08-07 13:07:33,717 [AWT-EventQueue-0] client.gui.ClientFrame  604 - Un cod s-a generat prost!
+INFO    2018-08-07 13:08:19,458 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 13:08:26,169 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+ERROR   2018-08-07 13:08:34,104 [AWT-EventQueue-0] client.gui.ClientFrame  604 - Un cod s-a generat prost!120000
+INFO    2018-08-07 13:09:40,038 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+ERROR   2018-08-07 13:09:47,094 [AWT-EventQueue-0] client.gui.ClientFrame  604 - Un cod s-a generat prost!120000
+INFO    2018-08-07 13:09:49,504 [AWT-EventQueue-0] client.gui.ClientFrame  939 - S-a oprit aplicatia!
+INFO    2018-08-07 13:10:16,348 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 13:10:31,993 [AWT-EventQueue-0] client.gui.ClientFrame  940 - S-a oprit aplicatia!
+INFO    2018-08-07 13:10:56,295 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 13:11:03,970 [AWT-EventQueue-0] client.gui.ClientFrame  940 - S-a oprit aplicatia!
+INFO    2018-08-07 13:11:31,140 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 13:14:42,454 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 13:15:02,022 [AWT-EventQueue-0] client.gui.ClientFrame  946 - S-a oprit aplicatia!
+INFO    2018-08-07 13:19:42,898 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-08-07 13:20:53,155 [AWT-EventQueue-0] client.gui.AdminFrame  365 - S-a oprit aplicatia!
+ERROR   2018-08-07 14:19:26,649 [AWT-EventQueue-0] client.gui.LoginFrame  86 - java.lang.NullPointerException
+ERROR   2018-08-07 14:22:38,354 [AWT-EventQueue-0] client.gui.LoginFrame  83 - java.rmi.ConnectException: Connection refused to host: 192.168.153.52; nested exception is: 
+	java.net.ConnectException: Connection timed out: connect
+INFO    2018-08-07 14:23:15,991 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:23:17,924 [AWT-EventQueue-0] client.gui.ClientFrame  946 - S-a oprit aplicatia!
+INFO    2018-08-07 14:25:31,045 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:26:27,876 [AWT-EventQueue-0] client.gui.ClientFrame  946 - S-a oprit aplicatia!
+INFO    2018-08-07 14:27:21,231 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:27:26,018 [AWT-EventQueue-0] client.gui.ClientFrame  947 - S-a oprit aplicatia!
+INFO    2018-08-07 14:29:19,820 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:29:24,540 [AWT-EventQueue-0] client.gui.ClientFrame  950 - S-a oprit aplicatia!
+INFO    2018-08-07 14:29:54,119 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:29:57,574 [AWT-EventQueue-0] client.gui.ClientFrame  952 - S-a oprit aplicatia!
+INFO    2018-08-07 14:30:07,330 [AWT-EventQueue-0] client.gui.ClientFrame  49 - A pornit aplicatia!
+INFO    2018-08-07 14:30:14,899 [AWT-EventQueue-0] client.gui.ClientFrame  952 - S-a oprit aplicatia!

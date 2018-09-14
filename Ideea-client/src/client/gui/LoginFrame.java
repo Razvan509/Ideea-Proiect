@@ -7,9 +7,11 @@ package client.gui;
 
 import client.controller.AngajatController;
 import db.Angajat;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 
 /**
@@ -21,8 +23,13 @@ public class LoginFrame extends javax.swing.JFrame {
     /**
      * Creates new form LoginFrame
      */
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(LoginFrame.class);
     public LoginFrame() {
         initComponents();
+        
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        
         
         setLocationRelativeTo(null);
         setVisible(true);
@@ -58,18 +65,26 @@ public class LoginFrame extends javax.swing.JFrame {
                     jTextField1.setText("");
                     jPasswordField1.setText("");
                 }else{
+                    
+                    if(angajat.getStare().equals("inactiv")){
+                        JOptionPane.showMessageDialog(null, "Acest cont este inactiv!");
+                        return;
+                    }
                     dispose();
                     if (angajat.isAdmin()){
                         new AdminFrame(angajat);
                     }else{
-                        new ClientFrame(angajat);
+                        new ClientFrame(angajat,false);
                     }
                     dispose();
                 }
             }
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(RemoteException e){
+            logger.error(e);
             JOptionPane.showMessageDialog(null, "Eroare la logare!");
+        }catch(Exception ex){
+            logger.error(ex);
+            ex.printStackTrace();
         }
     }
 
@@ -91,6 +106,11 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Username:");
@@ -165,6 +185,10 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         apasa();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        //logger.info("S-a oprit aplicatia!");
+    }//GEN-LAST:event_formWindowClosed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

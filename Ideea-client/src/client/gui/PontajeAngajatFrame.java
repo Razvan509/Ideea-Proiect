@@ -7,18 +7,19 @@ package client.gui;
 
 import client.controller.ActivitateController;
 import client.controller.AngajatController;
+import client.controller.DictionarController;
 import db.Activitate;
 import db.Angajat;
-import java.awt.BorderLayout;
 import java.awt.Font;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -32,21 +33,27 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
     
     private DefaultTableModel model;
     private List<Angajat> angajati;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(PontajeAngajatFrame.class);
+    
     public PontajeAngajatFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
         //setLayout(new BorderLayout());
         
-        String []columnNames = {"Proiect","Data","Ore","Minute","Data adaugare"};
-        Object [][] data ={{"","","","",""}};
+        String []columnNames = {"Proiect","Pontaj","Data","Ore","Minute","Data adaugare"};
+        Object [][] data ={{"","","","","",""}};
         
         model = new DefaultTableModel(data, columnNames);
-        jTable1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        jTable1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+        jTable1.setRowHeight(30);
         jTable1.getTableHeader().setFont(new Font("Tahoma", Font.PLAIN, 18));
         jTable1.setModel(model);
+        
         
         
         jDateChooser1.setDate(new Date());
@@ -63,7 +70,10 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                 jComboBox1.addItem(a.getNume());
             }
         } catch (RemoteException ex) {
-            Logger.getLogger(PontajeAngajatFrame.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+            logger.error(ex);
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
     
@@ -135,7 +145,7 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, 0, 192, Short.MAX_VALUE)
+                .addComponent(jComboBox1, 0, 317, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -186,17 +196,25 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         
         try {
             List<Activitate> pontaje = ActivitateController.getInstance().getActivitatiPerioada(angajat, startDate, endDate);
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
+            SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
             for(int i=0;i<pontaje.size();i++){
                 row[0] = pontaje.get(i).getProiect().getNume();
-                row[1] = pontaje.get(i).getDataPontaj();
-                row[2] = pontaje.get(i).getOreMunca();
-                row[3] = pontaje.get(i).getMinuteMunca();
-                row[4] = pontaje.get(i).getDataOra();
+                row[1] = DictionarController.getInstance().findByCod(pontaje.get(i).getCod());
+                if(pontaje.get(i).getEtaj()!=null) row[1] = row[1] + " " + pontaje.get(i).getEtaj();
+                if(pontaje.get(i).getProiect().getCorpuri()>1) row[1] = row[1] + " " + pontaje.get(i).getCorp();
+                row[2] = format1.format(pontaje.get(i).getDataPontaj());
+                row[3] = pontaje.get(i).getOreMunca();
+                row[4] = pontaje.get(i).getMinuteMunca();
+                row[5] = format2.format(pontaje.get(i).getDataOra());
                 model.addRow(row);
             }
         } catch (RemoteException ex) {
-            Logger.getLogger(PontajeAngajatFrame.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+            logger.error(ex);
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

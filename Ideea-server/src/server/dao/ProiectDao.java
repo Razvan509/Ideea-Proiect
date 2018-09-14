@@ -6,11 +6,14 @@
 package server.dao;
 
 import db.Proiect;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -19,9 +22,12 @@ import javax.persistence.Query;
 public class ProiectDao {
     
     private EntityManager em;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(ProiectDao.class);
     
     public ProiectDao(EntityManager em){
         this.em = em;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
     
     public void adaugaProiect(Proiect proiect){
@@ -35,6 +41,7 @@ public class ProiectDao {
             List<Proiect> list = query.getResultList();
             return list;
         }catch(Exception e){
+            logger.error(e);
             return null;
         }
     }
@@ -46,7 +53,7 @@ public class ProiectDao {
             List<Proiect> list = query.getResultList();
             return list;
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }
@@ -59,7 +66,7 @@ public class ProiectDao {
         try{
             return (Proiect) query.getSingleResult();
         }catch(Exception e){
-            //e.printStackTrace();
+            //logger.error(e);
             return null;
         }
     }
@@ -81,7 +88,7 @@ public class ProiectDao {
             l1+=(l2/60);
             return l1;
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return 0;
         }
     }
@@ -100,7 +107,7 @@ public class ProiectDao {
         try{
             return (Proiect)q.getSingleResult();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }

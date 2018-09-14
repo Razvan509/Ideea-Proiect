@@ -59,6 +59,8 @@ public class Activitate implements Serializable{
     private char corp;
     
     private String etaj;
+    
+    private String detalii;
 
     public long getId() {
         return id;
@@ -135,6 +137,16 @@ public class Activitate implements Serializable{
     public void setCorp(char corp) {
         this.corp = corp;
     }
+
+    public String getDetalii() {
+        return detalii;
+    }
+
+    public void setDetalii(String detalii) {
+        this.detalii = detalii;
+    }
+    
+    
 
 
     @Override

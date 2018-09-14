@@ -8,11 +8,14 @@ package server.dao;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TemporalType;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -21,9 +24,12 @@ import javax.persistence.TemporalType;
 public class ActivitateDao {
     
     private EntityManager em;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(ActivitateDao.class);
     
     public ActivitateDao(EntityManager em){
         this.em = em;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
     
     public void adaugaActivitate(Activitate activitate){
@@ -38,7 +44,7 @@ public class ActivitateDao {
         try{
             return query.getResultList();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }
@@ -51,7 +57,7 @@ public class ActivitateDao {
         try{
             return query.getResultList();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }
@@ -63,7 +69,7 @@ public class ActivitateDao {
         try{
             return (Activitate)query.getSingleResult();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }
@@ -76,13 +82,13 @@ public class ActivitateDao {
         em.remove(a);
     }
     
-    public Date getLastDateActivityByAngajat(Angajat angajat){
+    public Activitate getLastDateActivityByAngajat(Angajat angajat){
         Query q = em.createQuery("SELECT a FROM Activitate a WHERE a.angajat = :angajat ORDER BY a.dataPontaj DESC");
         q.setParameter("angajat", angajat);
         List<Activitate> pontaj = q.setMaxResults(1).getResultList();
         
         if(pontaj.size()>0)
-            return pontaj.get(0).getDataPontaj();
+            return pontaj.get(0);
         return null;
     }
     
@@ -94,9 +100,10 @@ public class ActivitateDao {
         query.setParameter("endDate", endDate, TemporalType.DATE);
         
         try{
-            return query.getResultList();
+            List<Activitate> pontaje = query.getResultList();
+            return pontaje;
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }

@@ -5,12 +5,14 @@
  */
 package server.gui;
 
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.log4j.PropertyConfigurator;
 import server.service.ActivitateService;
 import server.service.AngajatService;
 import server.service.DictionarService;
@@ -21,12 +23,18 @@ import server.service.ProiectService;
  * @author razvan
  */
 public class ServerFrame extends javax.swing.JFrame {
+    
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ServerFrame.class);
 
     /**
      * Creates new form ServerFrame
      */
     public ServerFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        
+        logger.info("A pornit serverul!");
         
         setResizable(false);
         setLocationRelativeTo(null);
@@ -41,8 +49,7 @@ public class ServerFrame extends javax.swing.JFrame {
             registry.rebind("dictionarservice",new DictionarService());
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Eroare!");
-            e.printStackTrace();
-            System.exit(e.hashCode());
+            logger.error(e,e);
         }
         
     }
@@ -60,6 +67,14 @@ public class ServerFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +118,7 @@ public class ServerFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        logger.info("S-a orpit serverul!");
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -112,9 +128,17 @@ public class ServerFrame extends javax.swing.JFrame {
             proiectService.deleteCache();
             JOptionPane.showMessageDialog(null, "Cache sters!");
         } catch (RemoteException ex) {
-            Logger.getLogger(ServerFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        logger.info("S-a orpit serverul!");
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        logger.info("S-a orpit serverul!");
+    }//GEN-LAST:event_formWindowClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

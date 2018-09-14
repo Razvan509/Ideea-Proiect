@@ -6,7 +6,11 @@
 package client.gui;
 
 import client.controller.AngajatController;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -15,11 +19,14 @@ import javax.swing.JOptionPane;
 public class SetareAngajatFrame extends javax.swing.JFrame {
     
     private long id;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(SetareAngajatFrame.class);
     /**
      * Creates new form SetareAngajatFrame
      */
     public SetareAngajatFrame(long id) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         this.id = id;
         
@@ -106,10 +113,12 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
             try{
                 AngajatController.getInstance().setareAngajat(id, username, password);
                 dispose();
-            }catch(Exception e){
+            }catch(RemoteException e){
                 JOptionPane.showMessageDialog(null, "Eroare");
-                e.printStackTrace();
-            }
+                logger.error(e);
+            }catch(Exception ex){
+            logger.error(ex);
+        }
         }else{
             JOptionPane.showMessageDialog(null, "Unul din campuri este gol sau parola este tot 1234!");
         }

@@ -15,20 +15,22 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class ComboCellRenderer extends DefaultTableCellRenderer{
     
+    @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
         if (value instanceof String) {
             String stare = (String) value;
             setText(stare);
         }
-         
+        //System.out.println("getTableCellRendererComponent");
         /*if (isSelected) {
             setBackground(table.getSelectionBackground());
         } else {
             setBackground(table.getSelectionForeground());
         }*/
-         
-        return this;
+        Component c = super.getTableCellRendererComponent(
+                table, value, isSelected, hasFocus, row, column); 
+        return c;
     }
     
 }

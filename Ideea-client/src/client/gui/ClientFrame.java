@@ -8,11 +8,13 @@ package client.gui;
 import client.controller.ActivitateController;
 import client.controller.DictionarController;
 import client.controller.ProiectController;
+import static client.gui.AdminFrame.logger;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,8 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
-import org.eclipse.persistence.sessions.server.Server;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -38,21 +39,33 @@ public class ClientFrame extends javax.swing.JFrame {
     private DefaultListModel model;
     private int sumaOre=0;
     private int sumaMinute=0;
-    //private JPopupMenu popUp;
+    private boolean admin;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ClientFrame.class);
     
-    public ClientFrame(Angajat angajat) {
+    public ClientFrame(Angajat angajat,boolean admin) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        logger.info("A pornit aplicatia!");
         jLabel10.setText("");
         jLabel8.setText("");
         
         this.angajat = angajat;
+        this.admin = admin;
         
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle(angajat.getNume());
         
+        if(admin) setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        else setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
         populareComboProiect();
         populareComboEtapa();
+        populareComboEtaj();
+        
+        //jComboBox6.setLayout(new BorderLayout());
+        
         
         //jComboBox1.setSize(100, 50);
         jComboBox1.setPreferredSize(new Dimension(200,28));
@@ -62,11 +75,15 @@ public class ClientFrame extends javax.swing.JFrame {
         /*jComboBox3.setVisible(false);
         jLabel3.setVisible(false);*/
         
+        jLabel12.setVisible(false);
+        jTextField1.setVisible(false);
+        
         jLabel4.setVisible(false);
         jComboBox4.setVisible(false);
         
         jLabel5.setVisible(false);
-        jTextField1.setVisible(false);
+        jComboBox6.setVisible(false);
+        
         //jComboBox1.setEditable(true);
         
         
@@ -75,7 +92,7 @@ public class ClientFrame extends javax.swing.JFrame {
         today = Calendar.getInstance();
         
         jDateChooser1.setDate(new Date());
-        
+
         jTextField3.setText("0");
         jList1.setFont(new Font("Tahoma", Font.PLAIN, 18));
         
@@ -86,23 +103,65 @@ public class ClientFrame extends javax.swing.JFrame {
         try {
             //jButton1.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "COPY");
             
-            Date lastDate = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
+            Activitate lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
             today.add(Calendar.DATE,-2);
-            if(lastDate==null){
+            if(lastActiv==null){
                 JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
                 + "pontaj de ceva timp!");
             }
             else{
-                if(today.getTime().after(lastDate)){
+                if(today.getTime().after(lastActiv.getDataPontaj())){
                     JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
                     + "pontaj de ceva timp!");
                 }
             }
             
+            if(lastActiv!=null)
+                popularePontaj(lastActiv);
+            
         } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
         today = Calendar.getInstance();
+    }
+    
+    public void popularePontaj(Activitate lastActiv){
+        jComboBox1.setSelectedItem(lastActiv.getProiect().getNume());
+        jComboBox2.setSelectedIndex((lastActiv.getCod()/10000)-11);
+        int index1 = (lastActiv.getCod()/100)%100;
+        int index2 = lastActiv.getCod()%100;
+        if(index1!=0) {
+            jComboBox3.setSelectedIndex(index1-1);
+            jComboBox3.setVisible(true);
+            jLabel3.setVisible(true);
+        }else{
+            jComboBox2.setVisible(false);
+            jLabel2.setVisible(false);
+            jComboBox3.setVisible(false);
+            jLabel3.setVisible(false);
+        }
+        if(index2!=0) {
+            jComboBox4.setSelectedIndex(index2-1);
+            jComboBox4.setVisible(true);
+            jLabel3.setVisible(true);
+        }
+        if(lastActiv.getEtaj()!=null) {
+            jComboBox6.setSelectedItem(lastActiv.getEtaj());
+            jComboBox6.setVisible(true);
+            jLabel5.setVisible(true);
+        }
+        String corp = lastActiv.getCorp()+"";
+        if(lastActiv.getProiect().getCorpuri()>1) {
+            jComboBox5.setSelectedItem(corp);
+            jComboBox5.setVisible(true);
+            jLabel9.setVisible(true);
+        }
+        
+        jTextField2.setText(lastActiv.getOreMunca()+"");
+        jTextField3.setText(lastActiv.getMinuteMunca()+"");
     }
     
     public void populareComboProiect(){
@@ -112,7 +171,25 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox1.addItem(p.getNume());
             }
         } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
+        }
+    }
+    
+    public void populareComboEtaj(){
+        jComboBox6.removeAllItems();
+        for(int i=-proiect.getNrEtajeSubsol();i<=proiect.getNrEtaje();i++){
+            if(i<0){
+                jComboBox6.addItem("subsol "+i);
+            }else{
+                if(i==0){
+                    jComboBox6.addItem("parter");
+                }else{
+                    jComboBox6.addItem("etaj "+i);
+                }
+            }
         }
     }
     
@@ -126,6 +203,7 @@ public class ClientFrame extends javax.swing.JFrame {
     
     public void populareLista(){
         try {
+            //jList1.setBackground(Color.PINK);
             sumaOre=0;
             sumaMinute=0;
             Date data = jDateChooser1.getDate();
@@ -135,7 +213,11 @@ public class ClientFrame extends javax.swing.JFrame {
             model.clear();
             
             for(Activitate a:activitati){
-                model.addElement(a.toString() + " " +DictionarController.getInstance().findByCod(a.getCod()));
+                String s = a.toString() + " " +DictionarController.getInstance().findByCod(a.getCod());
+                if(a.getEtaj()!=null) s = s + " " + a.getEtaj();
+                if(a.getProiect().getCorpuri()>1 && !a.getProiect().getNume().equals("Ofertare")) s = s + " corp " + a.getCorp();
+                if(a.getDetalii()!= null && a.getDetalii() != "") s = s + " " + a.getDetalii();
+                model.addElement(s);
                 sumaOre+=a.getOreMunca();
                 if (sumaMinute+a.getMinuteMunca()>59){
                     sumaOre++;
@@ -156,7 +238,10 @@ public class ClientFrame extends javax.swing.JFrame {
             jLabel10.setText(sumaMinute+" minute");
             
         } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
 
@@ -179,7 +264,6 @@ public class ClientFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -194,12 +278,20 @@ public class ClientFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setMaximumSize(new java.awt.Dimension(100, 28));
@@ -241,7 +333,7 @@ public class ClientFrame extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Nivel:");
+        jLabel4.setText("Element:");
 
         jComboBox4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -252,9 +344,6 @@ public class ClientFrame extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Etaj:");
-
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setMinimumSize(new java.awt.Dimension(39, 28));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Ore:");
@@ -302,6 +391,13 @@ public class ClientFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Total:");
 
+        jComboBox6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Alte detalii:");
+
         jMenu1.setText("Delogare");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,55 +431,63 @@ public class ClientFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel9))
-                            .addGap(38, 38, 38)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(33, 33, 33)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(138, 138, 138)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(190, 190, 190))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(169, 169, 169)))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel9))
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10)
+                                .addGap(456, 456, 456))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addGap(456, 456, 456))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(117, 117, 117))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(190, 190, 190)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,16 +511,23 @@ public class ClientFrame extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
+                        .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -425,16 +536,17 @@ public class ClientFrame extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10))
-                        .addGap(71, 71, 71)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
         pack();
@@ -445,15 +557,7 @@ public class ClientFrame extends javax.swing.JFrame {
             Activitate pontaj = new Activitate();
             pontaj.setAngajat(angajat);
             pontaj.setDataOra(new Date());
-            if (jTextField1.isVisible()){
-                int etaj = Integer.parseInt(jTextField1.getText());
-                if(etaj<=proiect.getNrEtaje() && etaj>=-proiect.getNrEtajeSubsol()){
-                    pontaj.setEtaj(jTextField1.getText());
-                }else{
-                    JOptionPane.showMessageDialog(null, "Numar de etaje incorect!");
-                    return;
-                }
-            }
+            if(jComboBox6.isVisible()) pontaj.setEtaj((String)jComboBox6.getSelectedItem());
             int ore = Integer.parseInt(jTextField2.getText());
             int minute = Integer.parseInt(jTextField3.getText());
             if (ore==0 && minute==0){
@@ -508,30 +612,40 @@ public class ClientFrame extends javax.swing.JFrame {
                 return;
             }else{
                 today.add(Calendar.DATE,-8);
-                /*if(data.before(today.getTime())){
+                if(data.before(today.getTime())&&!admin){
                     JOptionPane.showMessageDialog(null, "Data introdusa nu este valida! Poti inscrie un pontaj cu maxim 7 zile in urma!");
                     today = Calendar.getInstance();
                     return;
-                }*/
-                //else{
+                }
+                else{
                     pontaj.setDataPontaj(data);
-                //}
+                }
                 today = Calendar.getInstance();
             }
             if (jComboBox5.isVisible())
                 pontaj.setCorp(((String)jComboBox5.getSelectedItem()).charAt(0));
+            if (jTextField1.isVisible()) pontaj.setDetalii(jTextField1.getText());
             
             int dialogButton = JOptionPane.YES_NO_OPTION;
             int dialogResult = JOptionPane.showConfirmDialog(null, "Pontajul dumneavoastra: "+pontaj.toString()+" " 
                     +"\nDoriti sa continuati?","Confirmare!",dialogButton);
-            if (dialogResult == JOptionPane.YES_OPTION)
-                ActivitateController.getInstance().adaugaActivitate(pontaj);
+            if (dialogResult == JOptionPane.YES_OPTION){
+                if(DictionarController.getInstance().findByCod(cod) != null){
+                    ActivitateController.getInstance().adaugaActivitate(pontaj);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ceva nu a mers bine, mai incercati o data!");
+                    logger.error("Un cod s-a generat prost!" + cod);
+                }
+            }
             cod = jComboBox2.getSelectedIndex()+11;
             populareLista();
         }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null, "Nu ati introdus un numar!");
-        } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (RemoteException ex) {
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -551,7 +665,7 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox4.setVisible(false);
                 
                 jLabel5.setVisible(false);
-                jTextField1.setVisible(false);
+                jComboBox6.setVisible(false);
             }break;
             case "Proiectare":{
                 cod = 12;
@@ -559,23 +673,22 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox3.setVisible(true);
                 
                 jComboBox3.addItem("Calcul");
-                jComboBox3.addItem("Detaliere");
+                jComboBox3.addItem("DTAC");
+                jComboBox3.addItem("DE");
                 jComboBox3.addItem("Coordonare");
                 jComboBox3.addItem("Verificare");
                 jComboBox3.addItem("Editie");
-                jComboBox3.addItem("Neatribuit");
+                //jComboBox3.addItem("Neatribuit");
             }break;
             case "Santier":{
                 cod = 13;
                 jLabel3.setVisible(true);
                 jComboBox3.setVisible(true);
                 
-                jComboBox3.addItem("Grinzi");
-                jComboBox3.addItem("Stalpi");
-                jComboBox3.addItem("Pereti");
-                jComboBox3.addItem("Placi");
+                jComboBox3.addItem("Fundatie");
+                jComboBox3.addItem("Planseu");
+                jComboBox3.addItem("Elemente verticale");
                 jComboBox3.addItem("Altele");
-                jComboBox3.addItem("Neatribuit");
                 jLabel4.setVisible(false);
                 jComboBox4.setVisible(false);
                 
@@ -588,7 +701,8 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox3.setVisible(true);
                 
                 jComboBox3.addItem("Calcul");
-                jComboBox3.addItem("Detaliere");
+                jComboBox3.addItem("DTAC");
+                jComboBox3.addItem("DE");
                 jLabel4.setVisible(true);
                 jComboBox4.setVisible(true);
             }break;
@@ -602,7 +716,7 @@ public class ClientFrame extends javax.swing.JFrame {
                 jComboBox4.setVisible(false);
                 
                 jLabel5.setVisible(false);
-                jTextField1.setVisible(false);
+                jComboBox6.setVisible(false);
             }break;
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
@@ -622,68 +736,100 @@ public class ClientFrame extends javax.swing.JFrame {
                         jLabel4.setVisible(true);
                         jComboBox4.setVisible(true);
                         jComboBox4.addItem("Global");
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
                         jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
                         jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
                         jComboBox4.addItem("Altele");
                     }break;
                     case 2:{
                         jLabel4.setVisible(true);
                         jComboBox4.setVisible(true);
                         jComboBox4.setEnabled(true);
-                        jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
-                        jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Parte scrisa");
+                        jComboBox4.addItem("Parte desenata");
                         jComboBox4.addItem("Altele");
+                        
+                        jLabel5.setVisible(false);
+                        jComboBox6.setVisible(false);
                     }break;
                     case 3:{
                         jLabel4.setVisible(true);
                         jComboBox4.setVisible(true);
                         jComboBox4.setEnabled(true);
-                        jComboBox4.addItem("Global");
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
                         jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
                         jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
                         jComboBox4.addItem("Altele");
+                        jComboBox4.addItem("Parte scrisa");
                     }break;
                     case 4:{
                         jLabel4.setVisible(true);
                         jComboBox4.setVisible(true);
                         jComboBox4.setEnabled(true);
                         jComboBox4.addItem("Global");
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
                         jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
                         jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
                         jComboBox4.addItem("Altele");
                     }break;
                     case 5:{
-                        jLabel4.setVisible(false);
-                        jComboBox4.setVisible(false);
+                        jLabel4.setVisible(true);
+                        jComboBox4.setVisible(true);
+                        jComboBox4.setEnabled(true);
+                        jComboBox4.addItem("Global");
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
+                        jComboBox4.addItem("Grinzi");
+                        jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
+                        jComboBox4.addItem("Altele");
                         
-                        jLabel5.setVisible(true);
-                        jTextField1.setVisible(true); 
                     }break;
                     
                     case 6:{
                         jLabel4.setVisible(false);
                         jComboBox4.setVisible(false);
                         
-                        jLabel5.setVisible(false);
-                        jTextField1.setVisible(false); 
+                        jLabel5.setVisible(true);
+                        jComboBox6.setVisible(true); 
                     }break;
                 }
             }break;
             case 13:{
                 if (jComboBox3.getSelectedItem() != null && jComboBox3.getSelectedItem().equals("Neatribuit")){
                     jLabel5.setVisible(false);
-                    jTextField1.setVisible(false);
+                    jComboBox6.setVisible(false);
                 }else{
                     jLabel5.setVisible(true);
-                    jTextField1.setVisible(true);
+                    jComboBox6.setVisible(true);
+                    
+                    if(jComboBox3.getSelectedItem()!=null && jComboBox3.getSelectedItem().equals("Fundatie")){
+                        jComboBox6.removeAllItems();
+                        jComboBox6.addItem("Fundatie");
+                        jComboBox6.addItem("Mustati");
+                    }else populareComboEtaj();
+                    if(jComboBox3.getSelectedItem() != null && jComboBox3.getSelectedItem().equals("Altele")){
+                        jLabel12.setVisible(true);
+                        jTextField1.setVisible(true);
+                    }else{
+                        jLabel12.setVisible(false);
+                        jTextField1.setVisible(false);
+                        jTextField1.setText("");
+                    }        
                 }
                 
             }break;
@@ -692,19 +838,35 @@ public class ClientFrame extends javax.swing.JFrame {
                     case 1:{
                         jComboBox4.setEnabled(true);
                         jComboBox4.addItem("Global");
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
                         jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
                         jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
                         jComboBox4.addItem("Altele");
                     }break;
                     case 2:{
                         jComboBox4.setEnabled(true);
-                        jComboBox4.addItem("Grinzi");
-                        jComboBox4.addItem("Stalpi");
-                        jComboBox4.addItem("Pereti");
-                        jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Parte scrisa");
+                        jComboBox4.addItem("Parte desenata");
                         jComboBox4.addItem("Altele");
+                        
+                        jLabel5.setVisible(false);
+                        jComboBox6.setVisible(false);
+                    }break;
+                    case 3:{
+                        jComboBox4.setEnabled(true);
+                        jComboBox4.addItem("Fundatie");
+                        jComboBox4.addItem("Cofraje");
+                        jComboBox4.addItem("Elemente verticale");
+                        jComboBox4.addItem("Grinzi");
+                        jComboBox4.addItem("Placi");
+                        jComboBox4.addItem("Goluri");
+                        jComboBox4.addItem("Scari");
+                        jComboBox4.addItem("Altele");
+                        jComboBox4.addItem("Parte desenata");
                     }break;
                 }
             }
@@ -715,47 +877,109 @@ public class ClientFrame extends javax.swing.JFrame {
         int index1 = jComboBox3.getSelectedIndex();
         int index2 = jComboBox4.getSelectedIndex();
         
-        if((cod == 12 || cod == 14) && (index1 == 0 || index1 == 2 || index1 == 3) && index2 == 0){
+        
+        if((cod == 12 || cod == 14) && (index1 == 0 || index1 == 3) && index2 == 0){
             jLabel5.setVisible(false);
-            jTextField1.setVisible(false); 
-            jTextField1.removeAll();
+            jComboBox6.setVisible(false); 
+            jComboBox6.removeAll();
         }else{
             jLabel5.setVisible(true);
-            jTextField1.setVisible(true);
+            jComboBox6.setVisible(true);
+            if(jComboBox4.getSelectedItem()!=null && jComboBox4.getSelectedItem().equals("Fundatie")){
+                jComboBox6.removeAllItems();
+                jComboBox6.addItem("Fundatie");
+                jComboBox6.addItem("Mustati");
+            }else populareComboEtaj();
         }
+        
+        if(cod == 12 || cod == 14){
+            if(index1 == 1){
+                jLabel5.setVisible(false);
+                jComboBox6.setVisible(false); 
+                jComboBox6.removeAll();
+            }
+        }
+        
+        if((cod == 12 ||cod == 14) && jComboBox4.getSelectedItem() != null && jComboBox4.getSelectedItem().equals("Altele")){
+            jLabel12.setVisible(true);
+            jTextField1.setVisible(true);
+        }else{
+            jLabel12.setVisible(false);
+            jTextField1.setVisible(false);
+            jTextField1.setText("");
+        }        
+        
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        try {
-            jComboBox5.removeAllItems();
-            jTextArea1.setText(null);
-            proiect = ProiectController.getInstance().findByNume((String)jComboBox1.getSelectedItem());
-            jTextArea1.append("Nume proiect: "+proiect.getNume()+"\n");
-            jTextArea1.append("Nume beneficiar: "+proiect.getBeneficiar()+"\n");
-            jTextArea1.append("Adresa: "+proiect.getAdresa()+"\n");
-            jTextArea1.append("Numar de etaje: "+proiect.getNrEtaje()+"\n");
-            jTextArea1.append("Numar de etaje subsol: "+proiect.getNrEtajeSubsol()+"\n");
-            jTextArea1.append("Nume arhitect: "+proiect.getNumeArhitect()+"\n");
-            jTextArea1.append("Numar de corpuri: "+proiect.getCorpuri()+"\n");
+        if(!jComboBox1.getSelectedItem().equals("Ofertare") && !jComboBox1.getSelectedItem().equals("Concediu de Odihna")
+                && !jComboBox1.getSelectedItem().equals("Concediu medical") && !jComboBox1.getSelectedItem().equals("Sarbatori legale")){
+            jComboBox2.setVisible(true);
+            jComboBox3.setVisible(true);
             
-            if (proiect.getCorpuri()>1){
-                jLabel9.setVisible(true);
-                jComboBox5.setVisible(true);
-                
-                for(int i=0;i<proiect.getCorpuri();i++){
-                    char litera = 'A';
-                    litera+=i;
-                    jComboBox5.addItem("" + litera);
+            jTextField1.setVisible(false);
+            jLabel12.setVisible(false);
+            jTextField1.setText("");
+            
+            
+            jLabel2.setVisible(true);
+            jLabel3.setVisible(true);
+            
+            try {
+                jComboBox5.removeAllItems();
+                jTextArea1.setText(null);
+                proiect = ProiectController.getInstance().findByNume((String)jComboBox1.getSelectedItem());
+                populareComboEtaj();
+                jTextArea1.append("Nume proiect: "+proiect.getNume()+"\n");
+                jTextArea1.append("Nume beneficiar: "+proiect.getBeneficiar()+"\n");
+                jTextArea1.append("Adresa: "+proiect.getAdresa()+"\n");
+                jTextArea1.append("Numar de etaje: "+proiect.getNrEtaje()+"\n");
+                jTextArea1.append("Numar de etaje subsol: "+proiect.getNrEtajeSubsol()+"\n");
+                jTextArea1.append("Nume arhitect: "+proiect.getNumeArhitect()+"\n");
+                jTextArea1.append("Numar de corpuri: "+proiect.getCorpuri()+"\n");
+
+                if (proiect.getCorpuri()>1){
+                    jLabel9.setVisible(true);
+                    jComboBox5.setVisible(true);
+
+                    for(int i=0;i<proiect.getCorpuri();i++){
+                        char litera = 'A';
+                        litera+=i;
+                        jComboBox5.addItem("" + litera);
+                    }
+                }else{
+                    jLabel9.setVisible(false);
+                    jComboBox5.setVisible(false);
+
                 }
-            }else{
-                jLabel9.setVisible(false);
-                jComboBox5.setVisible(false);
-        
+            } catch (RemoteException ex) {
+                Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }else{
+            cod = 11;
+            jComboBox2.setVisible(false);
+            jComboBox3.setVisible(false);
+            jComboBox4.setVisible(false);
+            jComboBox5.setVisible(false);
+            jComboBox6.setVisible(false);
+            
+            jLabel2.setVisible(false);
+            jLabel3.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel5.setVisible(false);
+            jLabel9.setVisible(false);
+            
+            jTextArea1.setText(null);
+            
+            jTextField1.setVisible(true);
+            jLabel12.setVisible(true);
+            
+            try {
+                proiect = ProiectController.getInstance().findByNume((String)jComboBox1.getSelectedItem());
+            } catch (RemoteException ex) {
+                logger.error(ex);
+            }
         }
-       
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
@@ -772,13 +996,17 @@ public class ClientFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        new AlegePontajFrame(angajat,false,this);
+        new AlegePontajFrame(angajat,admin,this);
         populareLista();
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         new SetareAngajatFrame(angajat.getId()).setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        logger.info("S-a oprit aplicatia!");
+    }//GEN-LAST:event_formWindowClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -788,10 +1016,12 @@ public class ClientFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

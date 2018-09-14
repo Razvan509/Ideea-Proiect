@@ -102,13 +102,13 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
     }
 
     @Override
-    public Date getLastDateActivityByAngajat(Angajat angajat) throws RemoteException {
+    public Activitate getLastDateActivityByAngajat(Angajat angajat) throws RemoteException {
         EntityManager em = emf.createEntityManager();
         ActivitateDao activitateDao = new ActivitateDao(em);
         
-        Date data = activitateDao.getLastDateActivityByAngajat(angajat);
+        Activitate pontaj = activitateDao.getLastDateActivityByAngajat(angajat);
         em.close();
-        return data;
+        return pontaj;
     }
 
     @Override

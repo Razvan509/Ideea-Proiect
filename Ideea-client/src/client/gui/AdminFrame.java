@@ -11,23 +11,23 @@ import ComboCellProiect.ComboTableModel;
 import client.controller.ActivitateController;
 import client.controller.AngajatController;
 import client.controller.ProiectController;
+import db.Activitate;
 import db.Angajat;
 import db.Proiect;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -36,67 +36,82 @@ import javax.swing.UIManager;
 public class AdminFrame extends javax.swing.JFrame {
     
     private static ComboTableModel model;
+    private static JComboBox combo;
     private static JTable table;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AdminFrame.class);
     
     public AdminFrame(Angajat angajat) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        logger.info("A pornit aplicatia!");
+        
         
         table = new JTable();
+        String[] stari = new String[3];
+        stari[0]="In derulare";
+        stari[1]="Suspendat";
+        stari[2]="Terminat";
+        combo = new JComboBox(stari);
         
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle(angajat.getNume());
-        jPanel1.setLayout(new BorderLayout());
+        setLayout(new BorderLayout());
         
         afisare();
         
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
         table.setRowHeight(30);
         table.setName("In derulare");
-        //table.getColumnModel().getColumn(0).setMaxWidth(50);
+        
         
         JScrollPane scrollpane = new JScrollPane(table);
         scrollpane.setPreferredSize(new Dimension(500, 700));
-         
-        jPanel1.add(scrollpane, BorderLayout.CENTER);
+        scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
+        add(scrollpane, BorderLayout.CENTER);
         
-        ArrayList<String> angjPontVechi = new ArrayList<>();
+        // ArrayList<String> angjPontVechi = new ArrayList<>();
         try {
+            List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            
+            
             Calendar today = Calendar.getInstance();
-            today.add(Calendar.DATE,-4);
-            List<Angajat> angajati = AngajatController.getInstance().getAll();
-            String output = "Cei care nu au mai bagat un pontaj de 3 zile sau mai mult sunt: \n";
-            Date lastDate;
+            today.add(Calendar.DATE,-5);
+            List<Angajat> angajati = AngajatController.getInstance().getAngajatiByStare("activ");
+            String output = "Cei care nu au mai bagat un pontaj de 4 zile sau mai mult sunt: \n";
+            Activitate lastActiv;
             for(int i=0;i<angajati.size();i++){
-                lastDate = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
-                if((lastDate==null || today.getTime().after(lastDate)) && !angajati.get(i).isAdmin()){
+                lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
+                if((lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj())) && !angajati.get(i).isAdmin()){
                     output+= angajati.get(i).getNume() + "\n";
                 }
             }
             UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
             JOptionPane.showMessageDialog(null, output);
         } catch (RemoteException ex) {
-            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Eroare la preluarea angajatilor!",ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
     
     public static void afisare(){
         try{
             List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
-            List<String> stari = new ArrayList<>();
-            stari.add("In derulare");
-            stari.add("Suspendat");
-            stari.add("Terminat");
             
             model = new ComboTableModel(proiecte);
-            //table.set();
             table.setModel(model);
-            table.setDefaultRenderer(Proiect.class, new ComboCellRenderer());
-            table.setDefaultEditor(String.class, new ComboCellEditor(stari));
+            table.setDefaultRenderer(String.class, new ComboCellRenderer());
+            table.setDefaultEditor(String.class, new ComboCellEditor(combo));
+            
+            
             table.getColumnModel().getColumn(0).setMaxWidth(50);
             
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(RemoteException e){
+            logger.error(e);
+            JOptionPane.showMessageDialog(null, "Eroare");
         }
     }
     
@@ -110,12 +125,13 @@ public class AdminFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -126,17 +142,11 @@ public class AdminFrame extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1060, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 747, Short.MAX_VALUE)
-        );
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jMenu1.setText("Angajat");
 
@@ -163,6 +173,22 @@ public class AdminFrame extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem8);
+
+        jMenuItem11.setText("Angajati Nepontati");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem11);
+
+        jMenuItem10.setText("Adauga pontaj");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem10);
 
         jMenuItem7.setText("Modifica pontaj");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -237,11 +263,11 @@ public class AdminFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1060, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 747, Short.MAX_VALUE)
         );
 
         pack();
@@ -285,7 +311,8 @@ public class AdminFrame extends javax.swing.JFrame {
             Proiect proiect = (Proiect)combo.getSelectedItem();
             new ModificaProiectFrame(proiect).setVisible(true);
         } catch (RemoteException ex) {
-            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
@@ -302,10 +329,15 @@ public class AdminFrame extends javax.swing.JFrame {
                 combo.addItem(p);
             }
             JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
-            Angajat angajat = (Angajat)combo.getSelectedItem();
-            new AlegePontajFrame(angajat,true,null).setVisible(true);
+            if(combo.getSelectedItem()!= null){ 
+                Angajat angajat = (Angajat)combo.getSelectedItem();
+                new AlegePontajFrame(angajat,true,null).setVisible(true);
+            }else{
+                return;
+            }
         } catch (RemoteException ex) {
-            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
         }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -317,6 +349,35 @@ public class AdminFrame extends javax.swing.JFrame {
         new PontajeAngajatFrame().setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        try {
+            JComboBox combo = new JComboBox();
+            List<Angajat> angajati = AngajatController.getInstance().getAll();
+            combo.removeAllItems();
+            for (Angajat p:angajati){
+                combo.addItem(p);
+            }
+            JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
+            if(combo.getSelectedItem()!= null){ 
+                Angajat angajat = (Angajat)combo.getSelectedItem();
+                new ClientFrame(angajat,true).setVisible(true);
+            }else{
+                return;
+            }
+        } catch (RemoteException ex) {
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        logger.info("S-a oprit aplicatia!");
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        new AngajatiLenesiFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -324,6 +385,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -332,6 +395,5 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,16 +11,16 @@ import db.Activitate;
 import db.Angajat;
 import db.Proiect;
 import java.awt.event.MouseEvent;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -33,11 +33,14 @@ public class AlegePontajFrame extends javax.swing.JFrame {
     private DefaultListModel model;
     private ClientFrame client;
     private boolean admin;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AlegePontajFrame.class);
     /**
      * Creates new form ModificaPontajFrame
      */
     public AlegePontajFrame(Angajat angajat,boolean admin,ClientFrame client) {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         this.angajat = angajat;
         this.client = client;
@@ -48,6 +51,7 @@ public class AlegePontajFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle(angajat.getNume());
         
         populareLista();
     }
@@ -65,7 +69,10 @@ public class AlegePontajFrame extends javax.swing.JFrame {
                 model.addElement(a.toString() + " " +DictionarController.getInstance().findByCod(a.getCod())+" "+a.getId());
             }
         } catch (RemoteException ex) {
-            Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error(ex);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
 
@@ -81,6 +88,7 @@ public class AlegePontajFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,23 +107,30 @@ public class AlegePontajFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("(Alege ziua si apasa dublu click pe pontajul dorit)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(79, 79, 79)
                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(310, 310, 310))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -163,7 +178,9 @@ public class AlegePontajFrame extends javax.swing.JFrame {
   
                     } catch (RemoteException ex) {
                         JOptionPane.showMessageDialog(null, "Ceva nu a mers bine!");
-                        Logger.getLogger(AlegePontajFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        logger.error(ex);
+                    }catch(Exception ex){
+                        logger.error(ex);
                     }
                 }
             }
@@ -176,6 +193,7 @@ public class AlegePontajFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

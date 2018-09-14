@@ -6,10 +6,13 @@
 package server.dao;
 
 import db.Angajat;
-import java.util.ArrayList;
+import java.nio.file.Paths;
 import java.util.List;
+import org.apache.log4j.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.apache.log4j.PropertyConfigurator;
+import server.service.AngajatService;
 
 /**
  *
@@ -18,9 +21,12 @@ import javax.persistence.Query;
 public class AngajatDao{
     
     private EntityManager em;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(AngajatDao.class);
     
     public AngajatDao(EntityManager em){
         this.em = em;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
     
     public void adaugaAngajat(Angajat angajat){
@@ -43,11 +49,12 @@ public class AngajatDao{
     }
     
     public List<Angajat> getAll(){
-        Query query = em.createQuery("SELECT a FROM Angajat a ORDER BY a.nume ASC");
+        Query query = em.createQuery("SELECT a FROM Angajat a WHERE a.admin = 0 ORDER BY a.nume ASC");
         try{
             List<Angajat> list = query.getResultList();
             return list;
         }catch(Exception e){
+            logger.error(e);
             return null;
         }
     }
@@ -59,7 +66,7 @@ public class AngajatDao{
         try{
             return query.getResultList();
         }catch(Exception e){
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }

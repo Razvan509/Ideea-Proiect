@@ -13,10 +13,16 @@ import db.Proiect;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.nio.file.Paths;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -25,13 +31,17 @@ import javax.swing.JTable;
 public class ProiecteSuspendateFrame extends javax.swing.JFrame {
     
     private static ComboTableModel model;
+    private static JComboBox combo;
     private static JTable table;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final Logger logger = Logger.getLogger(ProiecteSuspendateFrame.class);
     
     /**
      * Creates new form ProiecteSuspendateFrame
      */
     public ProiecteSuspendateFrame() {
         initComponents();
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         table =  new JTable();
         
         setTitle("Proiecte suspendate!");
@@ -40,6 +50,13 @@ public class ProiecteSuspendateFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
         
+        
+        
+        String[] stari = new String[3];
+        stari[0]="In derulare";
+        stari[1]="Suspendat";
+        stari[2]="Terminat";
+        combo = new JComboBox(stari);
         afisare();
         
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -62,20 +79,20 @@ public class ProiecteSuspendateFrame extends javax.swing.JFrame {
     public static void afisare(){
         try{
             List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(1);
-            List<String> stari = new ArrayList<>();
-            stari.add("In derulare");
-            stari.add("Suspendat");
-            stari.add("Terminat");
+            
             
             model = new ComboTableModel(proiecte);
             //table.set();
             table.setModel(model);
-            table.setDefaultRenderer(Proiect.class, new ComboCellRenderer());
-            table.setDefaultEditor(String.class, new ComboCellEditor(stari));
+            table.setDefaultRenderer(String.class, new ComboCellRenderer());
+            table.setDefaultEditor(String.class, new ComboCellEditor(combo));
             table.getColumnModel().getColumn(0).setMaxWidth(50);
 
-        }catch(Exception e){
-            e.printStackTrace();
+        }catch(RemoteException e){
+            logger.error(e);
+            JOptionPane.showMessageDialog(null, "Eroare");
+        }catch(Exception ex){
+            logger.error(ex);
         }
     }
 

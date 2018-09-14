@@ -7,13 +7,12 @@ package ComboCellProiect;
 
 import client.controller.ProiectController;
 import db.Proiect;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -22,10 +21,13 @@ import javax.swing.table.AbstractTableModel;
 public class ComboTableModel extends AbstractTableModel{
     private String[] columnNames = {"Nr. crt","Nume","Adresa","Buget","Ore alocate","Ore lucrate",
                 "Procent ore","Corpuri","Stare"};
-    private List<Proiect> proiecte = new ArrayList<>();
+    private List<Proiect> proiecte;
+    private final String pathToLog4j = Paths.get("./log4j.properties").toString();
+    public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ComboTableModel.class);
     
     public ComboTableModel(List<Proiect> proiecte){
         this.proiecte = proiecte;
+        PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
     }
 
     @Override
@@ -33,6 +35,7 @@ public class ComboTableModel extends AbstractTableModel{
         return proiecte.size();
     }
     
+    @Override
     public String getColumnName(int column) {
         return columnNames[column];
     }
@@ -43,16 +46,16 @@ public class ComboTableModel extends AbstractTableModel{
     }
     
     @Override
-    public Class getColumnClass(int column) {
+    public Class<?> getColumnClass(int column) {
         return getValueAt(0, column).getClass();
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         try {
             Proiect proiect = proiecte.get(rowIndex);
             long ore;
-            
+            //System.out.println("getValueAt" + proiect.getNume());
             switch(columnIndex){
                 case 0:
                     return rowIndex+1;
@@ -82,18 +85,20 @@ public class ComboTableModel extends AbstractTableModel{
                         case 2: return "Terminat";
                     }
                 }
+                default:
+                    return new Object();
             }
         } catch (RemoteException ex) {
-            Logger.getLogger(ComboTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            logger.error("Eroare la luarea orelor pentru un proiect!", ex);
             return null;
         }
-        return null;
+        //return null;
     }
     
     @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
         Proiect proiect = proiecte.get(rowIndex);
-         
+        System.out.println("setValueAt"); 
         if (columnIndex==7){
             switch((String)value){
                 case "In derulare":{
@@ -113,8 +118,13 @@ public class ComboTableModel extends AbstractTableModel{
         }
     }
     
+    @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         return columnIndex == 8;
-    }  
+    } 
+    
+    public void updateProiecte(List<Proiect> proiecte){
+        this.proiecte = proiecte;
+    }
     
 }
