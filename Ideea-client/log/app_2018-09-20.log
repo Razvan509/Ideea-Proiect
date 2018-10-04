@@ -1,0 +1,491 @@
+ERROR   2018-09-20 10:41:28,649 [AWT-EventQueue-0] client.gui.LoginFrame  86 - admin a incercat sa se conecteze! 
+java.rmi.ConnectException: Connection refused to host: 192.168.153.5; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy0.findByUsernameAndPass(Unknown Source)
+	at client.controller.AngajatController.findByUsernameAndPass(AngajatController.java:49)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:58)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:190)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:23)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 56 more
+INFO    2018-09-20 10:42:19,338 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-20 10:42:29,440 [AWT-EventQueue-0] client.gui.AdminFrame  299 - S-a oprit aplicatia!
+INFO    2018-09-20 10:42:42,618 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 10:43:00,679 [AWT-EventQueue-0] client.gui.ClientFrame  1016 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 10:43:27,357 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-20 10:43:30,231 [AWT-EventQueue-0] client.gui.AdminFrame  299 - S-a oprit aplicatia!
+INFO    2018-09-20 10:43:32,816 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 10:43:46,910 [AWT-EventQueue-0] client.gui.AlegePontajFrame  183 - java.lang.IllegalArgumentException: Object: null is not a known entity type.
+INFO    2018-09-20 10:43:53,566 [AWT-EventQueue-0] client.gui.ClientFrame  1016 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 10:44:09,912 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 10:44:38,685 [AWT-EventQueue-0] client.gui.ClientFrame  1016 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 10:49:04,638 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-20 10:49:33,933 [AWT-EventQueue-0] client.gui.AdminFrame  384 - S-a oprit aplicatia!
+INFO    2018-09-20 11:26:39,302 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-20 11:26:49,818 [AWT-EventQueue-0] client.gui.AdminFrame  299 - S-a oprit aplicatia!
+INFO    2018-09-20 11:26:53,235 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:30:19,517 [AWT-EventQueue-0] client.gui.ClientFrame  1016 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 11:30:28,835 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Theodorescu Mihael a pornit aplicatia!
+INFO    2018-09-20 11:30:53,895 [AWT-EventQueue-0] client.gui.ClientFrame  1002 - S-a oprit aplicatia!
+INFO    2018-09-20 11:31:51,476 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:33:13,438 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:33:40,177 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:34:24,596 [AWT-EventQueue-0] client.gui.ClientFrame  52 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:40:14,783 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:41:09,494 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 11:50:07,652 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:51:51,327 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 11:53:41,836 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:54:42,030 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 11:57:08,242 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 11:57:24,885 [AWT-EventQueue-0] client.gui.ClientFrame  1004 - S-a oprit aplicatia!
+INFO    2018-09-20 12:02:21,216 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:02:27,683 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:05:29,040 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-20 12:05:43,378 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:08:20,361 [AWT-EventQueue-0] client.gui.AdminFrame  384 - S-a oprit aplicatia!
+INFO    2018-09-20 12:08:21,976 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:15:39,480 [AWT-EventQueue-0] client.gui.AdminFrame  48 - A pornit aplicatia!
+INFO    2018-09-20 12:15:48,113 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:16:19,866 [AWT-EventQueue-0] client.gui.AdminFrame  301 - S-a oprit aplicatia!
+INFO    2018-09-20 12:16:23,047 [AWT-EventQueue-0] client.gui.AdminFrame  48 - A pornit aplicatia!
+INFO    2018-09-20 12:18:13,927 [AWT-EventQueue-0] client.gui.AdminFrame  386 - S-a oprit aplicatia!
+INFO    2018-09-20 12:18:15,743 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:18:26,567 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 12:18:34,293 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:19:22,436 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 12:19:23,251 [AWT-EventQueue-0] client.gui.ClientFrame  1018 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:21:34,207 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 12:21:42,334 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:22:37,115 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:22:42,632 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 12:23:32,344 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:23:39,844 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 12:24:58,679 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 12:25:02,009 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:26:08,149 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 12:26:23,975 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:28:41,510 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 12:28:43,534 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 12:29:54,319 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 12:30:10,909 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 12:34:45,621 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-09-20 12:35:19,551 [AWT-EventQueue-0] client.gui.LoginFrame  90 - java.lang.NullPointerException
+INFO    2018-09-20 12:38:27,561 [AWT-EventQueue-0] client.gui.AdminFrame  302 - S-a oprit aplicatia!
+INFO    2018-09-20 13:21:27,189 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 13:21:35,561 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 13:22:03,954 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 13:22:10,500 [AWT-EventQueue-0] client.gui.ClientFrame  1005 - S-a oprit aplicatia!
+INFO    2018-09-20 09:45:48,958 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 09:45:56,563 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 17:35:46,722 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-20 17:36:09,447 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 17:36:56,952 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 17:36:58,862 [AWT-EventQueue-0] client.gui.AdminFrame  387 - S-a oprit aplicatia!
+INFO    2018-09-20 18:00:21,704 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:00:35,068 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Ivan Alexandra a oprit aplicatia!
+INFO    2018-09-20 18:00:42,926 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 18:01:13,250 [AWT-EventQueue-0] client.gui.ClientFrame  1019 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 18:03:53,037 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 18:03:53,085 [AWT-EventQueue-0] client.gui.ClientFrame  184 - Melinceanu Cristiana are eroarea: 
+java.lang.NullPointerException
+	at client.gui.ClientFrame.jComboBox1ActionPerformed(ClientFrame.java:937)
+	at client.gui.ClientFrame.access$100(ClientFrame.java:37)
+	at client.gui.ClientFrame$2.actionPerformed(ClientFrame.java:307)
+	at javax.swing.JComboBox.fireActionEvent(JComboBox.java:1258)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1332)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.DefaultComboBoxModel.addElement(DefaultComboBoxModel.java:131)
+	at javax.swing.JComboBox.addItem(JComboBox.java:716)
+	at client.gui.ClientFrame.populareComboProiect(ClientFrame.java:178)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:69)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:81)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:191)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:141)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+ERROR   2018-09-20 18:03:53,092 [AWT-EventQueue-0] client.gui.LoginFrame  90 - java.lang.NullPointerException
+INFO    2018-09-20 18:03:57,401 [AWT-EventQueue-0] client.gui.ClientFrame  1024 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 18:04:48,706 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 18:04:48,757 [AWT-EventQueue-0] client.gui.ClientFrame  184 - Melinceanu Cristiana are eroarea: 
+java.lang.NullPointerException
+	at client.gui.ClientFrame.jComboBox1ActionPerformed(ClientFrame.java:937)
+	at client.gui.ClientFrame.access$100(ClientFrame.java:37)
+	at client.gui.ClientFrame$2.actionPerformed(ClientFrame.java:307)
+	at javax.swing.JComboBox.fireActionEvent(JComboBox.java:1258)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1332)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.DefaultComboBoxModel.addElement(DefaultComboBoxModel.java:131)
+	at javax.swing.JComboBox.addItem(JComboBox.java:716)
+	at client.gui.ClientFrame.populareComboProiect(ClientFrame.java:178)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:69)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:81)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:191)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:141)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+ERROR   2018-09-20 18:04:48,764 [AWT-EventQueue-0] client.gui.LoginFrame  90 - java.lang.NullPointerException
+INFO    2018-09-20 18:04:52,415 [AWT-EventQueue-0] client.gui.ClientFrame  1024 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 18:06:43,723 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 18:06:43,782 [AWT-EventQueue-0] client.gui.ClientFrame  184 - Melinceanu Cristiana are eroarea: 
+java.lang.NullPointerException
+	at client.gui.ClientFrame.jComboBox1ActionPerformed(ClientFrame.java:937)
+	at client.gui.ClientFrame.access$100(ClientFrame.java:37)
+	at client.gui.ClientFrame$2.actionPerformed(ClientFrame.java:307)
+	at javax.swing.JComboBox.fireActionEvent(JComboBox.java:1258)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1332)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.DefaultComboBoxModel.addElement(DefaultComboBoxModel.java:131)
+	at javax.swing.JComboBox.addItem(JComboBox.java:716)
+	at client.gui.ClientFrame.populareComboProiect(ClientFrame.java:178)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:69)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:81)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:191)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:141)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2018-09-20 18:07:22,959 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 18:07:23,032 [AWT-EventQueue-0] client.gui.ClientFrame  184 - Melinceanu Cristiana are eroarea: 
+java.lang.NullPointerException
+	at client.gui.ClientFrame.jComboBox1ActionPerformed(ClientFrame.java:937)
+	at client.gui.ClientFrame.access$100(ClientFrame.java:37)
+	at client.gui.ClientFrame$2.actionPerformed(ClientFrame.java:307)
+	at javax.swing.JComboBox.fireActionEvent(JComboBox.java:1258)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1332)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.DefaultComboBoxModel.addElement(DefaultComboBoxModel.java:131)
+	at javax.swing.JComboBox.addItem(JComboBox.java:716)
+	at client.gui.ClientFrame.populareComboProiect(ClientFrame.java:178)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:69)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:81)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:191)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:141)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2018-09-20 18:09:38,795 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+ERROR   2018-09-20 18:09:38,850 [AWT-EventQueue-0] client.gui.ClientFrame  185 - Melinceanu Cristiana are eroarea: 
+java.lang.NullPointerException
+	at client.gui.ClientFrame.jComboBox1ActionPerformed(ClientFrame.java:940)
+	at client.gui.ClientFrame.access$100(ClientFrame.java:37)
+	at client.gui.ClientFrame$2.actionPerformed(ClientFrame.java:310)
+	at javax.swing.JComboBox.fireActionEvent(JComboBox.java:1258)
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1332)
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:118)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:93)
+	at javax.swing.DefaultComboBoxModel.addElement(DefaultComboBoxModel.java:131)
+	at javax.swing.JComboBox.addItem(JComboBox.java:716)
+	at client.gui.ClientFrame.populareComboProiect(ClientFrame.java:179)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:69)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:81)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:191)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:141)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2018-09-20 18:09:42,185 [AWT-EventQueue-0] client.gui.ClientFrame  1027 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 18:10:16,030 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 18:11:08,057 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 18:12:19,191 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 18:12:35,341 [AWT-EventQueue-0] client.gui.ClientFrame  1027 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-20 18:13:07,597 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 18:13:32,269 [AWT-EventQueue-0] client.gui.ClientFrame  1013 - S-a oprit aplicatia!
+INFO    2018-09-20 18:15:46,949 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:15:58,416 [AWT-EventQueue-0] client.gui.ClientFrame  1027 - Ivan Alexandra a oprit aplicatia!
+INFO    2018-09-20 18:17:28,136 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:17:34,432 [AWT-EventQueue-0] client.gui.ClientFrame  1029 - Ivan Alexandra a oprit aplicatia!
+INFO    2018-09-20 18:19:16,211 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:21:16,998 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:21:22,332 [AWT-EventQueue-0] client.gui.ClientFrame  1030 - Ivan Alexandra a oprit aplicatia!
+INFO    2018-09-20 18:22:23,997 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Ivan Alexandra a pornit aplicatia!
+INFO    2018-09-20 18:22:37,050 [AWT-EventQueue-0] client.gui.ClientFrame  1021 - S-a oprit aplicatia!
+INFO    2018-09-20 19:14:37,150 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-20 19:14:44,323 [AWT-EventQueue-0] client.gui.ClientFrame  1035 - Melinceanu Cristiana a oprit aplicatia!

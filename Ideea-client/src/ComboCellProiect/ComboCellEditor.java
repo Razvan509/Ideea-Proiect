@@ -5,6 +5,7 @@
  */
 package ComboCellProiect;
 
+import Enum.TopicsEnum;
 import client.controller.ProiectController;
 import client.gui.AdminFrame;
 import client.gui.ProiecteSuspendateFrame;
@@ -21,6 +22,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationAsyncController;
+import ro.top.service.ClientNotificationController;
 
 /**
  *
@@ -89,9 +92,9 @@ public class ComboCellEditor extends AbstractCellEditor
                         index2=2;
                         break;
                 }
-
                 List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(index2);
                 proiecte.get(index).setStare(c.getSelectedIndex());
+                ClientNotificationAsyncController.getInstance().postDataNotification(proiecte.get(index), TopicsEnum.PROIECT_STARE_MODIFICAT);
                 ProiectController.getInstance().modifyProject(proiecte.get(index));
                 AdminFrame.afisare();
                 if (ProiecteSuspendateFrame.isVisi()) ProiecteSuspendateFrame.afisare();

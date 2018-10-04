@@ -5,6 +5,7 @@
  */
 package client.gui;
 
+import Enum.TopicsEnum;
 import client.controller.ActivitateController;
 import client.controller.DictionarController;
 import db.Activitate;
@@ -21,6 +22,7 @@ import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationAsyncController;
 
 /**
  *
@@ -165,14 +167,16 @@ public class AlegePontajFrame extends javax.swing.JFrame {
                                 options, null);
                         if(option == 0){
                             Proiect proiect = activitate.getProiect();
-                            new ModificaPontajFrame(angajat, proiect, activitate,false,client).setVisible(true);
+                            new ModificaPontajFrame(angajat, proiect, activitate,admin,client).setVisible(true);
                             dispose();
                         }else{
                             if (option == 1){
                                 ActivitateController.getInstance().deleteActivity(activitate);
                                 JOptionPane.showMessageDialog(null, "Pontaj sters");
+                                ClientNotificationAsyncController.getInstance().postNotification(TopicsEnum.PROIECT_ORA_MODIFICAT);
                                 if(!admin) client.populareLista();
-                                dispose();
+                                //dispose();
+                                populareLista();
                             }
                         }
   

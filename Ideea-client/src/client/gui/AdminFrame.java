@@ -8,6 +8,7 @@ package client.gui;
 import ComboCellProiect.ComboCellEditor;
 import ComboCellProiect.ComboCellRenderer;
 import ComboCellProiect.ComboTableModel;
+import Enum.TopicsEnum;
 import client.controller.ActivitateController;
 import client.controller.AngajatController;
 import client.controller.ProiectController;
@@ -19,7 +20,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -28,12 +28,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationController;
+import ro.top.subscriber.Subscriber;
 
 /**
  *
  * @author razvan
  */
-public class AdminFrame extends javax.swing.JFrame {
+public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     
     private static ComboTableModel model;
     private static JComboBox combo;
@@ -66,6 +68,7 @@ public class AdminFrame extends javax.swing.JFrame {
         table.setName("In derulare");
         
         
+        
         JScrollPane scrollpane = new JScrollPane(table);
         scrollpane.setPreferredSize(new Dimension(500, 700));
         scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
@@ -75,7 +78,7 @@ public class AdminFrame extends javax.swing.JFrame {
         try {
             List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
             
-            
+            ClientNotificationController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
             Calendar today = Calendar.getInstance();
             today.add(Calendar.DATE,-5);
             List<Angajat> angajati = AngajatController.getInstance().getAngajatiByStare("activ");
@@ -112,6 +115,7 @@ public class AdminFrame extends javax.swing.JFrame {
         }catch(RemoteException e){
             logger.error(e);
             JOptionPane.showMessageDialog(null, "Eroare");
+            
         }
     }
     
@@ -296,6 +300,7 @@ public class AdminFrame extends javax.swing.JFrame {
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         dispose();
+        logger.info("S-a oprit aplicatia!");
         new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
@@ -304,12 +309,19 @@ public class AdminFrame extends javax.swing.JFrame {
             JComboBox combo = new JComboBox();
             List<Proiect> proiecte = ProiectController.getInstance().getAll();
             combo.removeAllItems();
+            combo.addItem("Selecteaza un proiect!");
             for (Proiect p:proiecte){
                 combo.addItem(p);
             }
             JOptionPane.showMessageDialog(null, combo,"Ce proiect doriti sa modificati?",JOptionPane.QUESTION_MESSAGE);
-            Proiect proiect = (Proiect)combo.getSelectedItem();
+            
+            if(combo.getSelectedItem()!= "Selecteaza un proiect!"){ 
+                Proiect proiect = (Proiect)combo.getSelectedItem();
             new ModificaProiectFrame(proiect).setVisible(true);
+            }else{
+                return;
+            }
+            
         } catch (RemoteException ex) {
             logger.error(ex);
             JOptionPane.showMessageDialog(null, "Eroare");
@@ -325,11 +337,12 @@ public class AdminFrame extends javax.swing.JFrame {
             JComboBox combo = new JComboBox();
             List<Angajat> angajati = AngajatController.getInstance().getAll();
             combo.removeAllItems();
+            combo.addItem("Selecteaza un angajat!");
             for (Angajat p:angajati){
                 combo.addItem(p);
             }
             JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
-            if(combo.getSelectedItem()!= null){ 
+            if(combo.getSelectedItem()!= "Selecteaza un angajat!"){ 
                 Angajat angajat = (Angajat)combo.getSelectedItem();
                 new AlegePontajFrame(angajat,true,null).setVisible(true);
             }else{
@@ -354,11 +367,12 @@ public class AdminFrame extends javax.swing.JFrame {
             JComboBox combo = new JComboBox();
             List<Angajat> angajati = AngajatController.getInstance().getAll();
             combo.removeAllItems();
+            combo.addItem("Selectati un angajat!");
             for (Angajat p:angajati){
                 combo.addItem(p);
             }
             JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
-            if(combo.getSelectedItem()!= null){ 
+            if(combo.getSelectedItem()!= "Selectati un angajat!"){ 
                 Angajat angajat = (Angajat)combo.getSelectedItem();
                 new ClientFrame(angajat,true).setVisible(true);
             }else{
@@ -375,7 +389,7 @@ public class AdminFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        new AngajatiLenesiFrame().setVisible(true);
+        new AngajatiNepontatiFrame().setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
 
@@ -396,4 +410,19 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void newNotification(String string) {
+        switch(string){
+            case TopicsEnum.PROIECT_ORA_MODIFICAT:{
+                table.repaint();
+                System.out.println("Daca nu dai repaint, te bat sa moara mama!");
+            }break;
+        }
+    }
+
+    @Override
+    public void newDataNotification(Object o, String string) {
+        
+    }
 }

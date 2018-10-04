@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.main.NotificationServer;
 import server.service.ActivitateService;
 import server.service.AngajatService;
 import server.service.DictionarService;
@@ -31,7 +32,7 @@ public class ServerFrame extends javax.swing.JFrame {
      * Creates new form ServerFrame
      */
     public ServerFrame() {
-        initComponents();
+        //initComponents();
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         
         logger.info("A pornit serverul!");
@@ -119,6 +120,7 @@ public class ServerFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         logger.info("S-a orpit serverul!");
+        NotificationServer.stop(evt);
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -134,10 +136,14 @@ public class ServerFrame extends javax.swing.JFrame {
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         logger.info("S-a orpit serverul!");
+        NotificationServer.stop();
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         logger.info("S-a orpit serverul!");
+        NotificationServer.stop();
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
 

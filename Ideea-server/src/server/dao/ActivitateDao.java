@@ -107,4 +107,10 @@ public class ActivitateDao {
             return null;
         }
     }
+    
+    public List<Activitate> getAll(){
+        Query q = em.createQuery("SELECT a FROM Activitate a");
+        
+        return q.getResultList();
+    }
 }

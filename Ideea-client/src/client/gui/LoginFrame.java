@@ -6,12 +6,15 @@
 package client.gui;
 
 import client.controller.AngajatController;
+import client.controller.IpNumber;
 import db.Angajat;
 import javax.swing.JOptionPane;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationAsyncController;
+import ro.top.service.ClientNotificationController;
 
 
 /**
@@ -51,8 +54,10 @@ public class LoginFrame extends javax.swing.JFrame {
         String username = jTextField1.getText();
         String password = new String(jPasswordField1.getPassword());
         username = username.replaceAll("\\s+","");
+        
        
         try{
+           System.setProperty("java.rmi.server.hostname", ClientNotificationController.getLocalIp());
            Angajat angajat = AngajatController.getInstance().findByUsernameAndPass(username, password);
            
            if (angajat == null){
@@ -71,6 +76,8 @@ public class LoginFrame extends javax.swing.JFrame {
                         return;
                     }
                     dispose();
+                    
+                    ClientNotificationAsyncController.getInstance(IpNumber.getIp()+":4445",4446);
                     if (angajat.isAdmin()){
                         new AdminFrame(angajat);
                     }else{
@@ -80,11 +87,12 @@ public class LoginFrame extends javax.swing.JFrame {
                 }
             }
         }catch(RemoteException e){
-            logger.error(e);
-            JOptionPane.showMessageDialog(null, "Eroare la logare!");
+            logger.error(username+" a incercat sa se conecteze! ",e);
+            JOptionPane.showMessageDialog(null, "Eroare la conectarea la server!");
         }catch(Exception ex){
             logger.error(ex);
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Eroare");
         }
     }
 

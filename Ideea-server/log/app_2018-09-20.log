@@ -1,0 +1,4 @@
+INFO    2018-09-20 10:41:08,558 [main] server.gui.ServerFrame  44 - A pornit serverul!
+INFO    2018-09-20 10:42:08,050 [main] server.gui.ServerFrame  44 - A pornit serverul!
+ERROR   2018-09-20 10:43:44,805 [RMI TCP Connection(6)-192.168.153.135] server.dao.ActivitateDao  72 - javax.persistence.NoResultException: getSingleResult() did not retrieve any entities.
+INFO    2018-09-20 17:34:21,405 [main] server.gui.ServerFrame  44 - A pornit serverul!

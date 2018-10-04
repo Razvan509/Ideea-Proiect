@@ -369,18 +369,20 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
                 }
                 activitate.setDataPontaj(data);
             }else{
-                if (data.after(today.getTime())){
-                    JOptionPane.showMessageDialog(null, "Viitorul este necunoscut!");
-                    return;
-                }else{
-                    today.add(Calendar.DATE,-8);
-                    if(data.before(today.getTime())){
-                        JOptionPane.showMessageDialog(null, "Data introdusa nu este valida! Poti modifica un pontaj cu maxim 7 zile in urma!");
-                        today = Calendar.getInstance();
+                if(admin){
+                    if (data.after(today.getTime())){
+                        JOptionPane.showMessageDialog(null, "Viitorul este necunoscut!");
                         return;
-                    }
-                    else{
-                        activitate.setDataPontaj(data);
+                    }else{
+                        today.add(Calendar.DATE,-8);
+                        if(data.before(today.getTime())){
+                            JOptionPane.showMessageDialog(null, "Data introdusa nu este valida! Poti modifica un pontaj cu maxim 7 zile in urma!");
+                            today = Calendar.getInstance();
+                            return;
+                        }
+                        else{
+                            activitate.setDataPontaj(data);
+                        }
                     }
                 }
             }

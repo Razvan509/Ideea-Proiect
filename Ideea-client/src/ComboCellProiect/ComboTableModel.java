@@ -5,29 +5,46 @@
  */
 package ComboCellProiect;
 
+import Enum.TopicsEnum;
 import client.controller.ProiectController;
 import db.Proiect;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationAsyncController;
+import ro.top.service.ClientNotificationController;
+import ro.top.subscriber.Subscriber;
 
 /**
  *
  * @author Razvan
  */
-public class ComboTableModel extends AbstractTableModel{
+public class ComboTableModel extends AbstractTableModel implements Subscriber{
     private String[] columnNames = {"Nr. crt","Nume","Adresa","Buget","Ore alocate","Ore lucrate",
                 "Procent ore","Corpuri","Stare"};
     private List<Proiect> proiecte;
     private final String pathToLog4j = Paths.get("./log4j.properties").toString();
     public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ComboTableModel.class);
+    private List<Long> oreLucrate;
     
     public ComboTableModel(List<Proiect> proiecte){
         this.proiecte = proiecte;
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        oreLucrate = new ArrayList<>();
+        for(int i=0;i<proiecte.size();i++){
+            oreLucrate.add(-1L);
+        }
+        try {
+            ClientNotificationController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
+        } catch (Exception ex) {
+            logger.error(ex);
+        }
     }
 
     @Override
@@ -68,9 +85,15 @@ public class ComboTableModel extends AbstractTableModel{
                 case 4:
                     return proiect.getNrOreAlocate();
                 case 5:
-                    return ProiectController.getInstance().oreProiect(proiect);
+                    if(oreLucrate.get(rowIndex)==-1){
+                        oreLucrate.set(rowIndex,ProiectController.getInstance().oreProiect(proiect));
+                    }
+                    return oreLucrate.get(rowIndex);
                 case 6:{
-                    ore = ProiectController.getInstance().oreProiect(proiect);
+                    if(oreLucrate.get(rowIndex)==-1){
+                        oreLucrate.set(rowIndex, ProiectController.getInstance().oreProiect(proiect));
+                    }
+                    ore = oreLucrate.get(rowIndex);
                     DecimalFormat numberFormat = new DecimalFormat("0.000");
                     if (proiect.getNrOreAlocate()>0)
                         return numberFormat.format((ore*100.0)/proiect.getNrOreAlocate()) + " %";
@@ -125,6 +148,27 @@ public class ComboTableModel extends AbstractTableModel{
     
     public void updateProiecte(List<Proiect> proiecte){
         this.proiecte = proiecte;
+        //oreLucrate.clear();
+        for(int i=0;i<proiecte.size();i++){
+            oreLucrate.set(i,-1L);
+        }
+    }
+
+    @Override
+    public void newNotification(String string) {
+        switch(string){
+            case TopicsEnum.PROIECT_ORA_MODIFICAT:{
+                for(int i=0;i<proiecte.size();i++){
+                    oreLucrate.set(i,-1L);
+                }
+                System.out.println("ceva");
+            }break;
+        }
+    }
+
+    @Override
+    public void newDataNotification(Object o, String string) {
+        
     }
     
 }

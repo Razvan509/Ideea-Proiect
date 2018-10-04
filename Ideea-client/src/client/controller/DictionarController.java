@@ -20,7 +20,8 @@ public class DictionarController {
     
     private DictionarController(){
         try{
-            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),4444);
+            //System.setProperty("java.rmi.server.hostname",IpNumber.getIp());
+            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),IpNumber.getPort());
             //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             dictionarService = (IDictionarService) registry.lookup("dictionarservice");
         }catch(Exception e){

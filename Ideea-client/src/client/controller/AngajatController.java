@@ -23,7 +23,8 @@ public class AngajatController {
     private AngajatController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),4444);
+            //System.setProperty("java.rmi.server.hostname",IpNumber.getIp());
+            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),IpNumber.getPort());
             //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             angajatService = (IAngajatService) registry.lookup("angajatservice");
         }catch(Exception e){

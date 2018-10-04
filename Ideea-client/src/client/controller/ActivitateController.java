@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import rmi.IActivitateService;
+import ro.top.service.ClientNotificationController;
 
 /**
  *
@@ -27,7 +28,8 @@ public class ActivitateController {
     private ActivitateController(){
         
         try{
-            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),4444);
+            //System.setProperty("java.rmi.server.hostname",IpNumber.getIp());
+            Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),IpNumber.getPort());
             //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             activitateService = (IActivitateService) registry.lookup("activitateservice");
         }catch(Exception e){

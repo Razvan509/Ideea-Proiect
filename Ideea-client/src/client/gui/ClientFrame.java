@@ -5,10 +5,10 @@
  */
 package client.gui;
 
+import Enum.TopicsEnum;
 import client.controller.ActivitateController;
 import client.controller.DictionarController;
 import client.controller.ProiectController;
-import static client.gui.AdminFrame.logger;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
@@ -25,12 +25,16 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
+import ro.top.service.ClientNotificationAsyncController;
+import ro.top.service.ClientNotificationController;
+import ro.top.subscriber.Subscriber;
+
 
 /**
  *
  * @author razvan
  */
-public class ClientFrame extends javax.swing.JFrame {
+public class ClientFrame extends javax.swing.JFrame implements Subscriber{
 
     public Angajat angajat;
     private int cod;
@@ -43,12 +47,14 @@ public class ClientFrame extends javax.swing.JFrame {
     private final String pathToLog4j = Paths.get("./log4j.properties").toString();
     public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ClientFrame.class);
     
-    public ClientFrame(Angajat angajat,boolean admin) {
+    public ClientFrame(Angajat angajat,boolean admin){
         initComponents();
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
-        logger.info("A pornit aplicatia!");
+        
         jLabel10.setText("");
         jLabel8.setText("");
+        
+        
         
         this.angajat = angajat;
         this.admin = admin;
@@ -101,9 +107,13 @@ public class ClientFrame extends javax.swing.JFrame {
         
         //jDateChooser1
         try {
+            logger.info(angajat.getNume() + " a pornit aplicatia! " + ClientNotificationController.getLocalIp());
             //jButton1.getInputMap().put(KeyStroke.getKeyStroke("ENTER"), "COPY");
-            
+            ClientNotificationAsyncController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
+            ClientNotificationAsyncController.getInstance().addSubscriber(TopicsEnum.PROIECT_STARE_MODIFICAT, this);
+            logger.info(angajat.getNume()+" a dat subscribe!");
             Activitate lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
+            logger.info(angajat.getNume()+" si-a luat ultima activitate!");
             today.add(Calendar.DATE,-2);
             if(lastActiv==null){
                 JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
@@ -116,14 +126,17 @@ public class ClientFrame extends javax.swing.JFrame {
                 }
             }
             
-            if(lastActiv!=null)
+            if(lastActiv!=null){
                 popularePontaj(lastActiv);
+                proiect = lastActiv.getProiect();
+            }
             
         } catch (RemoteException ex) {
-            logger.error(ex);
-            JOptionPane.showMessageDialog(null, "Eroare");
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
+            JOptionPane.showMessageDialog(null, "Eroare la conectare");
         }catch(Exception ex){
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
+            
         }
         today = Calendar.getInstance();
     }
@@ -133,10 +146,16 @@ public class ClientFrame extends javax.swing.JFrame {
         jComboBox2.setSelectedIndex((lastActiv.getCod()/10000)-11);
         int index1 = (lastActiv.getCod()/100)%100;
         int index2 = lastActiv.getCod()%100;
-        if(index1!=0) {
-            jComboBox3.setSelectedIndex(index1-1);
-            jComboBox3.setVisible(true);
-            jLabel3.setVisible(true);
+        int index3 = lastActiv.getCod()/10000;
+        if(index1!=0 || index3!=11) {
+            if(index3 == 15){
+                jComboBox3.setVisible(false);
+                jLabel3.setVisible(false);
+            }else{
+                jComboBox3.setSelectedIndex(index1-1);
+                jComboBox3.setVisible(true);
+                jLabel3.setVisible(true);
+            }
         }else{
             jComboBox2.setVisible(false);
             jLabel2.setVisible(false);
@@ -167,27 +186,30 @@ public class ClientFrame extends javax.swing.JFrame {
     public void populareComboProiect(){
         try {
             List<Proiect> lista = ProiectController.getInstance().getAllProjectsByStare(0);
+            
             for(Proiect p : lista){
                 jComboBox1.addItem(p.getNume());
             }
         } catch (RemoteException ex) {
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
             JOptionPane.showMessageDialog(null, "Eroare");
         }catch(Exception ex){
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
         }
     }
     
     public void populareComboEtaj(){
         jComboBox6.removeAllItems();
-        for(int i=-proiect.getNrEtajeSubsol();i<=proiect.getNrEtaje();i++){
-            if(i<0){
-                jComboBox6.addItem("subsol "+i);
-            }else{
-                if(i==0){
-                    jComboBox6.addItem("parter");
+        if(proiect != null){
+            for(int i=-proiect.getNrEtajeSubsol();i<=proiect.getNrEtaje();i++){
+                if(i<0){
+                    jComboBox6.addItem("subsol "+i);
                 }else{
-                    jComboBox6.addItem("etaj "+i);
+                    if(i==0){
+                        jComboBox6.addItem("parter");
+                    }else{
+                        jComboBox6.addItem("etaj "+i);
+                    }
                 }
             }
         }
@@ -238,10 +260,10 @@ public class ClientFrame extends javax.swing.JFrame {
             jLabel10.setText(sumaMinute+" minute");
             
         } catch (RemoteException ex) {
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
             JOptionPane.showMessageDialog(null, "Eroare");
         }catch(Exception ex){
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
         }
     }
 
@@ -632,6 +654,8 @@ public class ClientFrame extends javax.swing.JFrame {
             if (dialogResult == JOptionPane.YES_OPTION){
                 if(DictionarController.getInstance().findByCod(cod) != null){
                     ActivitateController.getInstance().adaugaActivitate(pontaj);
+                    ClientNotificationAsyncController.getInstance().postNotification(TopicsEnum.PROIECT_ORA_MODIFICAT);
+                    //JOptionPane.showMessageDialog(null, "Bau!");
                 }else{
                     JOptionPane.showMessageDialog(null, "Ceva nu a mers bine, mai incercati o data!");
                     logger.error("Un cod s-a generat prost!" + cod);
@@ -642,10 +666,10 @@ public class ClientFrame extends javax.swing.JFrame {
         }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(null, "Nu ati introdus un numar!");
         }catch (RemoteException ex) {
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
             JOptionPane.showMessageDialog(null, "Eroare");
         }catch(Exception ex){
-            logger.error(ex);
+            logger.error(angajat.getNume() + " are eroarea: ",ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -925,6 +949,11 @@ public class ClientFrame extends javax.swing.JFrame {
             jLabel2.setVisible(true);
             jLabel3.setVisible(true);
             
+            if(jComboBox2.isVisible() && jComboBox2.getSelectedIndex()==4){
+               jLabel3.setVisible(false);
+               jComboBox3.setVisible(false);
+            }
+            
             try {
                 jComboBox5.removeAllItems();
                 jTextArea1.setText(null);
@@ -977,7 +1006,7 @@ public class ClientFrame extends javax.swing.JFrame {
             try {
                 proiect = ProiectController.getInstance().findByNume((String)jComboBox1.getSelectedItem());
             } catch (RemoteException ex) {
-                logger.error(ex);
+                logger.error(angajat.getNume() + " are eroarea: ",ex);
             }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -992,6 +1021,8 @@ public class ClientFrame extends javax.swing.JFrame {
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         dispose();
+        //ClientNotificationAsyncController.getInstance().close();
+        logger.info("S-a oprit aplicatia!");
         new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
@@ -1005,7 +1036,8 @@ public class ClientFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        logger.info("S-a oprit aplicatia!");
+        logger.info(angajat.getNume() + " a oprit aplicatia!");
+        //ClientNotificationAsyncController.getInstance().close();
     }//GEN-LAST:event_formWindowClosing
 
 
@@ -1042,4 +1074,22 @@ public class ClientFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void newNotification(String string) {
+        switch(string){
+            default: 
+                //System.out.println("Cine da eroare, ma-sa e curva!");
+        }
+    }
+
+    @Override
+    public void newDataNotification(Object o, String string) {
+        
+        switch(string){
+            case TopicsEnum.PROIECT_STARE_MODIFICAT :{
+                populareComboProiect();
+            }
+        }
+    }
 }

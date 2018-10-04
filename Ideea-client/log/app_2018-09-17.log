@@ -1,0 +1,42 @@
+ERROR   2018-09-17 11:01:55,226 [AWT-EventQueue-0] client.gui.LoginFrame  89 - ro.top.exception.UninitializedNotificationServerException: Notification server may be not started
+ERROR   2018-09-17 11:16:37,116 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:17:49,589 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:26:30,543 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.NullPointerException
+ERROR   2018-09-17 11:35:07,652 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:37:27,074 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-09-17 11:40:48,935 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:40:53,050 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 11:42:46,790 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:42:49,122 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 11:43:15,921 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:43:18,910 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 11:43:50,405 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:43:53,014 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+ERROR   2018-09-17 11:44:28,757 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:47:29,308 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:51:02,513 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 11:56:02,845 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-09-17 11:57:10,644 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:57:20,148 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 11:57:31,597 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 11:57:40,107 [AWT-EventQueue-0] client.gui.ClientFrame  52 - A pornit aplicatia!
+INFO    2018-09-17 11:57:52,268 [AWT-EventQueue-0] client.gui.ClientFrame  1014 - S-a oprit aplicatia!
+INFO    2018-09-17 11:57:56,738 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+ERROR   2018-09-17 12:02:11,596 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.NullPointerException
+ERROR   2018-09-17 12:02:32,817 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-09-17 12:07:10,660 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:07:21,219 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+ERROR   2018-09-17 12:07:57,496 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-09-17 12:09:21,322 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:09:24,150 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+ERROR   2018-09-17 12:10:43,181 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.NullPointerException
+ERROR   2018-09-17 12:10:54,095 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+ERROR   2018-09-17 12:13:34,369 [AWT-EventQueue-0] client.gui.LoginFrame  89 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-09-17 12:16:33,290 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:16:37,332 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 12:21:28,211 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:21:53,335 [AWT-EventQueue-0] client.gui.ClientFrame  52 - A pornit aplicatia!
+INFO    2018-09-17 12:22:40,235 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:22:50,592 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!
+INFO    2018-09-17 12:24:14,889 [AWT-EventQueue-0] client.gui.AdminFrame  47 - A pornit aplicatia!
+INFO    2018-09-17 12:24:22,207 [AWT-EventQueue-0] client.gui.AdminFrame  374 - S-a oprit aplicatia!

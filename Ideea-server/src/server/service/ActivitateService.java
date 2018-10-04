@@ -122,6 +122,18 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
     }
     
     
+    public List<Activitate> getAll(){
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Activitate> pontaje = activitateDao.getAll();
+        em.close();
+        return pontaje;  
+        
+    }
     
+    public void close(){
+        emf.close();
+    }
     
 }
