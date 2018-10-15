@@ -16,6 +16,7 @@ import javax.persistence.Query;
 import javax.persistence.TemporalType;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import rmi.Pair;
 
 /**
  *
@@ -112,5 +113,52 @@ public class ActivitateDao {
         Query q = em.createQuery("SELECT a FROM Activitate a");
         
         return q.getResultList();
+    }
+    
+    public Pair getOreProiectByAngajatBetweenDate(Proiect proiect,Angajat angajat,Date start,Date end){
+        Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect AND"
+                + " a.angajat = :angajat AND a.dataPontaj BETWEEN :start AND :end");
+        Query q2 = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.proiect = :proiect AND"
+                + " a.angajat = :angajat AND a.dataPontaj BETWEEN :start AND :end");
+        q1.setParameter("proiect", proiect);
+        q1.setParameter("angajat", angajat);
+        q1.setParameter("start", start);
+        q1.setParameter("end",end);
+        q2.setParameter("proiect", proiect);
+        q2.setParameter("angajat", angajat);
+        q2.setParameter("start", start);
+        q2.setParameter("end",end);
+        
+        long ore = (long)q1.getSingleResult();
+        long minute = (long) q2.getSingleResult();
+        ore += minute/60;
+        minute = minute%60;
+        
+        return new Pair(ore,minute);
+    }
+    
+    public long getOreProiectBetweenDate(Proiect proiect,Date startDate,Date endDate){
+        Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect"
+                + " AND a.dataPontaj BETWEEN :start AND :end");
+        Query q2 = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.proiect = :proiect "
+                + " AND a.dataPontaj BETWEEN :start AND :end");
+        q1.setParameter("proiect", proiect);
+        q1.setParameter("start", startDate);
+        q1.setParameter("end",endDate);
+        q2.setParameter("proiect", proiect);
+        q2.setParameter("start", startDate);
+        q2.setParameter("end",endDate);
+        
+        Object o1 = q1.getSingleResult();
+        Object o2 = q2.getSingleResult();
+        if(o1!=null && o2!=null){
+            long ore = (long) o1;
+            long minute = (long) o2;
+            ore += minute/60;
+            return ore;
+        }
+        
+        if(o1!=null) return (long)o1;
+        return 0;
     }
 }

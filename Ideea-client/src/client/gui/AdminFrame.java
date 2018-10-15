@@ -61,8 +61,9 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         setTitle(angajat.getNume());
         setLayout(new BorderLayout());
         
+        logger.info("a inceput afisarea");
         afisare();
-        
+        logger.info("s-a terminat afisarea");
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
         table.setRowHeight(30);
         table.setName("In derulare");
@@ -73,15 +74,19 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         scrollpane.setPreferredSize(new Dimension(500, 700));
         scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
         add(scrollpane, BorderLayout.CENTER);
+        logger.info("s.au setat chestii");
         
         // ArrayList<String> angjPontVechi = new ArrayList<>();
         try {
-            List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            //List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            
             
             ClientNotificationController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
+            logger.info("s-a subscris la ora modif");
             Calendar today = Calendar.getInstance();
             today.add(Calendar.DATE,-5);
             List<Angajat> angajati = AngajatController.getInstance().getAngajatiByStare("activ");
+            logger.info("s-au luat angajatii");
             String output = "Cei care nu au mai bagat un pontaj de 4 zile sau mai mult sunt: \n";
             Activitate lastActiv;
             for(int i=0;i<angajati.size();i++){
@@ -90,6 +95,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
                     output+= angajati.get(i).getNume() + "\n";
                 }
             }
+            logger.info("s-au terminat activitatile");
             UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
             JOptionPane.showMessageDialog(null, output);
         } catch (RemoteException ex) {
@@ -103,11 +109,16 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     public static void afisare(){
         try{
             List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            logger.info("s-au luat proiectele");
             
             model = new ComboTableModel(proiecte);
+            logger.info("model");
             table.setModel(model);
+            logger.info("s-a setat modelul");
             table.setDefaultRenderer(String.class, new ComboCellRenderer());
+            logger.info("s-a setat defaultRenderul");
             table.setDefaultEditor(String.class, new ComboCellEditor(combo));
+            logger.info("s-au facut modificarile");
             
             
             table.getColumnModel().getColumn(0).setMaxWidth(50);
@@ -143,6 +154,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,13 +250,21 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem4);
 
-        jMenuItem5.setText("Schimba proiect");
+        jMenuItem5.setText("Modifica proiect");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenuItem5);
+
+        jMenuItem12.setText("Ore proiecte");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem12);
 
         jMenuBar1.add(jMenu2);
 
@@ -317,6 +337,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             
             if(combo.getSelectedItem()!= "Selecteaza un proiect!"){ 
                 Proiect proiect = (Proiect)combo.getSelectedItem();
+            
             new ModificaProiectFrame(proiect).setVisible(true);
             }else{
                 return;
@@ -392,6 +413,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         new AngajatiNepontatiFrame().setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        new OreProiectFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -401,6 +426,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

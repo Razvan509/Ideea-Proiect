@@ -294,7 +294,7 @@ public class AdaugaProiectFrame extends javax.swing.JFrame {
             
             
             
-            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1,false).setVisible(true);
+            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1,false,null).setVisible(true);
             
             
             

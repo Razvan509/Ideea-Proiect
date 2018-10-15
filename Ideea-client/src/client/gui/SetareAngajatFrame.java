@@ -27,6 +27,7 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
     public SetareAngajatFrame(long id) {
         initComponents();
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        JOptionPane.showMessageDialog(null, "Nu puneti spatii in Username!");
         
         this.id = id;
         

@@ -5,10 +5,8 @@
  */
 package client.gui;
 
-import client.controller.ProiectController;
 import db.Proiect;
 import java.nio.file.Paths;
-import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -298,8 +296,10 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
             
             
             
+            String suprafata = proiect.getSuprafataEtaj();
             
-            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1,true).setVisible(true);
+            
+            new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),1,true,suprafata).setVisible(true);
             
             
             AdminFrame.afisare();
@@ -308,6 +308,7 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nu ati intodus un numar!");
         }catch(Exception ex){
             logger.error(ex);
+            ex.printStackTrace();
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

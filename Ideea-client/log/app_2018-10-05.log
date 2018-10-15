@@ -1,0 +1,68 @@
+INFO    2018-10-05 13:03:34,222 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:04:42,968 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-05 13:07:21,775 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:09:07,205 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-05 13:25:38,559 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:26:09,788 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-05 13:29:58,784 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:30:10,547 [AWT-EventQueue-0] client.gui.AdminFrame  303 - S-a oprit aplicatia!
+INFO    2018-10-05 13:30:13,842 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.136
+INFO    2018-10-05 13:30:13,845 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-10-05 13:30:13,862 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-10-05 13:30:27,655 [AWT-EventQueue-0] client.gui.ClientFrame  1025 - S-a oprit aplicatia!
+INFO    2018-10-05 13:30:33,844 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Theodorescu Mihael a pornit aplicatia! 192.168.153.136
+INFO    2018-10-05 13:30:33,845 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Theodorescu Mihael a dat subscribe!
+INFO    2018-10-05 13:30:33,856 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-10-05 13:30:36,716 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-10-05 13:44:27,860 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-05 13:44:46,724 [AWT-EventQueue-0] client.gui.ModificaProiectFrame  310 - java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+INFO    2018-10-05 13:44:52,280 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-05 13:45:34,992 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-05 13:45:44,400 [AWT-EventQueue-0] client.gui.ModificaProiectFrame  310 - java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+INFO    2018-10-05 13:53:00,316 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:53:07,667 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Dodoloi Anamaria a pornit aplicatia! 192.168.153.136
+INFO    2018-10-05 13:53:07,670 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Dodoloi Anamaria a dat subscribe!
+INFO    2018-10-05 13:53:07,683 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Dodoloi Anamaria si-a luat ultima activitate!
+INFO    2018-10-05 13:54:13,649 [AWT-EventQueue-0] client.gui.ClientFrame  1025 - S-a oprit aplicatia!
+INFO    2018-10-05 13:56:12,529 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 13:56:20,279 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Dodoloi Anamaria a pornit aplicatia! 192.168.153.136
+INFO    2018-10-05 13:56:20,282 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Dodoloi Anamaria a dat subscribe!
+INFO    2018-10-05 13:56:20,290 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Dodoloi Anamaria si-a luat ultima activitate!
+INFO    2018-10-05 13:56:49,245 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Dodoloi Anamaria a oprit aplicatia!
+INFO    2018-10-05 13:56:50,550 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-05 14:47:43,438 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 14:47:43,516 [AWT-EventQueue-0] client.gui.AdminFrame  64 - a inceput afisarea
+INFO    2018-10-05 14:47:43,564 [AWT-EventQueue-0] client.gui.AdminFrame  112 - s-au luat proiectele
+INFO    2018-10-05 14:47:43,617 [AWT-EventQueue-0] client.gui.AdminFrame  115 - model
+INFO    2018-10-05 14:47:43,619 [AWT-EventQueue-0] client.gui.AdminFrame  117 - s-a setat modelul
+INFO    2018-10-05 14:47:43,621 [AWT-EventQueue-0] client.gui.AdminFrame  119 - s-a setat defaultRenderul
+INFO    2018-10-05 14:47:43,629 [AWT-EventQueue-0] client.gui.AdminFrame  121 - s-au facut modificarile
+INFO    2018-10-05 14:47:43,630 [AWT-EventQueue-0] client.gui.AdminFrame  66 - s-a terminat afisarea
+INFO    2018-10-05 14:47:43,633 [AWT-EventQueue-0] client.gui.AdminFrame  77 - s.au setat chestii
+INFO    2018-10-05 14:47:43,634 [AWT-EventQueue-0] client.gui.AdminFrame  85 - s-a subscris la ora modif
+INFO    2018-10-05 14:47:43,646 [AWT-EventQueue-0] client.gui.AdminFrame  89 - s-au luat angajatii
+INFO    2018-10-05 14:47:43,820 [AWT-EventQueue-0] client.gui.AdminFrame  98 - s-au terminat activitatile
+INFO    2018-10-05 14:48:27,293 [AWT-EventQueue-0] client.gui.AdminFrame  112 - s-au luat proiectele
+INFO    2018-10-05 14:48:27,299 [AWT-EventQueue-0] client.gui.AdminFrame  115 - model
+INFO    2018-10-05 14:48:27,300 [AWT-EventQueue-0] client.gui.AdminFrame  117 - s-a setat modelul
+INFO    2018-10-05 14:48:27,300 [AWT-EventQueue-0] client.gui.AdminFrame  119 - s-a setat defaultRenderul
+INFO    2018-10-05 14:48:27,307 [AWT-EventQueue-0] client.gui.AdminFrame  121 - s-au facut modificarile
+INFO    2018-10-05 14:49:12,912 [AWT-EventQueue-0] client.gui.AdminFrame  112 - s-au luat proiectele
+INFO    2018-10-05 14:49:12,919 [AWT-EventQueue-0] client.gui.AdminFrame  115 - model
+INFO    2018-10-05 14:49:12,919 [AWT-EventQueue-0] client.gui.AdminFrame  117 - s-a setat modelul
+INFO    2018-10-05 14:49:12,920 [AWT-EventQueue-0] client.gui.AdminFrame  119 - s-a setat defaultRenderul
+INFO    2018-10-05 14:49:12,924 [AWT-EventQueue-0] client.gui.AdminFrame  121 - s-au facut modificarile
+INFO    2018-10-05 14:49:16,933 [AWT-EventQueue-0] client.gui.AdminFrame  399 - S-a oprit aplicatia!
+INFO    2018-10-05 14:57:42,664 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-05 14:57:42,735 [AWT-EventQueue-0] client.gui.AdminFrame  64 - a inceput afisarea
+INFO    2018-10-05 14:57:42,794 [AWT-EventQueue-0] client.gui.AdminFrame  112 - s-au luat proiectele
+INFO    2018-10-05 14:57:42,854 [AWT-EventQueue-0] client.gui.AdminFrame  115 - model
+INFO    2018-10-05 14:57:42,855 [AWT-EventQueue-0] client.gui.AdminFrame  117 - s-a setat modelul
+INFO    2018-10-05 14:57:42,858 [AWT-EventQueue-0] client.gui.AdminFrame  119 - s-a setat defaultRenderul
+INFO    2018-10-05 14:57:42,865 [AWT-EventQueue-0] client.gui.AdminFrame  121 - s-au facut modificarile
+INFO    2018-10-05 14:57:42,866 [AWT-EventQueue-0] client.gui.AdminFrame  66 - s-a terminat afisarea
+INFO    2018-10-05 14:57:42,870 [AWT-EventQueue-0] client.gui.AdminFrame  77 - s.au setat chestii
+INFO    2018-10-05 14:57:42,871 [AWT-EventQueue-0] client.gui.AdminFrame  85 - s-a subscris la ora modif
+INFO    2018-10-05 14:57:42,885 [AWT-EventQueue-0] client.gui.AdminFrame  89 - s-au luat angajatii
+INFO    2018-10-05 14:57:43,056 [AWT-EventQueue-0] client.gui.AdminFrame  98 - s-au terminat activitatile
+INFO    2018-10-05 14:57:57,697 [AWT-EventQueue-0] client.gui.AdminFrame  399 - S-a oprit aplicatia!

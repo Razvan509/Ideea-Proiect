@@ -7,9 +7,8 @@ package server.dao;
 
 import db.Proiect;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.TreeSet;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.apache.log4j.Logger;
@@ -79,7 +78,36 @@ public class ProiectDao {
         
         try{
             Object o1 = query.getSingleResult();
-            Object o2 = query.getSingleResult();
+            Object o2 = q.getSingleResult();
+            if (o1 == null) return 0;
+            if (o2 == null) return 0;
+            long l1 = (long) o1;
+            long l2 = (long) o2;
+            
+            l1+=(l2/60);
+            return l1;
+        }catch(Exception e){
+            logger.error(e);
+            return 0;
+        }
+    }
+    
+    public long getOreProiectBetweenDates(Proiect proiect,Date startDate,Date endDate){
+        Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect"
+                + "BETWEEN :startDate AND :endDate",Long.class);
+        Query q2 = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.proiect = :proiect"
+                + "BETWEEN :startDate AND :endDate",Long.class);
+        q1.setParameter("proiect", proiect);
+        q1.setParameter("startDate", startDate);
+        q1.setParameter("endDate", endDate);
+        
+        q2.setParameter("proiect", proiect);
+        q2.setParameter("startDate", startDate);
+        q2.setParameter("endDate", endDate);
+        
+        try{
+            Object o1 = q1.getSingleResult();
+            Object o2 = q2.getSingleResult();
             if (o1 == null) return 0;
             if (o2 == null) return 0;
             long l1 = (long) o1;
@@ -111,5 +139,7 @@ public class ProiectDao {
             return null;
         }
     }
+    
+   
     
 }

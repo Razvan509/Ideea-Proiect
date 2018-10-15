@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
+
 /**
  *
  * @author razvan
@@ -26,4 +27,6 @@ public interface IActivitateService extends Remote{
     public void deleteActivity(Activitate a) throws RemoteException;
     public Activitate getLastDateActivityByAngajat(Angajat angajat) throws RemoteException;
     public List<Activitate> getActivitatiPerioada(Angajat angajat,Date startDate,Date endDate) throws RemoteException;
+    public Pair getOreProiectByAngajatBetweenDate(Proiect proiect,Angajat angajat,Date start,Date end) throws RemoteException;
+    public long getOreProiectBetweenDate(Proiect proiect,Date startDate,Date endDate) throws RemoteException;
 }

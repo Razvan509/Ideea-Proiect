@@ -1,0 +1,458 @@
+INFO    2018-09-21 11:28:34,053 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 11:28:42,131 [AWT-EventQueue-0] client.gui.ClientFrame  1035 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 12:14:31,401 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 12:15:36,373 [AWT-EventQueue-0] client.gui.ClientFrame  1035 - Melinceanu Cristiana a oprit aplicatia!
+ERROR   2018-09-21 13:55:01,462 [AWT-EventQueue-0] client.gui.LoginFrame  89 - cris a incercat sa se conecteze! 
+java.rmi.ConnectException: Connection refused to host: 192.168.153.5; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy0.findByUsernameAndPass(Unknown Source)
+	at client.controller.AngajatController.findByUsernameAndPass(AngajatController.java:49)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:59)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:193)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:143)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 56 more
+INFO    2018-09-21 13:55:28,354 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 13:56:05,730 [AWT-EventQueue-0] client.gui.ClientFrame  1022 - S-a oprit aplicatia!
+INFO    2018-09-21 13:56:08,968 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 13:56:22,483 [AWT-EventQueue-0] client.gui.ClientFrame  1022 - S-a oprit aplicatia!
+INFO    2018-09-21 13:56:25,841 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 13:56:40,534 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 13:56:57,915 [AWT-EventQueue-0] client.gui.AdminFrame  303 - S-a oprit aplicatia!
+INFO    2018-09-21 13:57:01,416 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 13:57:17,554 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 13:57:18,446 [AWT-EventQueue-0] client.gui.ClientFrame  1036 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 13:58:20,431 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 13:58:34,146 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 13:59:08,259 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 13:59:10,236 [AWT-EventQueue-0] client.gui.ClientFrame  1036 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 13:59:49,411 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 13:59:55,991 [AWT-EventQueue-0] client.gui.ClientFrame  53 - Melinceanu Cristiana a pornit aplicatia!
+INFO    2018-09-21 14:00:14,567 [AWT-EventQueue-0] client.gui.ClientFrame  1036 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 14:00:16,429 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 14:13:02,917 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 14:14:36,849 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 14:54:07,400 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 14:54:07,425 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 14:54:07,437 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 14:54:34,554 [AWT-EventQueue-0] client.gui.ClientFrame  1025 - S-a oprit aplicatia!
+INFO    2018-09-21 15:00:50,734 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 15:00:50,835 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 15:00:50,870 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 15:00:55,815 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 15:22:50,215 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.82
+INFO    2018-09-21 15:22:50,233 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 15:22:50,246 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 15:24:07,010 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 15:26:06,713 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 15:26:06,719 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 15:26:06,733 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 15:26:11,199 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 15:30:05,206 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 15:30:05,211 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 15:30:05,227 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 15:30:07,731 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 15:30:57,625 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 15:36:47,697 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 15:36:54,382 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 15:37:19,108 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 15:51:56,783 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 15:52:16,975 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 15:53:25,700 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 15:54:10,124 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+ERROR   2018-09-21 15:59:51,927 [AWT-EventQueue-0] client.gui.LoginFrame  90 - cris a incercat sa se conecteze! 
+java.rmi.ConnectException: Connection refused to host: 192.168.153.135; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy0.findByUsernameAndPass(Unknown Source)
+	at client.controller.AngajatController.findByUsernameAndPass(AngajatController.java:49)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:61)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 56 more
+INFO    2018-09-21 16:01:16,191 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 16:01:16,195 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 16:01:16,222 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 16:01:23,293 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 16:01:40,121 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 16:02:55,189 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 16:03:04,769 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 16:03:04,774 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 16:03:04,791 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 16:04:05,144 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 16:04:38,083 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 16:04:39,929 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 16:06:04,061 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 16:06:12,985 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.135
+INFO    2018-09-21 16:06:12,993 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-09-21 16:06:13,013 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-09-21 16:06:32,394 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-09-21 16:06:34,826 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2018-09-21 16:08:08,817 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-09-21 16:08:38,293 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 16:46:22,340 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 16:46:35,554 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 16:47:10,687 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 16:47:16,056 [AWT-EventQueue-0] client.gui.AdminFrame  303 - S-a oprit aplicatia!
+INFO    2018-10-04 16:47:19,831 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.136
+INFO    2018-10-04 16:47:19,834 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-10-04 16:47:19,845 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-10-04 16:47:24,260 [AWT-EventQueue-0] client.gui.ClientFrame  1025 - S-a oprit aplicatia!
+INFO    2018-10-04 16:47:27,162 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 16:47:38,122 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 16:47:44,626 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 16:48:56,509 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+ERROR   2018-10-04 09:14:01,718 [AWT-EventQueue-0] client.gui.LoginFrame  90 - admin a incercat sa se conecteze! 
+java.rmi.ConnectException: Connection refused to host: 192.168.153.5; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy0.findByUsernameAndPass(Unknown Source)
+	at client.controller.AngajatController.findByUsernameAndPass(AngajatController.java:49)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:61)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1668)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6316)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:835)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1103)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:974)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:800)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 56 more
+INFO    2018-10-04 09:14:31,953 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 09:15:24,462 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 17:29:36,365 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 17:33:23,799 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 17:38:25,390 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 17:38:48,101 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 17:39:59,394 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 17:40:30,445 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 17:43:45,833 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 17:44:03,205 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 17:49:27,762 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 17:50:05,897 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:21:57,689 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:22:13,063 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  301 - java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.UnmarshalException: unrecognized method hash: method not supported by remote object
+INFO    2018-10-04 18:22:15,281 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:22:55,820 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:23:01,557 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  304 - java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
+INFO    2018-10-04 18:23:08,415 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:23:14,956 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:23:23,419 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  301 - java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.UnmarshalException: unrecognized method hash: method not supported by remote object
+INFO    2018-10-04 18:24:26,422 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:24:43,751 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:25:05,005 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  304 - java.lang.IllegalArgumentException: An exception occurred while creating a query in EntityManager: 
+Exception Description: Problem compiling [SELECT SUM(a.ore) FROM Activitate a WHERE a.proiect = :proiect AND a.angajat = :angajat]. 
+[11, 16] The state field path 'a.ore' cannot be resolved to a valid type.
+INFO    2018-10-04 18:25:23,174 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:26:01,302 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:26:23,020 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  304 - java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+INFO    2018-10-04 18:27:10,566 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:27:18,817 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:27:32,173 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  304 - java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+INFO    2018-10-04 18:27:51,729 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:28:03,232 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:28:17,519 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  304 - java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer
+INFO    2018-10-04 18:30:43,741 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:30:59,706 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:31:14,847 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  306 - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+INFO    2018-10-04 18:32:26,370 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:32:38,784 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  306 - java.lang.IndexOutOfBoundsException: Index: 22, Size: 2
+INFO    2018-10-04 18:34:15,517 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:34:44,416 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:35:57,456 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:36:07,195 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:42:18,250 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 18:42:31,448 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  309 - java.lang.IllegalArgumentException: An exception occurred while creating a query in EntityManager: 
+Exception Description: Syntax error parsing [SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect AND a.angajat = :angajat BETWEEN :start AND :end]. 
+[84, 116]  The expression is invalid, which means it does not follow the JPQL grammar.
+INFO    2018-10-04 18:44:43,772 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:45:11,803 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:45:39,321 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:46:09,547 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:46:33,536 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:47:13,692 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 18:49:41,440 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 18:51:12,311 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 19:10:09,114 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 19:10:10,629 [AWT-EventQueue-0] client.gui.AdminFrame  99 - java.lang.NullPointerException
+INFO    2018-10-04 19:10:37,980 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+ERROR   2018-10-04 19:11:04,164 [AWT-EventQueue-0] client.gui.LoginFrame  90 - admin a incercat sa se conecteze! 
+java.rmi.ConnectException: Connection refused to host: 192.168.153.5; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy0.findByUsernameAndPass(Unknown Source)
+	at client.controller.AngajatController.findByUsernameAndPass(AngajatController.java:49)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:61)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1668)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6316)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:835)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1103)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:974)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:800)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 56 more
+INFO    2018-10-04 19:11:33,997 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 19:11:41,957 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+ERROR   2018-10-04 19:11:58,625 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2018-10-04 19:12:14,620 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+ERROR   2018-10-04 19:12:15,362 [AWT-EventQueue-0] client.gui.AdminFrame  99 - java.lang.NullPointerException
+INFO    2018-10-04 19:12:16,683 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 19:28:54,987 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 19:28:57,586 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!
+INFO    2018-10-04 19:31:52,943 [AWT-EventQueue-0] client.gui.AdminFrame  49 - A pornit aplicatia!
+INFO    2018-10-04 19:32:07,367 [AWT-EventQueue-0] client.gui.AdminFrame  388 - S-a oprit aplicatia!

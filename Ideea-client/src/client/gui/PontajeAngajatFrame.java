@@ -10,16 +10,19 @@ import client.controller.AngajatController;
 import client.controller.DictionarController;
 import db.Activitate;
 import db.Angajat;
+import db.Proiect;
 import java.awt.Font;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 import org.apache.log4j.PropertyConfigurator;
+import rmi.Pair;
 
 /**
  *
@@ -44,6 +47,13 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         //setLayout(new BorderLayout());
+        jLabel5.setText("");
+        jLabel7.setText("");
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
         
         String []columnNames = {"Proiect","Pontaj","Data","Ore","Minute","Data adaugare"};
         Object [][] data ={{"","","","","",""}};
@@ -96,6 +106,11 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +152,21 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Total:");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("jLabel5");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Ore");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Minute");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,6 +188,18 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
             .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +219,15 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel2)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -188,6 +238,8 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         Date startDate = jDateChooser1.getDate();
         Date endDate = jDateChooser2.getDate();
         Angajat angajat = angajati.get(jComboBox1.getSelectedIndex());
+        int ore=0;
+        int minute=0;
         
         if(startDate.after(endDate)){
             JOptionPane.showMessageDialog(null, "Incearca sa pui invers datele");
@@ -196,10 +248,35 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         
         try {
             List<Activitate> pontaje = ActivitateController.getInstance().getActivitatiPerioada(angajat, startDate, endDate);
+            List<Proiect> proiecte = new ArrayList();
             Object[] row = new Object[6];
             SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
             SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+            Pair pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
+                    pontaje.get(0).getProiect(), angajat,startDate,endDate);
+            proiecte.add(pontaje.get(0).getProiect());
+            row[0] = pontaje.get(0).getProiect().getNume();
+            row[1] = "Total";
+            row[2] = "-";
+            row[3] = pair.getX();
+            row[4] = pair.getY();
+            row[5] = "-";
+            model.addRow(row);
             for(int i=0;i<pontaje.size();i++){
+                
+                if(!proiecte.contains(pontaje.get(i).getProiect())) {
+                    proiecte.add(pontaje.get(i).getProiect());
+                    pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
+                            pontaje.get(i).getProiect(),angajat,startDate,endDate);
+                    row[0] = pontaje.get(i).getProiect().getNume();
+                    row[1] = "Total";
+                    row[2] = "-";
+                    row[3] = pair.getX();
+                    row[4] = pair.getY();
+                    row[5] = "-";
+                    model.insertRow(proiecte.size()-1, row);
+                    
+                }
                 row[0] = pontaje.get(i).getProiect().getNume();
                 row[1] = DictionarController.getInstance().findByCod(pontaje.get(i).getCod());
                 if(pontaje.get(i).getEtaj()!=null) row[1] = row[1] + " " + pontaje.get(i).getEtaj();
@@ -209,12 +286,28 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                 row[4] = pontaje.get(i).getMinuteMunca();
                 row[5] = format2.format(pontaje.get(i).getDataOra());
                 model.addRow(row);
+                ore+=pontaje.get(i).getOreMunca();
+                minute+=pontaje.get(i).getMinuteMunca();
             }
+            ore += minute/60;
+            minute = minute%60;
+            /*for(int i=0;i<proiecte.size();i++){
+                System.out.println(proiecte.get(i));
+            }*/
+            jLabel5.setText(ore+"");
+            jLabel7.setText(minute+"");
+            jLabel4.setVisible(true);
+            jLabel5.setVisible(true);
+            jLabel6.setVisible(true);
+            jLabel7.setVisible(true);
+            jLabel8.setVisible(true);
         } catch (RemoteException ex) {
             JOptionPane.showMessageDialog(null, "Eroare");
             logger.error(ex);
+            ex.printStackTrace();
         }catch(Exception ex){
             logger.error(ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -226,6 +319,11 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

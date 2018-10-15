@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import rmi.IActivitateService;
-import ro.top.service.ClientNotificationController;
+import rmi.Pair;
 
 /**
  *
@@ -78,4 +78,11 @@ public class ActivitateController {
         return activitateService.getActivitatiPerioada(angajat, startDate, endDate);
     }
     
+    public Pair getOreProiectByAngajatBetweenDate(Proiect proiect,Angajat angajat,Date start,Date end) throws RemoteException{
+        return activitateService.getOreProiectByAngajatBetweenDate(proiect, angajat,start,end);
+    }
+    
+    public long getOreProiectBetweenDate(Proiect proiect,Date startDate,Date endDate) throws RemoteException{
+        return activitateService.getOreProiectBetweenDate(proiect, startDate, endDate);
+    }
 }

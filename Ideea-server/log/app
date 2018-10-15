@@ -1,26 +1,43 @@
-INFO    2018-09-21 13:54:11,582 [main] server.gui.ServerFrame  38 - A pornit serverul!
-INFO    2018-09-21 13:55:22,347 [main] server.gui.ServerFrame  38 - A pornit serverul!
-ERROR   2018-09-21 14:13:48,992 [RMI TCP Connection(29)-192.168.153.135] server.dao.DictionarDao  39 - Nu a fost gasit codul in dictionar!
-javax.persistence.NoResultException: getSingleResult() did not retrieve any entities.
-	at org.eclipse.persistence.internal.jpa.QueryImpl.throwNoResultException(QueryImpl.java:972)
-	at org.eclipse.persistence.internal.jpa.QueryImpl.getSingleResult(QueryImpl.java:531)
-	at org.eclipse.persistence.internal.jpa.EJBQueryImpl.getSingleResult(EJBQueryImpl.java:400)
-	at server.dao.DictionarDao.findByCod(DictionarDao.java:36)
-	at server.service.DictionarService.findByCod(DictionarService.java:32)
-	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:357)
-	at sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:568)
-	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:826)
-	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:683)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:682)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-INFO    2018-09-21 15:06:25,493 [main] server.gui.ServerFrame  38 - A pornit serverul!
+INFO    2018-10-05 13:01:46,016 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-05 13:03:16,288 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-05 13:07:11,744 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-05 13:25:26,693 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:13:22,154 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:15:06,411 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:36:48,258 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:39:10,224 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:51:22,871 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:54:20,239 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 18:59:43,156 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 19:00:28,240 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 19:04:54,140 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 19:06:04,087 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-15 19:08:04,330 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2018-10-15 19:08:05,944 [main] server.gui.ServerFrame  61 - java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:236)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:213)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:198)
+	at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:203)
+	at server.Server.main(Server.java:50)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 8 more
+INFO    2018-10-15 19:08:05,950 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2018-10-15 19:08:47,110 [main] server.gui.ServerFrame  43 - A pornit serverul!

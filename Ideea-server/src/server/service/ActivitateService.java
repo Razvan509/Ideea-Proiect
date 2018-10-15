@@ -16,8 +16,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import rmi.IActivitateService;
+import rmi.Pair;
 import server.dao.ActivitateDao;
-import server.dao.DictionarDao;
 
 /**
  *
@@ -134,6 +134,27 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
     
     public void close(){
         emf.close();
+    }
+
+    @Override
+    public Pair getOreProiectByAngajatBetweenDate(Proiect proiect,Angajat angajat,Date start,Date end) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        Pair rez = new Pair(0,0);
+        rez = activitateDao.getOreProiectByAngajatBetweenDate(proiect, angajat,start,end);
+        em.close();
+        return rez;
+    }
+
+    @Override
+    public long getOreProiectBetweenDate(Proiect proiect, Date startDate, Date endDate) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        long rez = activitateDao.getOreProiectBetweenDate(proiect, startDate, endDate);
+        em.close();
+        return rez;
     }
     
 }

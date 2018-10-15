@@ -33,11 +33,13 @@ public class EtajeFrame extends javax.swing.JFrame {
     boolean mod;
     private final String pathToLog4j = Paths.get("./log4j.properties").toString();
     public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(EtajeFrame.class);
+    private String suprafata;
     
-    public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr,boolean mod) {
+    public EtajeFrame(Proiect proiect,int etaje,int subsol,int nr,boolean mod,String suprafata) {
         initComponents();
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
         String []header = {"Etaj","Suprafata"};
+        this.suprafata = suprafata;
         this.nr = nr;
         this.mod = mod;
         
@@ -50,9 +52,26 @@ public class EtajeFrame extends javax.swing.JFrame {
         
         Object [][] data = new Object[etaje+subsol+1][2];
         
-        for(int i=-subsol;i<=etaje;i++){
-            data[i+subsol][0] = "Etaj "+ i;
-            data[i+subsol][1] = "0";
+        
+        if(suprafata==null){
+        
+            for(int i=-subsol;i<=etaje;i++){
+                data[i+subsol][0] = "Etaj "+ i;
+                data[i+subsol][1] = "0";
+            }
+        }else{
+            String []et = suprafata.split("\\W+");
+            int []etaj = new int[et.length];
+            this.suprafata = this.suprafata.substring(this.suprafata.indexOf('\n')+1);
+            for(int i=0;i<et.length;i++){
+                etaj[i] = Integer.parseInt(et[i]);
+            }
+            
+            System.out.println(suprafata);
+            for(int i=-subsol;i<=etaje;i++){
+                data[i+subsol][0] = "Etaj "+ i;
+                data[i+subsol][1] = etaj[i+subsol]+"";  
+            }
         }
         
         tabel = new JTable(data,header){
@@ -152,7 +171,7 @@ public class EtajeFrame extends javax.swing.JFrame {
             
             if(nr<proiect.getCorpuri()){
                 dispose();
-                new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),nr+1,mod).setVisible(true);
+                new EtajeFrame(proiect, proiect.getNrEtaje(),proiect.getNrEtajeSubsol(),nr+1,mod,suprafata).setVisible(true);
             }else{
                 if(nr==proiect.getCorpuri()){
                     dispose();
@@ -169,6 +188,7 @@ public class EtajeFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Eroare");
         }catch(Exception ex){
             logger.error(ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

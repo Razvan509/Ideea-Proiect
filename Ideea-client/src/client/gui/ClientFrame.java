@@ -650,14 +650,14 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
             
             int dialogButton = JOptionPane.YES_NO_OPTION;
             int dialogResult = JOptionPane.showConfirmDialog(null, "Pontajul dumneavoastra: "+pontaj.toString()+" " 
-                    +"\nDoriti sa continuati?","Confirmare!",dialogButton);
+                    +"\nDoriti sa continuati? ","Confirmare!",dialogButton);
             if (dialogResult == JOptionPane.YES_OPTION){
                 if(DictionarController.getInstance().findByCod(cod) != null){
                     ActivitateController.getInstance().adaugaActivitate(pontaj);
                     ClientNotificationAsyncController.getInstance().postNotification(TopicsEnum.PROIECT_ORA_MODIFICAT);
                     //JOptionPane.showMessageDialog(null, "Bau!");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ceva nu a mers bine, mai incercati o data!");
+                    JOptionPane.showMessageDialog(null, "Ceva nu a mers bine, mai incercati o data! ");
                     logger.error("Un cod s-a generat prost!" + cod);
                 }
             }
