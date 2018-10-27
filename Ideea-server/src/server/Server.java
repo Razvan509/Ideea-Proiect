@@ -46,7 +46,7 @@ public class Server {
         
         try{
             
-            System.setProperty("java.rmi.server.hostname","192.168.153.5");
+            //System.setProperty("java.rmi.server.hostname","192.168.153.5");
             Registry registry = LocateRegistry.createRegistry(4444);
             registry.rebind("activitateservice",new ActivitateService());
             registry.rebind("proiectservice",new ProiectService());

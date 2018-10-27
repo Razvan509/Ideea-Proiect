@@ -22,6 +22,8 @@ import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -61,9 +63,9 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         setTitle(angajat.getNume());
         setLayout(new BorderLayout());
         
-        logger.info("a inceput afisarea");
+        //logger.info("a inceput afisarea");
         afisare();
-        logger.info("s-a terminat afisarea");
+        //logger.info("s-a terminat afisarea");
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
         table.setRowHeight(30);
         table.setName("In derulare");
@@ -74,7 +76,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         scrollpane.setPreferredSize(new Dimension(500, 700));
         scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
         add(scrollpane, BorderLayout.CENTER);
-        logger.info("s.au setat chestii");
+        //logger.info("s.au setat chestii");
         
         // ArrayList<String> angjPontVechi = new ArrayList<>();
         try {
@@ -82,11 +84,11 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             
             
             ClientNotificationController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
-            logger.info("s-a subscris la ora modif");
+            //logger.info("s-a subscris la ora modif");
             Calendar today = Calendar.getInstance();
             today.add(Calendar.DATE,-5);
             List<Angajat> angajati = AngajatController.getInstance().getAngajatiByStare("activ");
-            logger.info("s-au luat angajatii");
+            //logger.info("s-au luat angajatii");
             String output = "Cei care nu au mai bagat un pontaj de 4 zile sau mai mult sunt: \n";
             Activitate lastActiv;
             for(int i=0;i<angajati.size();i++){
@@ -95,7 +97,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
                     output+= angajati.get(i).getNume() + "\n";
                 }
             }
-            logger.info("s-au terminat activitatile");
+            //logger.info("s-au terminat activitatile");
             UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
             JOptionPane.showMessageDialog(null, output);
         } catch (RemoteException ex) {
@@ -109,16 +111,16 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     public static void afisare(){
         try{
             List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
-            logger.info("s-au luat proiectele");
+            //logger.info("s-au luat proiectele");
             
             model = new ComboTableModel(proiecte);
-            logger.info("model");
+            //logger.info("model");
             table.setModel(model);
-            logger.info("s-a setat modelul");
+            //logger.info("s-a setat modelul");
             table.setDefaultRenderer(String.class, new ComboCellRenderer());
-            logger.info("s-a setat defaultRenderul");
+            //logger.info("s-a setat defaultRenderul");
             table.setDefaultEditor(String.class, new ComboCellEditor(combo));
-            logger.info("s-au facut modificarile");
+            //logger.info("s-au facut modificarile");
             
             
             table.getColumnModel().getColumn(0).setMaxWidth(50);
@@ -143,6 +145,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -155,6 +158,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,6 +177,14 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem14.setText("Modifica Angajat");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem14);
 
         jMenuItem6.setText("Angajati Activi");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +278,14 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem12);
 
+        jMenuItem13.setText("Rapoarte (in lucru)");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem13);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Delogare");
@@ -298,7 +318,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       new AdaugaAngajatFrame();
+       new AdaugaAngajatFrame(null,false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -417,6 +437,32 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         new OreProiectFrame().setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        //new RapoarteProiectFrame().setVisible(true);
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        try {
+            JComboBox combo = new JComboBox();
+            List<Angajat> angajati = AngajatController.getInstance().getAll();
+            combo.removeAllItems();
+            combo.addItem("Selectati un angajat!");
+            for (Angajat p:angajati){
+                combo.addItem(p);
+            }
+            JOptionPane.showMessageDialog(null, combo,"Selectati un angajat?",JOptionPane.QUESTION_MESSAGE);
+            if(combo.getSelectedItem()!= "Selectati un angajat!"){ 
+                Angajat angajat = (Angajat)combo.getSelectedItem();
+                new AdaugaAngajatFrame(angajat,true).setVisible(true);
+            }else{
+                return;
+            }
+        } catch (RemoteException ex) {
+            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -427,6 +473,8 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

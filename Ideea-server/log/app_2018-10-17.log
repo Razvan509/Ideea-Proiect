@@ -1,0 +1,32 @@
+INFO    2018-10-17 13:29:06,157 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2018-10-17 13:29:24,490 [main] server.gui.ServerFrame  61 - javax.persistence.PersistenceException: Exception [EclipseLink-4003] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Exception Description: Configuration error.  Class [org.apache.derby.jdbc.ClientDriver] not found.
+javax.persistence.PersistenceException: Exception [EclipseLink-4003] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Exception Description: Configuration error.  Class [org.apache.derby.jdbc.ClientDriver] not found.
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:766)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:204)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getDatabaseSession(EntityManagerFactoryDelegate.java:182)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.getDatabaseSession(EntityManagerFactoryImpl.java:527)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:140)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at server.service.ActivitateService.<init>(ActivitateService.java:31)
+	at server.Server.main(Server.java:51)
+Caused by: Exception [EclipseLink-4003] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.DatabaseException
+Exception Description: Configuration error.  Class [org.apache.derby.jdbc.ClientDriver] not found.
+	at org.eclipse.persistence.exceptions.DatabaseException.configurationErrorClassNotFound(DatabaseException.java:89)
+	at org.eclipse.persistence.sessions.DefaultConnector.loadDriverClass(DefaultConnector.java:267)
+	at org.eclipse.persistence.sessions.DefaultConnector.connect(DefaultConnector.java:85)
+	at org.eclipse.persistence.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:162)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.setOrDetectDatasource(DatabaseSessionImpl.java:204)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:741)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:239)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:685)
+	... 9 more
+INFO    2018-10-17 13:29:24,503 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2018-10-17 13:30:14,882 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-17 13:30:42,183 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-17 13:32:44,252 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-17 13:47:42,086 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-10-17 14:08:41,485 [main] server.gui.ServerFrame  43 - A pornit serverul!

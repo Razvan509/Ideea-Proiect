@@ -24,13 +24,19 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
      */
     private final String pathToLog4j = Paths.get("./log4j.properties").toString();
     public static final Logger logger = Logger.getLogger(AdaugaAngajatFrame.class);
+    private boolean modif;
+    private Angajat angajat;
     
-    public AdaugaAngajatFrame() {
+    public AdaugaAngajatFrame(Angajat ang,boolean modif) {
         initComponents();
+        
+        this.modif = modif;
+        angajat = ang;
         
         setLocationRelativeTo(null);
         setVisible(true);
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
+        
         
         jLabel3.setVisible(false);
         jTextField3.setVisible(false);
@@ -131,14 +137,23 @@ public class AdaugaAngajatFrame extends javax.swing.JFrame {
             String password = "1234";
             if (! nume.equals("_") && ! password.equals("")){
                 Angajat angajat = new Angajat();
-                String numele = jTextField1.getText() + " " + jTextField2.getText();
+                String numele = jTextField1.getText();
+                String prenume = jTextField2.getText();
                 numele = numele.replaceAll("\\s+","");
-                angajat.setNume(numele);
-                angajat.setPassword(password);
-                angajat.setUsername(jTextField3.getText());
-                angajat.setStare("activ");
-                angajat.setDataAngajare(new Date());
-                AngajatController.getInstance().adaugaAngajat(angajat);
+                prenume = prenume.replaceAll("\\s+","");
+                if (!modif){
+                    angajat.setNume(numele + " " + prenume);
+                    angajat.setPassword(password);
+                    angajat.setUsername(jTextField3.getText());
+                    angajat.setStare("activ");
+                    angajat.setDataAngajare(new Date());
+                    AngajatController.getInstance().adaugaAngajat(angajat);
+                }else{
+                    this.angajat.setNume(numele + " " + prenume);
+                    AngajatController.getInstance().modificaAngajat(this.angajat);
+                }
+                
+                
                 dispose();
             }else{
                 JOptionPane.showMessageDialog(null, "Unul din campuri nu este completat!");
