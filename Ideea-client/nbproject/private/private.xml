@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/OreProiectFrame.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/Client.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/AdminFrame.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/controller/IpNumber.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/PontajeAngajatFrame.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/ZileLibereFrame.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/ClientFrame.java</file>
-            <file>file:/D:/razvan/programare/java/proiect-ideea/Ideea-client/src/client/gui/RapoarteProiectFrame.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/gui/ClientFrame.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/gui/AdminFrame.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/Client.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/ComboCellAngajat/AngajatCellEditor.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/gui/PontajeAngajatFrame.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/gui/AlegePontajFrame.java</file>
+            <file>file:/E:/download/soft/Ideea-client/src/client/controller/IpNumber.java</file>
         </group>
     </open-files>
 </project-private>

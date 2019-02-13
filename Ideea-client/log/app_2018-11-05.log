@@ -1,0 +1,8 @@
+INFO    2018-11-05 19:19:00,742 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-05 19:20:32,806 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-05 19:20:49,195 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-05 19:20:58,423 [AWT-EventQueue-0] client.gui.AdminFrame  343 - S-a oprit aplicatia!
+INFO    2018-11-05 19:21:01,772 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Melinceanu Cristiana a pornit aplicatia! 192.168.56.1
+INFO    2018-11-05 19:21:01,772 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Melinceanu Cristiana a dat subscribe!
+INFO    2018-11-05 19:21:01,772 [AWT-EventQueue-0] client.gui.ClientFrame  116 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2018-11-05 19:22:40,660 [AWT-EventQueue-0] client.gui.ClientFrame  1039 - Melinceanu Cristiana a oprit aplicatia!

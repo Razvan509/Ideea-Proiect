@@ -156,5 +156,15 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         em.close();
         return rez;
     }
+
+    @Override
+    public int getOreAngajatLuna(Angajat a) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em); 
+        
+        int rez = activitateDao.getOreAngajatLuna(a);
+        em.close();
+        return rez;
+    }
     
 }

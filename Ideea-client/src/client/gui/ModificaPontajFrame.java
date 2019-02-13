@@ -33,7 +33,6 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
     private Angajat angajat;
     private Proiect proiect;
     private Activitate activitate;
-    private int sumaOre=0;
     private int sumaMinute=0;
     private boolean admin;
     private ClientFrame client;
@@ -58,8 +57,8 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
         
         afisare();
         calculeazaTimp(jDateChooser1.getDate());
-        jLabel8.setText(sumaOre+" ore");
-        jLabel9.setText(sumaMinute+" minute");
+        jLabel8.setText(sumaMinute/60+" ore");
+        jLabel9.setText(sumaMinute%60+" minute");
     }
     
     public void afisare(){
@@ -97,8 +96,8 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
                 jLabel5.setVisible(false);
                 jComboBox1.setVisible(false);
             }
-            jTextField2.setText(activitate.getOreMunca()+"");
-            jTextField3.setText(activitate.getMinuteMunca()+"");
+            jTextField2.setText(activitate.getMinuteMunca()/60+"");
+            jTextField3.setText(activitate.getMinuteMunca()%60+"");
             jDateChooser1.setDate(activitate.getDataPontaj());
             
             jTextPane1.setText(null);
@@ -130,14 +129,10 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
     
     public void calculeazaTimp(Date data){
         try {
-            sumaOre = sumaMinute = 0;
+            sumaMinute = 0;
             List<Activitate> list = ActivitateController.getInstance().getActivitatiAngajatZi(angajat, data);
             for(Activitate a: list){
-                sumaOre+=a.getOreMunca();
-                if(sumaMinute+a.getMinuteMunca()>59){
-                    sumaOre+=(sumaMinute+a.getMinuteMunca())/60;
-                    sumaMinute+=(sumaMinute+a.getMinuteMunca())%60;
-                }
+                sumaMinute+=a.getMinuteMunca();
             }
             
         } catch (RemoteException ex) {
@@ -340,18 +335,17 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
             calculeazaTimp(data);
             
             if (ore >= 0 && ore <17){
-                int temp = sumaOre + ore - oreVechi;
-                int min = (minute + sumaMinute - minVechi)/60;
-                if (temp+min>16) {
+                int temp = ore*60 + sumaMinute + minute - minVechi;
+                if (temp/60>16) {
                     JOptionPane.showMessageDialog(null, "Nu poti lucra mai mult de 16 ore pe zi!");
                     return;
                 }else{
-                    if (temp+min==16 && (minute + sumaMinute)%60>0){
+                    if (temp/60==16 && (temp)%60>0){
                         JOptionPane.showMessageDialog(null, "Nu poti lucra mai mult de 16 ore pe zi!");
                         return;
                     }else {
                         activitate.setOreMunca(ore);
-                        activitate.setMinuteMunca(minute);
+                        activitate.setMinuteMunca(minute + ore*60);
                     }
                         
                 }
@@ -415,8 +409,8 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
 
     private void jDateChooser1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser1PropertyChange
         calculeazaTimp(jDateChooser1.getDate());
-        jLabel8.setText(sumaOre+" ore");
-        jLabel9.setText(sumaMinute+" minute");
+        jLabel8.setText(sumaMinute/60+" ore");
+        jLabel9.setText(sumaMinute%60+" minute");
     }//GEN-LAST:event_jDateChooser1PropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

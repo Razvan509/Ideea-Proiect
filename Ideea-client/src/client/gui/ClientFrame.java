@@ -12,6 +12,7 @@ import client.controller.ProiectController;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.awt.AWTEvent;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.nio.file.Paths;
@@ -41,8 +42,8 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
     private Proiect proiect;
     private Calendar today;
     private DefaultListModel model;
-    private int sumaOre=0;
     private int sumaMinute=0;
+    private int sumaOre = 0;
     private boolean admin;
     private final String pathToLog4j = Paths.get("./log4j.properties").toString();
     public static final org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(ClientFrame.class);
@@ -58,6 +59,10 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         
         this.angajat = angajat;
         this.admin = admin;
+        
+        if(admin) {
+            jMenu1.setEnabled(false);
+        }
         
         setLocationRelativeTo(null);
         setVisible(true);
@@ -76,7 +81,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         //jComboBox1.setSize(100, 50);
         jComboBox1.setPreferredSize(new Dimension(200,28));
         //jComboBox1.setPrototypeDisplayValue("XXXXXXXXXXXXXXXXXXXX");
-        jComboBox1.setMaximumSize(new Dimension(100,50));
+        //jComboBox1.setMaximumSize(new Dimension(100,50));
         
         /*jComboBox3.setVisible(false);
         jLabel3.setVisible(false);*/
@@ -89,6 +94,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         
         jLabel5.setVisible(false);
         jComboBox6.setVisible(false);
+        jCheckBox1.setVisible(false);
         
         //jComboBox1.setEditable(true);
         
@@ -102,8 +108,10 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         jTextField3.setText("0");
         jList1.setFont(new Font("Tahoma", Font.PLAIN, 18));
         
+        jCheckBox1.setSelected(true);
+        
         getRootPane().setDefaultButton(jButton1);
-        //populareLista();
+        populareLista();
         
         //jDateChooser1
         try {
@@ -112,9 +120,15 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
             ClientNotificationAsyncController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
             ClientNotificationAsyncController.getInstance().addSubscriber(TopicsEnum.PROIECT_STARE_MODIFICAT, this);
             logger.info(angajat.getNume()+" a dat subscribe!");
+            
+            int ore = ActivitateController.getInstance().getOreAngajatLuna(angajat);
+            jLabel14.setText(ore + " ore");
+            
             Activitate lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajat);
             logger.info(angajat.getNume()+" si-a luat ultima activitate!");
+            
             today.add(Calendar.DATE,-2);
+            
             if(lastActiv==null){
                 JOptionPane.showMessageDialog(null, "Nu ai mai introdus un "
                 + "pontaj de ceva timp!");
@@ -176,6 +190,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         if(lastActiv.getProiect().getCorpuri()>1) {
             jComboBox5.setSelectedItem(corp);
             jComboBox5.setVisible(true);
+            jCheckBox1.setVisible(true);
             jLabel9.setVisible(true);
         }
         
@@ -226,8 +241,8 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
     public void populareLista(){
         try {
             //jList1.setBackground(Color.PINK);
-            sumaOre=0;
             sumaMinute=0;
+            sumaOre = 0;
             Date data = jDateChooser1.getDate();
             List<Activitate> activitati = ActivitateController.getInstance().getActivitatiAngajatZi(angajat, data);
             model = new DefaultListModel();
@@ -240,24 +255,23 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                 if(a.getProiect().getCorpuri()>1 && !a.getProiect().getNume().equals("Ofertare")) s = s + " corp " + a.getCorp();
                 if(a.getDetalii()!= null && a.getDetalii() != "") s = s + " " + a.getDetalii();
                 model.addElement(s);
-                sumaOre+=a.getOreMunca();
-                if (sumaMinute+a.getMinuteMunca()>59){
-                    sumaOre++;
-                    sumaMinute+=a.getMinuteMunca()-60;
-                }else{
-                    sumaMinute+=a.getMinuteMunca();
+                sumaOre += a.getOreMunca();
+                sumaMinute+=a.getMinuteMunca();
+                if(sumaMinute>=60){
+                    sumaOre+=sumaMinute/60;
+                    sumaMinute = sumaMinute%60;
                 }
             }
             
             SimpleDateFormat f = new SimpleDateFormat("dd.MM.yyyy");
             
-            if(sumaOre>8){
+            if((sumaMinute/60)>8){
                 JOptionPane.showMessageDialog(null, "Vezi ca ai lucrat mai mult de 8 ore in data de: " + 
                 f.format(data));
             }
             
             jLabel8.setText(sumaOre+" ore");
-            jLabel10.setText(sumaMinute+" minute");
+            jLabel10.setText((sumaMinute)+" minute");
             
         } catch (RemoteException ex) {
             logger.error(angajat.getNume() + " are eroarea: ",ex);
@@ -303,6 +317,9 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         jComboBox6 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -317,6 +334,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBox1.setMaximumSize(new java.awt.Dimension(100, 28));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(200, 28));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -397,11 +415,6 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         });
 
         jList1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jList1MouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(jList1);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -419,6 +432,20 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Alte detalii:");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Total luna asta:");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("jLabel14");
+
+        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox1.setText("Corp?");
+        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox1MouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Delogare");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -464,14 +491,20 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel9))
                                 .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCheckBox1)
+                                        .addGap(38, 38, 38)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15))
                             .addGroup(layout.createSequentialGroup()
@@ -480,7 +513,6 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                                 .addComponent(jLabel11)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8)
@@ -488,7 +520,6 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                                 .addComponent(jLabel10)
                                 .addGap(456, 456, 456))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
@@ -508,7 +539,12 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                                 .addGap(129, 129, 129)
                                 .addComponent(jLabel12)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(449, 449, 449)
+                                .addComponent(jLabel13)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel14)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -540,7 +576,8 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox1)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -549,7 +586,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                             .addComponent(jLabel11)
                             .addComponent(jLabel8)
                             .addComponent(jLabel10))
-                        .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -561,14 +598,17 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel14))))
+                        .addGap(44, 44, 44))))
         );
 
         pack();
@@ -587,13 +627,12 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                 return;
             }
             if (ore >= 0 && ore <17){
-                int temp = sumaOre + ore;
-                int min = (minute + sumaMinute)/60;
-                if (temp+min>16) {
+                int temp = ore*60 + sumaMinute + minute;
+                if (temp/60>16) {
                     JOptionPane.showMessageDialog(null, "Nu poti lucra mai mult de 16 ore pe zi!");
                     return;
                 }else{
-                    if (temp+min==16 && (minute + sumaMinute)%60>0){
+                    if (temp/60==16 && (temp)%60>0){
                         JOptionPane.showMessageDialog(null, "Nu poti lucra mai mult de 16 ore pe zi!");
                         return;
                     }else pontaj.setOreMunca(ore);
@@ -655,6 +694,8 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                 if(DictionarController.getInstance().findByCod(cod) != null){
                     ActivitateController.getInstance().adaugaActivitate(pontaj);
                     ClientNotificationAsyncController.getInstance().postNotification(TopicsEnum.PROIECT_ORA_MODIFICAT);
+                    int oreLuna = ActivitateController.getInstance().getOreAngajatLuna(angajat);
+                    jLabel14.setText(oreLuna + " ore");
                     //JOptionPane.showMessageDialog(null, "Bau!");
                 }else{
                     JOptionPane.showMessageDialog(null, "Ceva nu a mers bine, mai incercati o data! ");
@@ -970,6 +1011,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                 if (proiect.getCorpuri()>1){
                     jLabel9.setVisible(true);
                     jComboBox5.setVisible(true);
+                    jCheckBox1.setVisible(true);
 
                     for(int i=0;i<proiect.getCorpuri();i++){
                         char litera = 'A';
@@ -979,18 +1021,25 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
                 }else{
                     jLabel9.setVisible(false);
                     jComboBox5.setVisible(false);
+                    jCheckBox1.setVisible(false);
 
                 }
             } catch (RemoteException ex) {
                 Logger.getLogger(ClientFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
-            cod = 11;
+            if(jComboBox1.getSelectedItem().equals("Ofertare")) cod = 21;
+            if(jComboBox1.getSelectedItem().equals("Concediu de odihna")) cod = 22;
+            if(jComboBox1.getSelectedItem().equals("Concediu Medical")) cod = 23;
+            if(jComboBox1.getSelectedItem().equals("Sarbatori legale")) cod = 24;
+            
             jComboBox2.setVisible(false);
             jComboBox3.setVisible(false);
             jComboBox4.setVisible(false);
             jComboBox5.setVisible(false);
             jComboBox6.setVisible(false);
+            
+            jCheckBox1.setVisible(false);
             
             jLabel2.setVisible(false);
             jLabel3.setVisible(false);
@@ -1015,15 +1064,13 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
        populareLista();
     }//GEN-LAST:event_jDateChooser1PropertyChange
 
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jList1MouseClicked
-
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        dispose();
-        //ClientNotificationAsyncController.getInstance().close();
-        logger.info("S-a oprit aplicatia!");
-        new LoginFrame().setVisible(true);
+        if(!admin){
+            dispose();
+            //ClientNotificationAsyncController.getInstance().close();
+            logger.info("S-a oprit aplicatia!");
+            new LoginFrame().setVisible(true);
+        }
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
@@ -1040,9 +1087,18 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         //ClientNotificationAsyncController.getInstance().close();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
+        if(jCheckBox1.isSelected()){
+            jComboBox5.setEnabled(true);
+        }else{
+            jComboBox5.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1054,6 +1110,8 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

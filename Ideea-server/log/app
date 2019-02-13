@@ -1,2 +1,35 @@
-INFO    2018-10-21 18:29:33,932 [main] server.gui.ServerFrame  43 - A pornit serverul!
-INFO    2018-10-21 18:34:53,489 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 14:09:59,663 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 14:12:19,495 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 15:49:10,370 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 15:56:36,319 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 17:33:48,543 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 17:56:43,928 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2018-11-17 17:56:46,630 [main] server.gui.ServerFrame  61 - java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:341)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:249)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:236)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:213)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:198)
+	at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:203)
+	at server.Server.main(Server.java:50)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:330)
+	... 8 more
+INFO    2018-11-17 17:56:46,642 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2018-11-17 17:57:46,464 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2018-11-17 18:17:17,044 [main] server.gui.ServerFrame  43 - A pornit serverul!

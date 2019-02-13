@@ -54,8 +54,8 @@ public class ActivitateController {
         return activitateService.getActivitatiAngajatProiect(a, p);
     }
     
-    public List<Activitate> getActivitatiAngajatZi(Angajat a,Date data) throws RemoteException{
-        return activitateService.getActivitatiAngajatZi(a, data);
+    public List<Activitate> getActivitatiAngajatZi(Angajat a,Date dataa) throws RemoteException{
+        return activitateService.getActivitatiAngajatZi(a, dataa);
     }
     
     public Activitate findById(int id) throws RemoteException{
@@ -84,5 +84,9 @@ public class ActivitateController {
     
     public long getOreProiectBetweenDate(Proiect proiect,Date startDate,Date endDate) throws RemoteException{
         return activitateService.getOreProiectBetweenDate(proiect, startDate, endDate);
+    }
+    
+    public int getOreAngajatLuna(Angajat a) throws RemoteException{
+        return activitateService.getOreAngajatLuna(a);
     }
 }

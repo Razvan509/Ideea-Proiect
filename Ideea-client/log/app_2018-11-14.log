@@ -1,0 +1,37 @@
+ERROR   2018-11-14 12:43:17,272 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2018-11-14 12:43:35,939 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:43:46,352 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:47:23,627 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:47:33,471 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:47:45,641 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:50:52,038 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:51:02,630 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:51:17,089 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:51:24,069 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:51:35,546 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:51:47,441 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+ERROR   2018-11-14 12:51:59,440 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  321 - java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
+ERROR   2018-11-14 12:52:07,626 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  321 - java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
+ERROR   2018-11-14 12:52:09,077 [AWT-EventQueue-0] client.gui.PontajeAngajatFrame  321 - java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
+INFO    2018-11-14 12:52:17,425 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 12:53:25,949 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 12:54:11,700 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:13:05,683 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:13:22,671 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:13:59,856 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:14:06,799 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:14:55,040 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:15:01,998 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:16:11,075 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:19:54,605 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:20:04,684 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:21:02,071 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:21:13,774 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:22:08,953 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:22:43,083 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:23:06,418 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:23:25,907 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-14 13:24:05,088 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:24:53,545 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:26:05,794 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-14 13:26:16,814 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

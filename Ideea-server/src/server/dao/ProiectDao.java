@@ -71,21 +71,21 @@ public class ProiectDao {
     }
     
     public long oreProiect(Proiect proiect){
-        Query query = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect",Long.class);
+        //Query query = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect",Long.class);
         Query q = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.proiect = :proiect",Long.class);
-        query.setParameter("proiect", proiect);
+        //query.setParameter("proiect", proiect);
         q.setParameter("proiect", proiect);
         
         try{
-            Object o1 = query.getSingleResult();
+            //Object o1 = query.getSingleResult();
             Object o2 = q.getSingleResult();
-            if (o1 == null) return 0;
+            //if (o1 == null) return 0;
             if (o2 == null) return 0;
-            long l1 = (long) o1;
+            //long l1 = (long) o1;
             long l2 = (long) o2;
             
-            l1+=(l2/60);
-            return l1;
+            //l1+=(l2/60);
+            return l2/60;
         }catch(Exception e){
             logger.error(e);
             return 0;
@@ -93,28 +93,28 @@ public class ProiectDao {
     }
     
     public long getOreProiectBetweenDates(Proiect proiect,Date startDate,Date endDate){
-        Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect"
-                + "BETWEEN :startDate AND :endDate",Long.class);
+        //Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.proiect = :proiect"
+                //+ "BETWEEN :startDate AND :endDate",Long.class);
         Query q2 = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.proiect = :proiect"
                 + "BETWEEN :startDate AND :endDate",Long.class);
-        q1.setParameter("proiect", proiect);
+        /*q1.setParameter("proiect", proiect);
         q1.setParameter("startDate", startDate);
-        q1.setParameter("endDate", endDate);
+        q1.setParameter("endDate", endDate);*/
         
         q2.setParameter("proiect", proiect);
         q2.setParameter("startDate", startDate);
         q2.setParameter("endDate", endDate);
         
         try{
-            Object o1 = q1.getSingleResult();
+            //Object o1 = q1.getSingleResult();
             Object o2 = q2.getSingleResult();
-            if (o1 == null) return 0;
+            //if (o1 == null) return 0;
             if (o2 == null) return 0;
-            long l1 = (long) o1;
+            //long l1 = (long) o1;
             long l2 = (long) o2;
             
-            l1+=(l2/60);
-            return l1;
+            //l1+=(l2/60);
+            return l2/60;
         }catch(Exception e){
             logger.error(e);
             return 0;

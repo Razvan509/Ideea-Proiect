@@ -1,0 +1,135 @@
+ERROR   2018-11-17 14:10:30,536 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.IllegalArgumentException: NamedQuery of name: Angajat.findByUsernameAndPassword not found.
+INFO    2018-11-17 14:12:36,260 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Theodorescu Mihael a pornit aplicatia! 192.168.56.1
+INFO    2018-11-17 14:12:36,271 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 14:12:36,385 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 14:28:02,577 [AWT-EventQueue-0] client.gui.ClientFrame  1062 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 15:57:02,326 [AWT-EventQueue-0] client.gui.ClientFrame  110 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 15:57:02,332 [AWT-EventQueue-0] client.gui.ClientFrame  114 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 15:57:02,382 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 15:57:54,897 [AWT-EventQueue-0] client.gui.ClientFrame  1062 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 16:08:03,383 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 16:08:03,389 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 16:08:03,427 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 16:08:31,994 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 16:09:34,306 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 16:09:34,312 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 16:09:34,343 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 16:10:28,048 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 16:10:28,053 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 16:10:28,078 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 16:11:10,855 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:04:41,023 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:04:41,028 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:04:41,058 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:05:16,738 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:10:24,125 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:10:24,130 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:10:24,151 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:10:33,775 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:19:27,643 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:19:27,648 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:19:27,673 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:20:09,861 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:22:26,457 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:22:26,461 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:22:26,480 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:22:56,058 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:27:21,033 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:27:21,037 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:27:21,057 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:27:48,044 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:29:49,676 [AWT-EventQueue-0] client.gui.ClientFrame  109 - Theodorescu Mihael a pornit aplicatia! 192.168.153.52
+INFO    2018-11-17 17:29:49,683 [AWT-EventQueue-0] client.gui.ClientFrame  113 - Theodorescu Mihael a dat subscribe!
+INFO    2018-11-17 17:29:49,726 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2018-11-17 17:31:02,578 [AWT-EventQueue-0] client.gui.ClientFrame  1053 - Theodorescu Mihael a oprit aplicatia!
+INFO    2018-11-17 17:31:19,206 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-17 17:31:31,685 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-17 17:34:01,379 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-17 17:52:27,613 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-17 17:57:16,627 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+ERROR   2018-11-17 17:57:20,355 [AWT-EventQueue-0] ComboCellProiect.ComboTableModel  46 - java.rmi.ConnectException: Connection refused to host: 192.168.56.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+ERROR   2018-11-17 17:57:21,387 [AWT-EventQueue-0] client.gui.AdminFrame  104 - Eroare la preluarea angajatilor!
+java.rmi.ConnectException: Connection refused to host: 192.168.56.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy2.subscribe(Unknown Source)
+	at ro.top.service.ClientNotificationController.addSubscriber(ClientNotificationController.java:261)
+	at client.gui.AdminFrame.<init>(AdminFrame.java:86)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 57 more
+INFO    2018-11-17 17:57:27,970 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-17 17:57:59,393 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-17 18:07:54,184 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-17 18:17:29,734 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-17 18:27:40,797 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2018-11-17 18:28:47,787 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2018-11-17 18:29:17,653 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

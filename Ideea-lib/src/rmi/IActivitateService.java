@@ -29,4 +29,5 @@ public interface IActivitateService extends Remote{
     public List<Activitate> getActivitatiPerioada(Angajat angajat,Date startDate,Date endDate) throws RemoteException;
     public Pair getOreProiectByAngajatBetweenDate(Proiect proiect,Angajat angajat,Date start,Date end) throws RemoteException;
     public long getOreProiectBetweenDate(Proiect proiect,Date startDate,Date endDate) throws RemoteException;
+    public int getOreAngajatLuna(Angajat a) throws RemoteException;
 }

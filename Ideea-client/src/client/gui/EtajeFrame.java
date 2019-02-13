@@ -61,7 +61,7 @@ public class EtajeFrame extends javax.swing.JFrame {
             }
         }else{
             String []et = suprafata.split("\\W+");
-            int []etaj = new int[et.length];
+            int []etaj = new int[et.length+1];
             this.suprafata = this.suprafata.substring(this.suprafata.indexOf('\n')+1);
             for(int i=0;i<et.length;i++){
                 etaj[i] = Integer.parseInt(et[i]);

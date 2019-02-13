@@ -6,8 +6,6 @@
     <class>db.Angajat</class>
     <class>db.Proiect</class>
     <class>db.Dictionar</class>
-    <class>db.ZileLibere</class>
-    <class>db.Sarbatori</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bazaideea?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

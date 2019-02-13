@@ -55,8 +55,8 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         jLabel7.setVisible(false);
         jLabel8.setVisible(false);
         
-        String []columnNames = {"Proiect","Pontaj","Data","Ore","Minute","Data adaugare"};
-        Object [][] data ={{"","","","","",""}};
+        String []columnNames = {"Proiect","Pontaj","Data","Ore","Minute","Data adaugare","Detalii"};
+        Object [][] data ={{"","","","","","",""}};
         
         model = new DefaultTableModel(data, columnNames);
         jTable1.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -260,59 +260,67 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         
         try {
             List<Activitate> pontaje = ActivitateController.getInstance().getActivitatiPerioada(angajat, startDate, endDate);
-            List<Proiect> proiecte = new ArrayList();
-            Object[] row = new Object[6];
-            SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
-            SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-            Pair pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
-                    pontaje.get(0).getProiect(), angajat,startDate,endDate);
-            proiecte.add(pontaje.get(0).getProiect());
-            row[0] = pontaje.get(0).getProiect().getNume();
-            row[1] = "Total";
-            row[2] = "-";
-            row[3] = pair.getX();
-            row[4] = pair.getY();
-            row[5] = "-";
-            model.addRow(row);
-            for(int i=0;i<pontaje.size();i++){
-                
-                if(!proiecte.contains(pontaje.get(i).getProiect())) {
-                    proiecte.add(pontaje.get(i).getProiect());
-                    pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
-                            pontaje.get(i).getProiect(),angajat,startDate,endDate);
-                    row[0] = pontaje.get(i).getProiect().getNume();
-                    row[1] = "Total";
-                    row[2] = "-";
-                    row[3] = pair.getX();
-                    row[4] = pair.getY();
-                    row[5] = "-";
-                    model.insertRow(proiecte.size()-1, row);
-                    
-                }
-                row[0] = pontaje.get(i).getProiect().getNume();
-                row[1] = DictionarController.getInstance().findByCod(pontaje.get(i).getCod());
-                if(pontaje.get(i).getEtaj()!=null) row[1] = row[1] + " " + pontaje.get(i).getEtaj();
-                if(pontaje.get(i).getProiect().getCorpuri()>1) row[1] = row[1] + " " + pontaje.get(i).getCorp();
-                row[2] = format1.format(pontaje.get(i).getDataPontaj());
-                row[3] = pontaje.get(i).getOreMunca();
-                row[4] = pontaje.get(i).getMinuteMunca();
-                row[5] = format2.format(pontaje.get(i).getDataOra());
+            if(pontaje.size() != 0){
+                List<Proiect> proiecte = new ArrayList();
+                Object[] row = new Object[7];
+                SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                Pair pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
+                        pontaje.get(0).getProiect(), angajat,startDate,endDate);
+                proiecte.add(pontaje.get(0).getProiect());
+                row[0] = pontaje.get(0).getProiect().getNume();
+                row[1] = "Total";
+                row[2] = "-";
+                row[3] = pair.getX();
+                row[4] = pair.getY()%60;
+                row[5] = "-";
+                row[6] = "-";
                 model.addRow(row);
-                ore+=pontaje.get(i).getOreMunca();
-                minute+=pontaje.get(i).getMinuteMunca();
+                for(int i=0;i<pontaje.size();i++){
+
+                    if(!proiecte.contains(pontaje.get(i).getProiect())) {
+                        proiecte.add(pontaje.get(i).getProiect());
+                        pair = ActivitateController.getInstance().getOreProiectByAngajatBetweenDate(
+                                pontaje.get(i).getProiect(),angajat,startDate,endDate);
+                        row[0] = pontaje.get(i).getProiect().getNume();
+                        row[1] = "Total";
+                        row[2] = "-";
+                        row[3] = pair.getX();
+                        row[4] = pair.getY()%60;
+                        row[5] = "-";
+                        row[6] = "-";
+                        model.insertRow(proiecte.size()-1, row);
+
+                    }
+                    row[0] = pontaje.get(i).getProiect().getNume();
+                    row[1] = DictionarController.getInstance().findByCod(pontaje.get(i).getCod());
+                    if(pontaje.get(i).getEtaj()!=null) row[1] = row[1] + " " + pontaje.get(i).getEtaj();
+                    if(pontaje.get(i).getProiect().getCorpuri()>1) row[1] = row[1] + " " + pontaje.get(i).getCorp();
+                    row[2] = format1.format(pontaje.get(i).getDataPontaj());
+                    row[3] = pontaje.get(i).getOreMunca();
+                    row[4] = pontaje.get(i).getMinuteMunca()%60;
+                    row[5] = format2.format(pontaje.get(i).getDataOra());
+                    if(pontaje.get(i).getDetalii()!=null) row[6] = pontaje.get(i).getDetalii();
+                    else row[6] = "-";
+                    model.addRow(row);
+                    ore+=pontaje.get(i).getOreMunca();
+                    minute+=pontaje.get(i).getMinuteMunca();
+                }
+                ore += minute/60;
+                minute = minute%60;
+                /*for(int i=0;i<proiecte.size();i++){
+                    System.out.println(proiecte.get(i));
+                }*/
+                jLabel5.setText(ore+"");
+                jLabel7.setText(minute+"");
+                jLabel4.setVisible(true);
+                jLabel5.setVisible(true);
+                jLabel6.setVisible(true);
+                jLabel7.setVisible(true);
+                jLabel8.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, angajat.getNume() + " nu are pontaje bagate in perioada selectata!");
             }
-            ore += minute/60;
-            minute = minute%60;
-            /*for(int i=0;i<proiecte.size();i++){
-                System.out.println(proiecte.get(i));
-            }*/
-            jLabel5.setText(ore+"");
-            jLabel7.setText(minute+"");
-            jLabel4.setVisible(true);
-            jLabel5.setVisible(true);
-            jLabel6.setVisible(true);
-            jLabel7.setVisible(true);
-            jLabel8.setVisible(true);
         } catch (RemoteException ex) {
             JOptionPane.showMessageDialog(null, "Eroare");
             logger.error(ex);
@@ -321,6 +329,7 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
             logger.error(ex);
             ex.printStackTrace();
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

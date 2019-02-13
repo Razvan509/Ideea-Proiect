@@ -17,6 +17,7 @@ import javax.persistence.TemporalType;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import rmi.Pair;
+import static java.lang.Math.toIntExact;
 
 /**
  *
@@ -56,7 +57,8 @@ public class ActivitateDao {
         query.setParameter("data", data);
         
         try{
-            return query.getResultList();
+            List<Activitate> rez = query.getResultList();
+            return rez;
         }catch(Exception e){
             logger.error(e);
             return null;
@@ -124,6 +126,7 @@ public class ActivitateDao {
         q1.setParameter("angajat", angajat);
         q1.setParameter("start", start);
         q1.setParameter("end",end);
+        
         q2.setParameter("proiect", proiect);
         q2.setParameter("angajat", angajat);
         q2.setParameter("start", start);
@@ -131,7 +134,7 @@ public class ActivitateDao {
         
         long ore = (long)q1.getSingleResult();
         long minute = (long) q2.getSingleResult();
-        ore += minute/60;
+        //long ore = minute/60;
         minute = minute%60;
         
         return new Pair(ore,minute);
@@ -145,20 +148,49 @@ public class ActivitateDao {
         q1.setParameter("proiect", proiect);
         q1.setParameter("start", startDate);
         q1.setParameter("end",endDate);
+        
         q2.setParameter("proiect", proiect);
         q2.setParameter("start", startDate);
         q2.setParameter("end",endDate);
         
         Object o1 = q1.getSingleResult();
         Object o2 = q2.getSingleResult();
-        if(o1!=null && o2!=null){
-            long ore = (long) o1;
+        if(o2!=null){
             long minute = (long) o2;
-            ore += minute/60;
+            long ore = (long) o1;
             return ore;
         }
         
-        if(o1!=null) return (long)o1;
         return 0;
+    }
+    
+    public int getOreAngajatLuna(Angajat a){
+        Date first = new Date();
+        first.setDate(1);
+        Query q1 = em.createQuery("SELECT SUM(a.oreMunca) FROM Activitate a WHERE a.angajat = :angajat AND a.dataPontaj BETWEEN"
+                + " :start AND :end");
+        Query q2 = em.createQuery("SELECT SUM(a.minuteMunca) FROM Activitate a WHERE a.angajat = :angajat AND a.dataPontaj BETWEEN"
+                + " :start AND :end");
+        q1.setParameter("angajat", a);
+        q1.setParameter("start", first);
+        q1.setParameter("end", new Date());
+        
+        q2.setParameter("angajat", a);
+        q2.setParameter("start", first);
+        q2.setParameter("end", new Date());
+        
+        Object o1 = q1.getSingleResult();
+        Object o2 = q2.getSingleResult();
+        
+        if(o1==null) return 0;
+        long l1 = (long)o1;
+        int ore = toIntExact(l1);
+        
+        if(o2==null) return 0;
+        long minute = (long) o2;
+        
+        //long ore = minute/60;
+        return toIntExact(ore);
+        //return 0;
     }
 }
