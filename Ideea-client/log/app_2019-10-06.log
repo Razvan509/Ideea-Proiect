@@ -1,0 +1,14 @@
+ERROR   2019-10-06 14:58:43,565 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-10-06 14:59:13,781 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-06 15:00:11,286 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-06 15:11:46,615 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-06 15:12:14,247 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-06 15:13:52,980 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-10-06 15:14:49,329 [AWT-EventQueue-0] client.gui.AdminFrame  223 - java.lang.NullPointerException
+INFO    2019-10-06 15:14:52,267 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-06 15:15:35,294 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-06 15:16:06,876 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-06 15:27:32,164 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-06 15:29:28,467 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-06 15:32:56,017 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-06 15:33:16,597 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!

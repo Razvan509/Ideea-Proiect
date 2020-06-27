@@ -11,9 +11,12 @@ import db.Proiect;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import raport.RaportBrut;
+import raport.RaportOreAngajat;
 import rmi.IActivitateService;
 import rmi.Pair;
 
@@ -89,4 +92,54 @@ public class ActivitateController {
     public int getOreAngajatLuna(Angajat a) throws RemoteException{
         return activitateService.getOreAngajatLuna(a);
     }
+    
+    public List<Activitate> getActivitatiTip(String comanda, int[] cmd,int cod) throws RemoteException{
+        return activitateService.getActivitatiTip(comanda, cmd, cod);
+    }
+    
+    public Activitate getFirstActivityProject(Proiect p) throws RemoteException{
+        return activitateService.getFirstActivityProject(p);
+    }
+    
+    public List<Angajat> getAngajatiOnProject(Proiect p) throws RemoteException{
+        return activitateService.getAngajatiOnProject(p);
+    }
+    
+    public int getOreProiectByAngajat(Proiect p, Angajat a) throws RemoteException{
+        return activitateService.getOreProiectByAngajat(p, a);
+    }
+    
+    public List<Angajat> getAngajatiOnProjectBetweenDates(Proiect p, Date start, Date end) throws RemoteException{
+        return activitateService.getAngajatiOnProjectBetweenDates(p,start,end);
+    }
+    
+    public List<Activitate> getRaport(String raport) throws RemoteException{
+        return activitateService.getRaport(raport);
+    }
+    
+    public List<Activitate> getRaportProiect(String raport,Proiect p) throws RemoteException{
+        return activitateService.getRaportProiect(raport,p);
+    }
+    
+    public List<RaportBrut> createView(String query) throws RemoteException{
+        try{
+            return activitateService.createView(query);
+        }catch(Exception e){
+            //JOptionPane.showMessageDialog(null, "Nu exista pontaje pentru ce ai ales!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<RaportOreAngajat> getRaportOreAngajat(String select) throws RemoteException{
+        return activitateService.getRaportOreAngajat(select);
+    }
+    
+    public ArrayList<RaportBrut> getRaportOrd(String select) throws RemoteException{
+        return activitateService.getRaportOrd(select);
+    }
+    
+     public long getAngajatTimpPontajBetweenDates(Date startDate, Date endDate, Angajat ang) throws RemoteException {
+         return activitateService.getAngajatTimpPontajBetweenDates(startDate, endDate, ang);
+     }
 }

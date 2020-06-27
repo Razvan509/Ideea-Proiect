@@ -1,0 +1,12 @@
+INFO    2019-02-17 14:27:41,596 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-17 14:27:45,581 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-17 14:32:33,418 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-17 14:32:40,072 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-17 17:36:17,988 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-17 17:38:00,381 [AWT-EventQueue-0] client.gui.AdminFrame  343 - S-a oprit aplicatia!
+INFO    2019-02-17 17:38:06,325 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.56.1
+INFO    2019-02-17 17:38:06,326 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-02-17 17:38:06,333 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-02-17 17:38:38,881 [AWT-EventQueue-0] client.gui.ClientFrame  1068 - S-a oprit aplicatia!
+INFO    2019-02-17 17:38:42,310 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-17 17:39:46,209 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

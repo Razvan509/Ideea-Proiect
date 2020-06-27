@@ -51,6 +51,7 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
         this.client = client;
         
         
+        
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -91,7 +92,15 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
                     litera+=1;
                     
                 }
-                jComboBox1.setSelectedItem(activitate.getCorp()+"");
+                if(activitate.getCorp()!='-'){
+                    jComboBox1.setSelectedItem(activitate.getCorp()+"");
+                    jCheckBox1.setSelected(true);
+                    jComboBox1.setEnabled(true);
+                }else{
+                    jCheckBox1.setSelected(false);
+                    jComboBox1.setSelectedIndex(0);
+                    jComboBox1.setEnabled(false);
+                }
             }else{
                 jLabel5.setVisible(false);
                 jComboBox1.setVisible(false);
@@ -168,6 +177,7 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -225,6 +235,14 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jCheckBox1.setText("Corp?");
+        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,9 +268,12 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
                                         .addGap(48, 48, 48))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jCheckBox1))
                                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 90, Short.MAX_VALUE))
                             .addComponent(jTextField1)))
@@ -295,7 +316,8 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -316,15 +338,17 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-            int oreVechi = activitate.getOreMunca();
-            int minVechi = activitate.getMinuteMunca();
+            int oreVechi = activitate.getMinuteMunca()/60;
+            int minVechi = activitate.getMinuteMunca()%60;
             int ore = Integer.parseInt(jTextField2.getText());
             int minute = Integer.parseInt(jTextField3.getText());
 
             if(jComboBox2.isVisible()){
                 activitate.setEtaj((String)jComboBox2.getSelectedItem());
             }
-            if(jComboBox1.isVisible()){
+            
+            activitate.setCorp('-');
+            if(jComboBox1.isVisible() && jCheckBox1.isSelected()){
                 String s = (String)jComboBox1.getSelectedItem();
                 activitate.setCorp(s.toCharArray()[0]);
             }
@@ -335,7 +359,7 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
             calculeazaTimp(data);
             
             if (ore >= 0 && ore <17){
-                int temp = ore*60 + sumaMinute + minute - minVechi;
+                int temp = ore*60 + sumaMinute%60 + minute - minVechi;
                 if (temp/60>16) {
                     JOptionPane.showMessageDialog(null, "Nu poti lucra mai mult de 16 ore pe zi!");
                     return;
@@ -413,8 +437,17 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
         jLabel9.setText(sumaMinute%60+" minute");
     }//GEN-LAST:event_jDateChooser1PropertyChange
 
+    private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
+        if(jCheckBox1.isSelected()){
+            jComboBox1.setEnabled(true);
+        }else{
+            jComboBox1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBox1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;

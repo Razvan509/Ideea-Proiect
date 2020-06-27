@@ -1,0 +1,18 @@
+INFO    2019-03-17 22:42:23,992 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-03-17 22:42:32,573 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Anghelut Robert a pornit aplicatia! 192.168.1.153
+INFO    2019-03-17 22:42:32,574 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Anghelut Robert a dat subscribe!
+INFO    2019-03-17 22:42:32,587 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Anghelut Robert si-a luat ultima activitate!
+INFO    2019-03-17 22:42:54,783 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Anghelut Robert a oprit aplicatia!
+INFO    2019-03-17 22:42:56,839 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-03-17 22:47:41,529 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.1.153
+INFO    2019-03-17 22:47:41,536 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-03-17 22:47:41,548 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Theodorescu Mihael si-a luat ultima activitate!
+ERROR   2019-03-17 22:48:01,406 [AWT-EventQueue-0] client.gui.ClientFrame  702 - Un cod s-a generat prost!140309
+ERROR   2019-03-17 22:48:04,206 [AWT-EventQueue-0] client.gui.ClientFrame  702 - Un cod s-a generat prost!140309
+INFO    2019-03-17 22:48:30,232 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-03-17 22:52:48,712 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-03-17 22:52:55,912 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Andonii Octavian a pornit aplicatia! 192.168.1.153
+INFO    2019-03-17 22:52:55,913 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Andonii Octavian a dat subscribe!
+INFO    2019-03-17 22:52:55,919 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Andonii Octavian si-a luat ultima activitate!
+INFO    2019-03-17 22:53:12,735 [AWT-EventQueue-0] client.gui.ClientFrame  1085 - Andonii Octavian a oprit aplicatia!
+INFO    2019-03-17 22:53:13,815 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

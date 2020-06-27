@@ -1,0 +1,100 @@
+INFO    2019-03-18 09:45:25,191 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:46:46,586 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:47:15,291 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:50:13,228 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:55:17,257 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:56:17,985 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:57:16,277 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 09:59:48,453 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:00:34,011 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:01:33,248 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:06:39,050 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2019-03-18 10:06:39,281 [main] server.gui.ServerFrame  61 - java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:346)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:254)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:236)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:213)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:198)
+	at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:203)
+	at server.Server.main(Server.java:50)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:335)
+	... 8 more
+INFO    2019-03-18 10:06:39,283 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2019-03-18 10:06:45,520 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:09:26,727 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:11:09,968 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:12:28,794 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:14:48,464 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:19:05,057 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2019-03-18 10:19:05,292 [main] server.gui.ServerFrame  61 - java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:346)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:254)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:236)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:213)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:198)
+	at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:203)
+	at server.Server.main(Server.java:50)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:335)
+	... 8 more
+INFO    2019-03-18 10:19:05,295 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2019-03-18 10:19:14,490 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:30:51,871 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:38:06,238 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:38:54,892 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 10:52:46,030 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:25:00,932 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:25:53,026 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:26:59,576 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:27:56,575 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:28:57,789 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:29:56,526 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 11:30:48,854 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:04:07,506 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:08:08,729 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:11:21,754 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:24:00,990 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:25:14,093 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:28:26,751 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:30:03,643 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 12:53:47,649 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:04:14,305 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:05:11,907 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:08:08,263 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:11:31,431 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:12:44,263 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:17:39,894 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:20:06,552 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:22:24,065 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-03-18 13:39:47,907 [main] server.gui.ServerFrame  43 - A pornit serverul!

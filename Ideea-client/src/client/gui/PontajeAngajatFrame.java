@@ -183,12 +183,12 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -196,7 +196,7 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
-                .addContainerGap())
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -250,8 +250,8 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         Date startDate = jDateChooser1.getDate();
         Date endDate = jDateChooser2.getDate();
         Angajat angajat = angajati.get(jComboBox1.getSelectedIndex());
-        int ore=0;
-        int minute=0;
+        long ore=0;
+        long minute=0;
         
         if(startDate.after(endDate)){
             JOptionPane.showMessageDialog(null, "Incearca sa pui invers datele");
@@ -297,20 +297,22 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
                     if(pontaje.get(i).getEtaj()!=null) row[1] = row[1] + " " + pontaje.get(i).getEtaj();
                     if(pontaje.get(i).getProiect().getCorpuri()>1) row[1] = row[1] + " " + pontaje.get(i).getCorp();
                     row[2] = format1.format(pontaje.get(i).getDataPontaj());
-                    row[3] = pontaje.get(i).getOreMunca();
+                    row[3] = pontaje.get(i).getMinuteMunca()/60;
                     row[4] = pontaje.get(i).getMinuteMunca()%60;
                     row[5] = format2.format(pontaje.get(i).getDataOra());
                     if(pontaje.get(i).getDetalii()!=null) row[6] = pontaje.get(i).getDetalii();
                     else row[6] = "-";
                     model.addRow(row);
-                    ore+=pontaje.get(i).getOreMunca();
-                    minute+=pontaje.get(i).getMinuteMunca();
+                    //ore+=pontaje.get(i).getMinuteMunca()/60;
+                    //minute+=pontaje.get(i).getMinuteMunca()%60;
                 }
-                ore += minute/60;
-                minute = minute%60;
+                //ore += minute/60;
+                //minute = minute%60;
                 /*for(int i=0;i<proiecte.size();i++){
                     System.out.println(proiecte.get(i));
                 }*/
+                ore = ActivitateController.getInstance().getAngajatTimpPontajBetweenDates(startDate, endDate, angajat)/60;
+                minute = ActivitateController.getInstance().getAngajatTimpPontajBetweenDates(startDate, endDate, angajat)%60;
                 jLabel5.setText(ore+"");
                 jLabel7.setText(minute+"");
                 jLabel4.setVisible(true);

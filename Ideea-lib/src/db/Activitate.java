@@ -152,7 +152,8 @@ public class Activitate implements Serializable{
     @Override
     public String toString() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        return proiect.getNume() + " " + dateFormat.format(dataPontaj) + " " + oreMunca + " ore si "+minuteMunca + " minute";
+        return proiect.getNume() + " " + dateFormat.format(dataPontaj) + " " + minuteMunca/60 
+        +" ore si "+minuteMunca%60 + " minute " + etaj + " " +corp + " "+angajat.getNume() + " " + cod;
     }
     
     

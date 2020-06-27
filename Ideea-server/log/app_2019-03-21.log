@@ -1,0 +1,29 @@
+INFO    2019-03-21 16:13:03,520 [main] server.gui.ServerFrame  38 - A pornit serverul!
+INFO    2019-03-21 16:21:28,395 [main] server.gui.ServerFrame  38 - A pornit serverul!
+ERROR   2019-03-21 16:21:28,650 [main] server.gui.ServerFrame  56 - java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+java.rmi.server.ExportException: Port already in use: 4444; nested exception is: 
+	java.net.BindException: Address already in use: JVM_Bind
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:346)
+	at sun.rmi.transport.tcp.TCPTransport.exportObject(TCPTransport.java:254)
+	at sun.rmi.transport.tcp.TCPEndpoint.exportObject(TCPEndpoint.java:411)
+	at sun.rmi.transport.LiveRef.exportObject(LiveRef.java:147)
+	at sun.rmi.server.UnicastServerRef.exportObject(UnicastServerRef.java:236)
+	at sun.rmi.registry.RegistryImpl.setup(RegistryImpl.java:213)
+	at sun.rmi.registry.RegistryImpl.<init>(RegistryImpl.java:198)
+	at java.rmi.registry.LocateRegistry.createRegistry(LocateRegistry.java:203)
+	at server.Server.main(Server.java:45)
+Caused by: java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:387)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:375)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createServerSocket(RMIDirectSocketFactory.java:45)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createServerSocket(RMIMasterSocketFactory.java:345)
+	at sun.rmi.transport.tcp.TCPEndpoint.newServerSocket(TCPEndpoint.java:666)
+	at sun.rmi.transport.tcp.TCPTransport.listen(TCPTransport.java:335)
+	... 8 more
+INFO    2019-03-21 16:21:28,653 [main] server.gui.ServerFrame  57 - S-a inchis serverul cu eroare!

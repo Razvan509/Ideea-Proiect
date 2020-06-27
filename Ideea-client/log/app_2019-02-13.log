@@ -1,0 +1,117 @@
+INFO    2019-02-13 10:47:26,602 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 10:47:35,996 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 10:47:35,997 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-02-13 10:47:36,670 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-02-13 10:47:47,298 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-02-13 10:47:47,931 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 11:08:43,725 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 11:08:54,516 [AWT-EventQueue-0] client.gui.AdminFrame  343 - S-a oprit aplicatia!
+INFO    2019-02-13 11:09:08,051 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 11:09:08,052 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 11:09:08,075 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 11:09:41,556 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 11:10:10,500 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 11:10:10,504 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 11:10:10,530 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 11:12:03,888 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 11:12:03,892 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 11:12:03,913 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 11:12:53,319 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Melinceanu Cristiana a oprit aplicatia!
+ERROR   2019-02-13 11:41:07,744 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-02-13 11:41:27,720 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 11:42:30,745 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+ERROR   2019-02-13 11:44:47,019 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-02-13 11:45:03,734 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 11:45:23,210 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 11:54:43,247 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:00:08,710 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:00:28,522 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:00:38,818 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:00:38,819 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:00:38,836 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:00:53,289 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:00:54,322 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:02:05,204 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:02:05,207 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:02:05,224 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:02:48,946 [AWT-EventQueue-0] client.gui.ClientFrame  1066 - S-a oprit aplicatia!
+INFO    2019-02-13 12:02:53,045 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:02:53,045 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:02:53,060 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:03:01,815 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:06:11,322 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:06:20,848 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:06:20,849 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:06:20,857 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:07:03,515 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:07:09,231 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:07:09,231 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:07:09,238 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:07:11,349 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:07:11,893 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:07:20,022 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:07:20,026 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:07:20,039 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:07:37,754 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:07:44,250 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:07:52,260 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:07:52,262 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:07:52,270 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:08:21,816 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:08:33,168 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:09:03,716 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:09:03,719 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:09:03,732 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:09:30,544 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:12:06,780 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:12:09,799 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:12:15,929 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:12:15,933 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:12:15,948 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:12:38,604 [AWT-EventQueue-0] client.gui.ClientFrame  1081 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:13:40,644 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:13:40,647 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:13:40,665 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:13:53,125 [AWT-EventQueue-0] client.gui.ClientFrame  1082 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:17:11,375 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:17:11,377 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:17:11,387 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:17:23,858 [AWT-EventQueue-0] client.gui.ClientFrame  1083 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:18:56,101 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:18:56,104 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:18:56,113 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:19:59,923 [AWT-EventQueue-0] client.gui.ClientFrame  1083 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:20:36,003 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:20:36,009 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:20:36,017 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:21:51,631 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:21:51,650 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:21:51,664 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:23:53,753 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:23:53,757 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:23:53,767 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:24:07,295 [AWT-EventQueue-0] client.gui.ClientFrame  1083 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-02-13 12:26:43,054 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:26:43,057 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-02-13 12:26:43,067 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-02-13 12:27:09,988 [AWT-EventQueue-0] client.gui.ClientFrame  1068 - S-a oprit aplicatia!
+INFO    2019-02-13 12:27:13,459 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:27:25,602 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:44:34,218 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.153.118
+INFO    2019-02-13 12:44:34,222 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-02-13 12:44:34,279 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-02-13 12:44:46,229 [AWT-EventQueue-0] client.gui.ClientFrame  1083 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-02-13 12:44:52,900 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:44:55,790 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:48:14,840 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:48:35,121 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:49:18,593 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:49:29,369 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:50:17,195 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:50:27,512 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:50:55,997 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:51:02,814 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 12:51:33,491 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 12:51:42,211 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-02-13 14:38:32,191 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-02-13 14:38:46,777 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

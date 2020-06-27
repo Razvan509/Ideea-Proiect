@@ -8,6 +8,8 @@ package ComboCellProiect;
 import Enum.TopicsEnum;
 import client.controller.ProiectController;
 import db.Proiect;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import org.apache.log4j.PropertyConfigurator;
 import ro.top.service.ClientNotificationAsyncController;
@@ -170,5 +173,7 @@ public class ComboTableModel extends AbstractTableModel implements Subscriber{
     public void newDataNotification(Object o, String string) {
         
     }
+
+    
     
 }

@@ -58,7 +58,7 @@ public class AlegePontajFrame extends javax.swing.JFrame {
         populareLista();
     }
     
-    public void populareLista(){
+    public final void populareLista(){
         try {
             model = new DefaultListModel();
             Date data = jDateChooser1.getDate();
@@ -106,6 +106,11 @@ public class AlegePontajFrame extends javax.swing.JFrame {
         jLabel1.setText("(Alege ziua si apasa dublu click pe pontajul dorit)");
 
         jDateChooser1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser1PropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

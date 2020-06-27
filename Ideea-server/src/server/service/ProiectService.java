@@ -27,6 +27,13 @@ public class ProiectService extends UnicastRemoteObject implements IProiectServi
        emf = Persistence.createEntityManagerFactory("Ideea-serverPU");
     }
 
+    public EntityManagerFactory getEmf() {
+        return emf;
+    }
+
+    
+    
+
     @Override
     public void adaugaProiect(Proiect proiect) throws RemoteException {
         EntityManager em = emf.createEntityManager();

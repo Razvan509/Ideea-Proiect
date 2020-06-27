@@ -1,0 +1,7 @@
+ERROR   2019-07-18 13:00:21,445 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-07-18 13:02:12,366 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael a pornit aplicatia! 192.168.56.1
+INFO    2019-07-18 13:02:12,369 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Theodorescu Mihael a dat subscribe!
+INFO    2019-07-18 13:02:12,387 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-07-18 13:03:53,372 [AWT-EventQueue-0] client.gui.ClientFrame  1106 - S-a oprit aplicatia!
+INFO    2019-07-18 13:03:57,504 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-07-18 13:05:59,938 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!

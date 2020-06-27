@@ -18,6 +18,8 @@ import db.Proiect;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.Calendar;
@@ -72,6 +74,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         
         
         
+        
         JScrollPane scrollpane = new JScrollPane(table);
         scrollpane.setPreferredSize(new Dimension(500, 700));
         scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
@@ -80,7 +83,22 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         
         // ArrayList<String> angjPontVechi = new ArrayList<>();
         try {
-            //List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+            
+            table.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e){
+                    if(e.getButton() == MouseEvent.BUTTON1 && e.getClickCount() == 2){
+                        try {
+                            List<Proiect> proiecte = ProiectController.getInstance().getAllProjectsByStare(0);
+                            int row = table.getSelectedRow();
+                            new DetaliiProiectFrame(proiecte.get(row)).setVisible(true);
+                            //JOptionPane.showMessageDialog(null, "S-a activat evenimentul boss pe randul "+row);
+                        } catch (RemoteException ex) {
+                            Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                }
+            });
             
             
             ClientNotificationController.getInstance().addSubscriber(TopicsEnum.PROIECT_ORA_MODIFICAT, this);
@@ -92,10 +110,12 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             String output = "Cei care nu au mai bagat un pontaj de 4 zile sau mai mult sunt: \n";
             Activitate lastActiv;
             for(int i=0;i<angajati.size();i++){
-                lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
-                if((lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj())) && !angajati.get(i).isAdmin()){
-                    output+= angajati.get(i).getNume() + "\n";
-                }
+                if(!(angajati.get(i).isAdmin())){
+                    lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
+                    if((lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj()))){
+                        output+= angajati.get(i).getNume() + "\n";
+                    }
+                }   
             }
             //logger.info("s-au terminat activitatile");
             UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
@@ -104,7 +124,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             logger.error("Eroare la preluarea angajatilor!",ex);
             JOptionPane.showMessageDialog(null, "Eroare");
         }catch(Exception ex){
-            logger.error(ex);
+            logger.error(ex,ex);
         }
     }
     
@@ -152,6 +172,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -234,6 +255,14 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem9);
 
+        jMenuItem15.setText("Export");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem15);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Proiect");
@@ -278,7 +307,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem12);
 
-        jMenuItem13.setText("Rapoarte (in lucru)");
+        jMenuItem13.setText("Rapoarte");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -438,7 +467,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        //new RapoarteProiectFrame().setVisible(true);
+        new RapoarteProiectFrame().setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
@@ -463,6 +492,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        new ExportFrame();
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -475,6 +508,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

@@ -1,0 +1,353 @@
+INFO    2019-06-07 13:54:18,766 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 13:54:21,626 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 13:54:35,862 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 13:54:40,409 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 13:56:46,970 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 13:57:07,732 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:24:42,549 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 14:25:08,971 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:26:04,024 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 14:31:03,863 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:31:40,933 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 14:31:41,215 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 14:32:10,456 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:34:19,155 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 14:34:19,436 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 14:34:22,233 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:34:28,022 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 14:34:28,303 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 14:34:43,942 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 14:42:32,493 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael a pornit aplicatia! 192.168.153.125
+INFO    2019-06-07 14:42:32,493 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Theodorescu Mihael a dat subscribe!
+INFO    2019-06-07 14:42:32,509 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-06-07 14:42:46,281 [AWT-EventQueue-0] client.gui.ClientFrame  1120 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-06-07 14:43:43,784 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael a pornit aplicatia! 192.168.153.125
+INFO    2019-06-07 14:43:43,784 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Theodorescu Mihael a dat subscribe!
+INFO    2019-06-07 14:43:43,800 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-06-07 14:44:06,129 [AWT-EventQueue-0] client.gui.ClientFrame  1120 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-06-07 14:46:28,324 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 14:46:28,618 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 14:47:09,151 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 15:11:51,295 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 15:11:51,576 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 15:13:27,787 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 15:14:05,383 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 15:14:05,659 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 15:15:13,054 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 15:15:49,897 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 15:15:50,182 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 15:18:09,048 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 15:28:26,470 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 15:28:26,819 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 15:34:59,064 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 15:53:47,224 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 15:53:47,622 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 15:53:57,679 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:22:23,916 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Theodorescu Mihael a pornit aplicatia! 192.168.153.125
+INFO    2019-06-07 16:22:23,916 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Theodorescu Mihael a dat subscribe!
+INFO    2019-06-07 16:22:23,916 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-06-07 16:22:44,869 [AWT-EventQueue-0] client.gui.ClientFrame  1121 - Theodorescu Mihael a oprit aplicatia!
+INFO    2019-06-07 16:28:09,225 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:28:09,522 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:29:57,541 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:29:57,822 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:31:07,244 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:31:07,541 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:31:44,021 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:31:44,334 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:32:35,286 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:32:35,599 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:33:21,123 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:33:21,451 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:35:09,323 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:35:09,641 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:35:21,704 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:36:25,275 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:36:25,572 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:36:34,502 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:46:00,881 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:46:01,209 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:47:04,306 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:48:02,772 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:48:03,053 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:53:59,919 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:54:20,359 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:54:20,671 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:54:54,705 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:57:50,427 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:57:50,724 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 16:58:23,638 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 16:59:33,954 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 16:59:34,267 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:00:18,769 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:01:11,803 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:01:12,115 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:02:35,772 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:03:30,987 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:03:31,346 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:10:14,155 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:11:02,091 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:11:02,419 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:11:13,332 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:12:28,686 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:12:29,045 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:12:31,607 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:12:39,547 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:12:39,890 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:12:46,071 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:13:15,410 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:13:15,738 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:13:18,262 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:13:33,893 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:13:55,589 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:14:35,330 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:16:11,035 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:16:11,347 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+INFO    2019-06-07 17:16:13,856 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:16:34,147 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:16:34,459 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+java.lang.NullPointerException
+	at client.gui.AdminFrame.<init>(AdminFrame.java:114)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2019-06-07 17:16:36,928 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:16:45,809 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:17:44,566 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:17:44,863 [AWT-EventQueue-0] client.gui.AdminFrame  125 - java.lang.NullPointerException
+java.lang.NullPointerException
+	at client.gui.AdminFrame.<init>(AdminFrame.java:114)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2019-06-07 17:17:47,097 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-06-07 17:18:58,325 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:18:58,637 [AWT-EventQueue-0] client.gui.AdminFrame  127 - java.lang.NullPointerException
+java.lang.NullPointerException
+	at client.gui.AdminFrame.<init>(AdminFrame.java:115)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2019-06-07 17:19:00,803 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:20:23,108 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:20:27,242 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:23:24,525 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-06-07 17:23:24,915 [AWT-EventQueue-0] client.gui.AdminFrame  127 - java.lang.NullPointerException
+java.lang.NullPointerException
+	at client.gui.AdminFrame.<init>(AdminFrame.java:115)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6310)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4760)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2019-06-07 17:23:27,024 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:23:48,646 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:24:37,915 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:26:45,664 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Cristiana Cristiana a pornit aplicatia! 192.168.153.125
+INFO    2019-06-07 17:26:45,664 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Cristiana Cristiana a dat subscribe!
+INFO    2019-06-07 17:26:45,680 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-06-07 17:27:06,399 [AWT-EventQueue-0] client.gui.ClientFrame  1121 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-06-07 17:27:14,040 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:27:22,909 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:27:29,711 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:27:36,960 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:27:48,592 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:27:58,331 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:28:13,542 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:29:06,427 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:31:26,791 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:32:03,816 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:36:38,235 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:36:44,560 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:37:20,198 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:41:48,039 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:42:12,650 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:42:53,669 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:51:22,352 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:52:10,919 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 17:54:00,939 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 17:54:41,789 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-06-07 18:04:20,457 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-06-07 18:04:34,642 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!

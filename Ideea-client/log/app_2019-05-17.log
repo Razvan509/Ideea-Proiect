@@ -1,0 +1,145 @@
+INFO    2019-05-17 13:25:49,933 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:26:30,452 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:30:06,847 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:31:16,354 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:32:30,658 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:32:40,677 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+ERROR   2019-05-17 13:34:09,345 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-05-17 13:35:29,028 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:35:41,813 [AWT-EventQueue-0] client.gui.AdminFrame  361 - S-a oprit aplicatia!
+INFO    2019-05-17 13:35:45,314 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:35:45,315 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:35:45,322 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:35:49,532 [AWT-EventQueue-0] client.gui.ClientFrame  1117 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:36:49,685 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:36:53,774 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:37:13,552 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:37:32,595 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:38:51,671 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:39:36,061 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:39:36,064 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:39:36,073 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:39:55,072 [AWT-EventQueue-0] client.gui.ClientFrame  1117 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:40:02,648 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:40:20,002 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:40:32,287 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:41:18,728 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:41:18,731 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:41:18,741 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:42:21,519 [AWT-EventQueue-0] client.gui.ClientFrame  1117 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:42:24,343 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:44:33,356 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:44:33,360 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:44:33,368 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:44:53,062 [AWT-EventQueue-0] client.gui.ClientFrame  1118 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:45:11,168 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:45:13,199 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:45:19,042 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:45:19,045 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:45:19,052 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:45:29,763 [AWT-EventQueue-0] client.gui.ClientFrame  1119 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:47:26,050 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:47:44,436 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 13:48:37,699 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 13:48:37,699 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 13:48:37,715 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 13:49:33,525 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 13:50:11,134 [AWT-EventQueue-0] client.gui.ClientFrame  1119 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 13:50:11,883 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:17:21,164 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:17:29,830 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 14:17:29,830 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 14:17:29,845 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 14:18:05,264 [AWT-EventQueue-0] client.gui.ClientFrame  1120 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 14:18:06,014 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:18:29,582 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:18:42,392 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 14:18:42,392 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 14:18:42,392 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 14:26:31,319 [AWT-EventQueue-0] client.gui.ClientFrame  1120 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 14:26:35,894 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:26:56,920 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:28:33,375 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:29:00,081 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 14:29:00,084 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 14:29:00,091 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 14:30:22,889 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:31:13,218 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:32:03,698 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:36:13,543 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:36:21,056 [AWT-EventQueue-0] client.gui.ClientFrame  1120 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 14:37:14,452 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Cristiana Cristiana a pornit aplicatia! 192.168.153.122
+INFO    2019-05-17 14:37:14,468 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Cristiana Cristiana a dat subscribe!
+INFO    2019-05-17 14:37:14,468 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Cristiana Cristiana si-a luat ultima activitate!
+INFO    2019-05-17 14:37:34,793 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:38:46,167 [AWT-EventQueue-0] client.gui.ClientFrame  1121 - Cristiana Cristiana a oprit aplicatia!
+INFO    2019-05-17 14:38:46,963 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:58:14,790 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:59:13,721 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 14:59:37,854 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 14:59:52,543 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:05:32,435 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:07:51,415 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:08:18,033 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:09:02,533 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:25:06,544 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:25:40,523 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:26:50,286 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:27:04,035 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:27:33,774 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:27:41,169 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:28:06,395 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:28:09,581 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:29:42,288 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:29:54,047 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:31:00,230 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:31:52,880 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:40:41,743 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:41:15,883 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 15:45:20,363 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 15:45:54,415 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 16:33:57,940 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 16:34:10,272 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 16:34:28,904 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 16:34:35,164 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 16:34:46,638 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 16:35:11,851 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 16:46:32,908 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 16:49:35,840 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 16:54:50,599 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 16:55:04,179 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:07:03,172 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:07:31,534 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:13:15,962 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:13:41,498 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:14:14,190 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:14:56,837 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:15:19,702 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:16:06,397 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:16:25,758 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:17:08,132 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:39:53,081 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:41:26,839 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:42:04,430 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:43:06,627 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:43:50,437 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:52:19,340 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:54:25,757 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 17:57:30,164 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:58:02,421 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+ERROR   2019-05-17 17:59:07,537 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-05-17 17:59:26,922 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 17:59:41,710 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 18:00:04,896 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:01:11,209 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 18:03:11,260 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:06:50,604 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:07:57,540 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:10:31,714 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:10:56,243 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 18:11:25,301 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:21:16,628 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 18:21:25,472 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:22:31,917 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-17 18:22:42,577 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-17 18:38:11,734 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!

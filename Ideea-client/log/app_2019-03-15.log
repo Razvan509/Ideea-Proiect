@@ -1,0 +1,4 @@
+INFO    2019-03-15 12:59:00,599 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.1.29
+INFO    2019-03-15 12:59:00,599 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-03-15 12:59:00,614 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-03-15 13:45:44,503 [AWT-EventQueue-0] client.gui.ClientFrame  1086 - Theodorescu Mihael a oprit aplicatia!

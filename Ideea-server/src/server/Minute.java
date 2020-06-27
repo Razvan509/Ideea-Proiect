@@ -28,6 +28,7 @@ public class Minute {
                 a.setMinuteMunca(a.getOreMunca()*60 + a.getMinuteMunca());
                 as.modifyActivity(a);
             }
+            System.exit(0);
         } catch (RemoteException ex) {
             Logger.getLogger(Minute.class.getName()).log(Level.SEVERE, null, ex);
         }

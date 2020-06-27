@@ -1,0 +1,5 @@
+ERROR   2019-03-18 13:39:42,588 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-03-18 13:39:55,181 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-03-18 13:41:02,472 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!
+INFO    2019-03-18 14:52:20,377 [AWT-EventQueue-0] client.gui.AdminFrame  51 - A pornit aplicatia!
+INFO    2019-03-18 14:53:00,719 [AWT-EventQueue-0] client.gui.AdminFrame  429 - S-a oprit aplicatia!

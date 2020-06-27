@@ -1,0 +1,8 @@
+INFO    2019-10-07 09:02:56,790 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-07 09:06:51,281 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!
+INFO    2019-10-07 09:07:45,788 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-10-07 09:08:01,581 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Andonii Octavian a pornit aplicatia! 192.168.153.51
+INFO    2019-10-07 09:08:01,582 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Andonii Octavian a dat subscribe!
+INFO    2019-10-07 09:08:01,598 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Andonii Octavian si-a luat ultima activitate!
+INFO    2019-10-07 09:09:02,143 [AWT-EventQueue-0] client.gui.ClientFrame  1121 - Andonii Octavian a oprit aplicatia!
+INFO    2019-10-07 09:10:46,022 [AWT-EventQueue-0] client.gui.AdminFrame  449 - S-a oprit aplicatia!

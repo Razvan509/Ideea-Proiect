@@ -1,0 +1,162 @@
+INFO    2019-02-17 14:23:55,250 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2019-02-17 14:23:55,700 [main] server.gui.ServerFrame  61 - Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+Local Exception Stack: 
+Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionLoadingFromUrl(PersistenceUnitLoadingException.java:100)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:597)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.getPersistenceUnits(PersistenceUnitProcessor.java:481)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchive(JPAInitializer.java:172)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchives(JPAInitializer.java:154)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfo(JPAInitializer.java:135)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at server.service.ActivitateService.<init>(ActivitateService.java:31)
+	at server.Server.main(Server.java:51)
+Caused by: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionProcessingPersistenceXML(PersistenceUnitLoadingException.java:118)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:646)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:595)
+	... 9 more
+Caused by: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.error(XMLExceptionHandler.java:28)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.fatalError(XMLExceptionHandler.java:34)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:180)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:994)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:636)
+	... 10 more
+INFO    2019-02-17 14:23:55,723 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2019-02-17 14:25:03,114 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2019-02-17 14:25:03,436 [main] server.gui.ServerFrame  61 - Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+Local Exception Stack: 
+Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionLoadingFromUrl(PersistenceUnitLoadingException.java:100)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:597)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.getPersistenceUnits(PersistenceUnitProcessor.java:481)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchive(JPAInitializer.java:172)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchives(JPAInitializer.java:154)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfo(JPAInitializer.java:135)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at server.service.ActivitateService.<init>(ActivitateService.java:31)
+	at server.Server.main(Server.java:51)
+Caused by: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionProcessingPersistenceXML(PersistenceUnitLoadingException.java:118)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:646)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:595)
+	... 9 more
+Caused by: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.error(XMLExceptionHandler.java:28)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.fatalError(XMLExceptionHandler.java:34)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:180)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:994)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:636)
+	... 10 more
+INFO    2019-02-17 14:25:03,456 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2019-02-17 14:25:31,109 [main] server.gui.ServerFrame  43 - A pornit serverul!
+ERROR   2019-02-17 14:25:31,413 [main] server.gui.ServerFrame  61 - Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+Local Exception Stack: 
+Exception [EclipseLink-30009] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while trying to load persistence unit at url: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionLoadingFromUrl(PersistenceUnitLoadingException.java:100)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:597)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.getPersistenceUnits(PersistenceUnitProcessor.java:481)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchive(JPAInitializer.java:172)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfoInArchives(JPAInitializer.java:154)
+	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.findPersistenceUnitInfo(JPAInitializer.java:135)
+	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:177)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at server.service.ActivitateService.<init>(ActivitateService.java:31)
+	at server.Server.main(Server.java:51)
+Caused by: Exception [EclipseLink-30004] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
+Exception Description: An exception was thrown while processing persistence.xml from URL: file:/E:/IdeeaProiect/Soft_lucru/Ideea-server/build/classes/
+Internal Exception: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionProcessingPersistenceXML(PersistenceUnitLoadingException.java:118)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:646)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceArchive(PersistenceUnitProcessor.java:595)
+	... 9 more
+Caused by: 
+(1. Content is not allowed in prolog.)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.error(XMLExceptionHandler.java:28)
+	at org.eclipse.persistence.internal.jpa.deployment.xml.parser.XMLExceptionHandler.fatalError(XMLExceptionHandler.java:34)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:180)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:994)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:842)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:771)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1213)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processPersistenceXML(PersistenceUnitProcessor.java:636)
+	... 10 more
+INFO    2019-02-17 14:25:31,436 [main] server.gui.ServerFrame  62 - S-a inchis serverul cu eroare!
+INFO    2019-02-17 14:27:26,697 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-02-17 14:31:44,119 [main] server.gui.ServerFrame  43 - A pornit serverul!
+INFO    2019-02-17 17:35:56,726 [main] server.gui.ServerFrame  43 - A pornit serverul!

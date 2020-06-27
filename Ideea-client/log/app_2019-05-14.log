@@ -1,0 +1,129 @@
+INFO    2019-05-14 09:14:39,436 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:15:35,760 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:30:26,296 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+ERROR   2019-05-14 09:30:56,987 [AWT-EventQueue-0] client.gui.AdminFrame  122 - Eroare la preluarea angajatilor!
+java.rmi.UnmarshalException: Error unmarshaling return header; nested exception is: 
+	java.net.SocketTimeoutException: Read timed out
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:236)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:161)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:227)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:179)
+	at com.sun.proxy.$Proxy4.getLastDateActivityByAngajat(Unknown Source)
+	at client.controller.ActivitateController.getLastDateActivityByAngajat(ActivitateController.java:75)
+	at client.gui.AdminFrame.<init>(AdminFrame.java:113)
+	at client.gui.LoginFrame.apasa(LoginFrame.java:82)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:194)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:144)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readByte(DataInputStream.java:265)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:222)
+	... 46 more
+INFO    2019-05-14 09:31:00,056 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:32:51,637 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:33:22,719 [AWT-EventQueue-0] client.gui.AdminFrame  361 - S-a oprit aplicatia!
+INFO    2019-05-14 09:33:30,939 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Theodorescu Mihael a pornit aplicatia! 192.168.153.123
+INFO    2019-05-14 09:33:30,941 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Theodorescu Mihael a dat subscribe!
+INFO    2019-05-14 09:33:31,037 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Theodorescu Mihael si-a luat ultima activitate!
+INFO    2019-05-14 09:33:43,314 [AWT-EventQueue-0] client.gui.ClientFrame  1068 - S-a oprit aplicatia!
+INFO    2019-05-14 09:36:41,785 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:37:18,876 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:39:07,592 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:39:14,258 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:39:30,945 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:39:59,291 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:40:30,832 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:40:39,168 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:43:29,047 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:43:50,236 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:44:18,277 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:44:37,812 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:44:49,472 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:44:59,735 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:46:22,688 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:46:43,320 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:46:55,424 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:47:16,919 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:47:47,719 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:47:55,701 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:48:18,925 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:48:39,232 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:52:45,814 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:53:04,010 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:53:18,683 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:53:34,014 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:56:13,548 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:56:28,631 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:56:53,695 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:57:03,926 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:57:20,267 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:57:47,349 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 09:59:09,364 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 09:59:19,838 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 10:00:47,605 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 10:08:05,756 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 10:14:30,175 [AWT-EventQueue-0] client.gui.ClientFrame  118 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.123
+INFO    2019-05-14 10:14:30,179 [AWT-EventQueue-0] client.gui.ClientFrame  122 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-05-14 10:14:30,187 [AWT-EventQueue-0] client.gui.ClientFrame  126 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-05-14 10:16:01,484 [AWT-EventQueue-0] client.gui.ClientFrame  1083 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-05-14 10:28:52,764 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 10:28:54,761 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 10:29:05,827 [AWT-EventQueue-0] client.gui.ClientFrame  119 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.123
+INFO    2019-05-14 10:29:05,831 [AWT-EventQueue-0] client.gui.ClientFrame  123 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-05-14 10:29:05,838 [AWT-EventQueue-0] client.gui.ClientFrame  127 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-05-14 10:29:30,766 [AWT-EventQueue-0] client.gui.ClientFrame  1097 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-05-14 10:38:34,109 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.123
+INFO    2019-05-14 10:38:34,112 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-05-14 10:38:34,119 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-05-14 10:39:05,710 [AWT-EventQueue-0] client.gui.ClientFrame  1117 - Melinceanu Cristiana a oprit aplicatia!
+INFO    2019-05-14 10:39:15,222 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 10:39:17,367 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!
+INFO    2019-05-14 10:39:24,917 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Melinceanu Cristiana a pornit aplicatia! 192.168.153.123
+INFO    2019-05-14 10:39:24,921 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Melinceanu Cristiana a dat subscribe!
+INFO    2019-05-14 10:39:24,937 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Melinceanu Cristiana si-a luat ultima activitate!
+INFO    2019-05-14 10:39:57,549 [AWT-EventQueue-0] client.gui.ClientFrame  1117 - Melinceanu Cristiana a oprit aplicatia!
+ERROR   2019-05-14 10:41:14,345 [AWT-EventQueue-0] client.gui.LoginFrame  93 - java.lang.NullPointerException
+INFO    2019-05-14 10:41:35,649 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2019-05-14 10:41:44,058 [AWT-EventQueue-0] client.gui.AdminFrame  447 - S-a oprit aplicatia!

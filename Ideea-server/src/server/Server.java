@@ -12,7 +12,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
 import ro.top.main.NotificationServer;
 import server.gui.ServerFrame;
@@ -57,7 +56,7 @@ public class Server {
             ScheduledFuture scheduledFuture =
                 scheduledExecutorService.scheduleAtFixedRate(new MailSchedule(),0,1,TimeUnit.HOURS);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Eroare!");
+            //JOptionPane.showMessageDialog(null, "Eroare!");
             logger.error(e,e);
             logger.info("S-a inchis serverul cu eroare!");
             System.exit(0);

@@ -5,16 +5,24 @@
  */
 package server.service;
 
+import com.opencsv.CSVWriter;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import raport.RaportBrut;
+import raport.RaportOreAngajat;
 import rmi.IActivitateService;
 import rmi.Pair;
 import server.dao.ActivitateDao;
@@ -26,9 +34,13 @@ import server.dao.ActivitateDao;
 public class ActivitateService extends UnicastRemoteObject implements IActivitateService{
     
     private EntityManagerFactory emf;
+    private String csvPath = "/IdeeaProiect/Soft_lucru/Ideea-server/audit.csv";
+    private File file;
+    
     
     public ActivitateService() throws RemoteException{
         emf = Persistence.createEntityManagerFactory("Ideea-serverPU");
+        file = new File(csvPath);
     }
 
     @Override
@@ -41,6 +53,19 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         em.getTransaction().commit();
         
         em.close();
+        
+        try {
+            FileWriter outputfile = new FileWriter(file,true); 
+  
+            CSVWriter writer = new CSVWriter(outputfile);
+            String[] data = {"S-a apelat adaugarea unei activitati",new Date().toString()};
+            writer.writeNext(data);
+            
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
 
@@ -51,6 +76,18 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         
         List<Activitate> activitati = activitateDao.getActivitatiAngajatProiect(a, p);
         em.close();
+        
+        try {
+            FileWriter outputfile = new FileWriter(file,true); 
+  
+            CSVWriter writer = new CSVWriter(outputfile);
+            String[] data = {"S-au returnat toate activitatile unui angajat pentru un proiect",new Date().toString()};
+            writer.writeNext(data);
+            
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         
         return activitati;
     }
@@ -63,6 +100,18 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         
         em.close();
         
+        try {
+            FileWriter outputfile = new FileWriter(file,true); 
+  
+            CSVWriter writer = new CSVWriter(outputfile);
+            String[] csv = {"S-au returnat toate activitatile unui angajat pentru o zi",new Date().toString()};
+            writer.writeNext(csv);
+            
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
         return activitati;
     }
 
@@ -73,6 +122,7 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         
         Activitate activitate = activitateDao.findById(id);
         em.close();
+        
         return activitate;
     }
 
@@ -86,6 +136,19 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         em.getTransaction().commit();
         
         em.close();
+        
+        try {
+            FileWriter outputfile = new FileWriter(file,true); 
+  
+            CSVWriter writer = new CSVWriter(outputfile);
+            String[] csv = {"S-a modificat o activitate",new Date().toString()};
+            writer.writeNext(csv);
+            
+            writer.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
     }    
 
     @Override
@@ -165,6 +228,121 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         int rez = activitateDao.getOreAngajatLuna(a);
         em.close();
         return rez;
+    }
+
+    @Override
+    public List<Activitate> getActivitatiTip(String comanda, int[] cmd,int cod) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em); 
+        
+        //List<Activitate> activ = activitateDao.getActivitatiTip(comanda, cmd, cod);
+        em.close();
+        return null;
+    }
+
+    @Override
+    public Activitate getFirstActivityProject(Proiect proiect) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        Activitate pontaj = activitateDao.getFirstActivityProject(proiect);
+        em.close();
+        return pontaj;
+    }
+
+
+    @Override
+    public List<Angajat> getAngajatiOnProject(Proiect p) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Angajat> angajati = activitateDao.getAngajatiOnProject(p);
+        em.close();
+        return angajati;
+    }
+
+    @Override
+    public int getOreProiectByAngajat(Proiect p, Angajat a) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        int res = activitateDao.getOreProiectByAngajat(p,a);
+        em.close();
+        return res;
+    }
+
+    @Override
+    public List<Angajat> getAngajatiOnProjectBetweenDates(Proiect p, Date start, Date end) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Angajat> angajati = activitateDao.getAngajatiOnProjectBetweenDates(p,start,end);
+        em.close();
+        return angajati;
+    }
+
+    @Override
+    public List<Activitate> getRaport(String raport) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Activitate> activitati = activitateDao.getRaport(raport);
+        em.close();
+        return activitati;
+    }
+
+    @Override
+    public List<Activitate> getRaportProiect(String raport, Proiect p) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        List<Activitate> activitati = activitateDao.getRaportProiect(raport,p);
+        em.close();
+        return activitati;
+     }
+
+    @Override
+    public List<RaportBrut> createView(String query) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        
+        em.getTransaction().begin();
+        List<RaportBrut> activitati = activitateDao.createView(query);
+        em.getTransaction().commit();
+        em.close();
+        return activitati;
+    }
+
+    @Override
+    public ArrayList<RaportOreAngajat> getRaportOreAngajat(String select) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        ArrayList<RaportOreAngajat> res = activitateDao.getRaportOreAngajat(select);
+        em.close();
+        return res;
+    }
+
+    @Override
+    public ArrayList<RaportBrut> getRaportOrd(String select) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        ArrayList<RaportBrut> res = activitateDao.getRaportOrd(select);
+        em.close();
+        return res;
+    }
+
+    @Override
+    public long getAngajatTimpPontajBetweenDates(Date startDate, Date endDate, Angajat ang) throws RemoteException {
+        EntityManager em = emf.createEntityManager();
+        ActivitateDao activitateDao = new ActivitateDao(em);
+        
+        Long l = activitateDao.getAngajatTimpPontajBetweenDates(startDate, endDate, ang);
+        
+        em.close();
+        return l;
     }
     
 }

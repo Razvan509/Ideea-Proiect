@@ -7,6 +7,7 @@ package client;
 
 import client.gui.EtajeFrame;
 import client.gui.LoginFrame;
+import client.gui.RapoarteProiectFrame;
 
 /**
  *
@@ -19,6 +20,8 @@ public class Client {
      */
     public static void main(String[] args) {
         new LoginFrame();
+        //new RapoarteProiectFrame().setVisible(true);
     }
+    
     
 }

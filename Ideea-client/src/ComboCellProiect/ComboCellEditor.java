@@ -14,16 +14,18 @@ import db.Proiect;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.util.List;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellEditor;
 import org.apache.log4j.PropertyConfigurator;
 import ro.top.service.ClientNotificationAsyncController;
-import ro.top.service.ClientNotificationController;
 
 /**
  *
@@ -101,8 +103,10 @@ public class ComboCellEditor extends AbstractCellEditor
                 if (ProiecteTerminateFrame.isVisi()) ProiecteTerminateFrame.afisare();
             }
         } catch (RemoteException ex) {
-            logger.error("Nu s.a putut efectua modificarea unui proiect!",ex);
+            logger.error("Nu s-a putut efectua modificarea unui proiect!",ex);
         }
     }
+    
+    
     
 }
