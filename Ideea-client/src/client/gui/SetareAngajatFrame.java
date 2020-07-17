@@ -6,6 +6,7 @@
 package client.gui;
 
 import client.controller.AngajatController;
+import java.awt.Color;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import javax.swing.JOptionPane;
@@ -34,6 +35,7 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setTitle("Setare username si parola!");
+        getContentPane().setBackground(Color.WHITE); 
     }
 
     /**
@@ -63,7 +65,9 @@ public class SetareAngajatFrame extends javax.swing.JFrame {
 
         jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Set");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

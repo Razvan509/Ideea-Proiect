@@ -5,6 +5,8 @@
  */
 package client.gui;
 
+import java.awt.Color;
+
 /**
  *
  * @author Razvan
@@ -16,6 +18,8 @@ public class ModificaAngajatFrame extends javax.swing.JFrame {
      */
     public ModificaAngajatFrame() {
         initComponents();
+        
+        getContentPane().setBackground(Color.WHITE); 
     }
 
     /**

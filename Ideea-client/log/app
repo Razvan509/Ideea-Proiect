@@ -1,5 +1,136 @@
-INFO    2020-03-30 14:31:13,988 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
-INFO    2020-03-30 14:33:12,093 [AWT-EventQueue-0] client.gui.AdminFrame  458 - S-a oprit aplicatia!
-INFO    2020-03-30 14:40:24,704 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
-INFO    2020-03-30 19:30:32,403 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
-INFO    2020-03-30 19:35:45,559 [AWT-EventQueue-0] client.gui.AdminFrame  458 - S-a oprit aplicatia!
+INFO    2020-07-03 10:20:47,296 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Rang Razvan a pornit aplicatia! 192.168.85.1
+ERROR   2020-07-03 10:20:49,298 [AWT-EventQueue-0] client.gui.ClientFrame  152 - Rang Razvan are eroarea: 
+ro.top.exception.UnreachableServerException: A connection to the server could not be established
+	at ro.top.service.ClientNotificationAsyncController.ensureControllerInstanceExists(ClientNotificationAsyncController.java:78)
+	at ro.top.service.ClientNotificationAsyncController.addSubscriber(ClientNotificationAsyncController.java:93)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:122)
+	at client.gui.LoginFrame.login(LoginFrame.java:84)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:218)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:153)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6312)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4891)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4713)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4762)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4713)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2020-07-03 11:18:02,305 [AWT-EventQueue-0] client.gui.ClientFrame  1126 - Rang Razvan a oprit aplicatia!
+INFO    2020-07-03 11:18:19,258 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Rang Razvan a pornit aplicatia! 192.168.85.1
+ERROR   2020-07-03 11:18:21,084 [AWT-EventQueue-0] client.gui.ClientFrame  152 - Rang Razvan are eroarea: 
+ro.top.exception.UnreachableServerException: A connection to the server could not be established
+	at ro.top.service.ClientNotificationAsyncController.ensureControllerInstanceExists(ClientNotificationAsyncController.java:78)
+	at ro.top.service.ClientNotificationAsyncController.addSubscriber(ClientNotificationAsyncController.java:93)
+	at client.gui.ClientFrame.<init>(ClientFrame.java:122)
+	at client.gui.LoginFrame.login(LoginFrame.java:84)
+	at client.gui.LoginFrame.jButton1ActionPerformed(LoginFrame.java:218)
+	at client.gui.LoginFrame.access$100(LoginFrame.java:24)
+	at client.gui.LoginFrame$2.actionPerformed(LoginFrame.java:153)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.AbstractButton.doClick(AbstractButton.java:376)
+	at javax.swing.plaf.basic.BasicRootPaneUI$Actions.actionPerformed(BasicRootPaneUI.java:208)
+	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
+	at javax.swing.JComponent.processKeyBinding(JComponent.java:2882)
+	at javax.swing.KeyboardManager.fireBinding(KeyboardManager.java:307)
+	at javax.swing.KeyboardManager.fireKeyboardAction(KeyboardManager.java:250)
+	at javax.swing.JComponent.processKeyBindingsForAllComponents(JComponent.java:2974)
+	at javax.swing.JComponent.processKeyBindings(JComponent.java:2966)
+	at javax.swing.JComponent.processKeyEvent(JComponent.java:2845)
+	at java.awt.Component.processEvent(Component.java:6312)
+	at java.awt.Container.processEvent(Container.java:2236)
+	at java.awt.Component.dispatchEventImpl(Component.java:4891)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Component.dispatchEvent(Component.java:4713)
+	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(DefaultKeyboardFocusManager.java:1074)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(DefaultKeyboardFocusManager.java:945)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
+	at java.awt.Component.dispatchEventImpl(Component.java:4762)
+	at java.awt.Container.dispatchEventImpl(Container.java:2294)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4713)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:758)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.awt.EventQueue$4.run(EventQueue.java:729)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+INFO    2020-07-03 11:18:41,108 [AWT-EventQueue-0] client.gui.ClientFrame  1126 - Rang Razvan a oprit aplicatia!
+INFO    2020-07-03 11:22:04,780 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Rang Razvan a pornit aplicatia! 192.168.85.1
+INFO    2020-07-03 11:22:04,784 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Rang Razvan a dat subscribe!
+INFO    2020-07-03 11:22:04,802 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Rang Razvan si-a luat ultima activitate!
+INFO    2020-07-03 11:22:11,917 [AWT-EventQueue-0] client.gui.ClientFrame  1126 - Rang Razvan a oprit aplicatia!
+INFO    2020-07-03 11:25:22,756 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 12:17:32,408 [AWT-EventQueue-0] client.gui.AdminFrame  433 - S-a oprit aplicatia!
+INFO    2020-07-03 12:23:03,100 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 12:23:15,326 [AWT-EventQueue-0] client.gui.AdminFrame  433 - S-a oprit aplicatia!
+INFO    2020-07-03 12:26:40,641 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Rang Razvan a pornit aplicatia! 192.168.85.1
+INFO    2020-07-03 12:26:40,645 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Rang Razvan a dat subscribe!
+INFO    2020-07-03 12:26:40,657 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Rang Razvan si-a luat ultima activitate!
+INFO    2020-07-03 12:27:24,624 [AWT-EventQueue-0] client.gui.ClientFrame  1111 - S-a oprit aplicatia!
+INFO    2020-07-03 12:27:30,171 [AWT-EventQueue-0] client.gui.ClientFrame  120 - Rang Razvan a pornit aplicatia! 192.168.85.1
+INFO    2020-07-03 12:27:30,172 [AWT-EventQueue-0] client.gui.ClientFrame  124 - Rang Razvan a dat subscribe!
+INFO    2020-07-03 12:27:30,176 [AWT-EventQueue-0] client.gui.ClientFrame  128 - Rang Razvan si-a luat ultima activitate!
+INFO    2020-07-03 12:41:24,825 [AWT-EventQueue-0] client.gui.ClientFrame  1111 - S-a oprit aplicatia!
+INFO    2020-07-03 12:41:27,936 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 13:30:36,750 [AWT-EventQueue-0] client.gui.AdminFrame  519 - S-a oprit aplicatia!
+INFO    2020-07-03 13:30:47,725 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 13:40:15,620 [AWT-EventQueue-0] client.gui.AdminFrame  519 - S-a oprit aplicatia!
+INFO    2020-07-03 13:41:43,212 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 14:23:01,267 [AWT-EventQueue-0] client.gui.AdminFrame  519 - S-a oprit aplicatia!
+INFO    2020-07-03 14:23:53,764 [AWT-EventQueue-0] client.gui.AdminFrame  53 - A pornit aplicatia!
+INFO    2020-07-03 20:01:11,760 [AWT-EventQueue-0] client.gui.AdminFrame  519 - S-a oprit aplicatia!

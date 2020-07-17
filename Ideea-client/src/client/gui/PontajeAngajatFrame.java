@@ -11,6 +11,7 @@ import client.controller.DictionarController;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.awt.Color;
 import java.awt.Font;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
@@ -69,6 +70,7 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
         jDateChooser1.setDate(new Date());
         jDateChooser2.setDate(new Date());
         
+        getContentPane().setBackground(Color.WHITE); 
         populareCombo();
     }
     
@@ -130,7 +132,9 @@ public class PontajeAngajatFrame extends javax.swing.JFrame {
 
         jDateChooser2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Afisare");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

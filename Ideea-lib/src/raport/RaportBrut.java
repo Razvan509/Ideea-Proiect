@@ -42,7 +42,15 @@ public class RaportBrut implements Serializable{
     
     @Override
     public String toString() {
-        return numeProiect + " " + descriere + " " + corp + " " + etaj + " " + numeAngajat;
+        StringBuilder rezultat = new StringBuilder(numeProiect);
+        if (descriere != null) 
+            rezultat.append(" " + descriere);
+        if (corp != ' ' && corp != '-') 
+            rezultat.append(" " + corp);
+        if (!etaj.equals("-")) 
+            rezultat.append(" " + etaj);
+        rezultat.append(" " + numeAngajat);
+        return rezultat.toString();
     }
 
     public long getId() {

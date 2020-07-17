@@ -27,13 +27,12 @@ import rmi.Pair;
 public class ActivitateController {
     
     private IActivitateService activitateService;
+    private static ActivitateController singleton;
     
     private ActivitateController(){
         
         try{
-            //System.setProperty("java.rmi.server.hostname",IpNumber.getIp());
             Registry registry = LocateRegistry.getRegistry(IpNumber.getIp(),IpNumber.getPort());
-            //Registry registry = LocateRegistry.getRegistry("localhost",4444);
             activitateService = (IActivitateService) registry.lookup("activitateservice");
         }catch(Exception e){
             e.printStackTrace();
@@ -41,12 +40,10 @@ public class ActivitateController {
         }
     }
     
-    private static final class SingeltonHolder{
-         private static final ActivitateController singleton = new ActivitateController();
-    }
-    
     public static ActivitateController getInstance(){
-        return SingeltonHolder.singleton;
+        if (singleton == null)
+            singleton = new ActivitateController();
+        return singleton;
     }
     
     public void adaugaActivitate(Activitate activitate) throws RemoteException{

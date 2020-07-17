@@ -5,7 +5,6 @@
  */
 package server.service;
 
-import com.opencsv.CSVWriter;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
@@ -34,13 +33,10 @@ import server.dao.ActivitateDao;
 public class ActivitateService extends UnicastRemoteObject implements IActivitateService{
     
     private EntityManagerFactory emf;
-    private String csvPath = "/IdeeaProiect/Soft_lucru/Ideea-server/audit.csv";
-    private File file;
     
     
     public ActivitateService() throws RemoteException{
         emf = Persistence.createEntityManagerFactory("Ideea-serverPU");
-        file = new File(csvPath);
     }
 
     @Override
@@ -54,18 +50,6 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         
         em.close();
         
-        try {
-            FileWriter outputfile = new FileWriter(file,true); 
-  
-            CSVWriter writer = new CSVWriter(outputfile);
-            String[] data = {"S-a apelat adaugarea unei activitati",new Date().toString()};
-            writer.writeNext(data);
-            
-            writer.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
     }
 
 
@@ -77,18 +61,6 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         List<Activitate> activitati = activitateDao.getActivitatiAngajatProiect(a, p);
         em.close();
         
-        try {
-            FileWriter outputfile = new FileWriter(file,true); 
-  
-            CSVWriter writer = new CSVWriter(outputfile);
-            String[] data = {"S-au returnat toate activitatile unui angajat pentru un proiect",new Date().toString()};
-            writer.writeNext(data);
-            
-            writer.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
         return activitati;
     }
 
@@ -99,19 +71,7 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         List<Activitate> activitati = activitateDao.getActivitatiAngajatZi(a, data);
         
         em.close();
-        
-        try {
-            FileWriter outputfile = new FileWriter(file,true); 
-  
-            CSVWriter writer = new CSVWriter(outputfile);
-            String[] csv = {"S-au returnat toate activitatile unui angajat pentru o zi",new Date().toString()};
-            writer.writeNext(csv);
-            
-            writer.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
+
         return activitati;
     }
 
@@ -136,19 +96,7 @@ public class ActivitateService extends UnicastRemoteObject implements IActivitat
         em.getTransaction().commit();
         
         em.close();
-        
-        try {
-            FileWriter outputfile = new FileWriter(file,true); 
-  
-            CSVWriter writer = new CSVWriter(outputfile);
-            String[] csv = {"S-a modificat o activitate",new Date().toString()};
-            writer.writeNext(csv);
-            
-            writer.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        
+
     }    
 
     @Override

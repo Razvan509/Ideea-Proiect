@@ -12,6 +12,7 @@ import client.controller.ProiectController;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.nio.file.Paths;
@@ -50,7 +51,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
     public ClientFrame(Angajat angajat,boolean admin){
         initComponents();
         PropertyConfigurator.configure(Paths.get(pathToLog4j).toString());
-        
+        getContentPane().setBackground(Color.WHITE); 
         jLabel10.setText("");
         jLabel8.setText("");
         
@@ -345,7 +346,9 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Proiect:");
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Adauga");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,6 +443,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("jLabel14");
 
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jCheckBox1.setText("Corp?");
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -453,6 +457,7 @@ public class ClientFrame extends javax.swing.JFrame implements Subscriber{
             }
         });
 
+        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jCheckBox2.setText("Etaj?");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {

@@ -33,7 +33,9 @@ public class RaportOreAngajat implements Serializable{
 
     @Override
     public String toString() {
-        return nume + " " + ore;
+        StringBuilder sb = new StringBuilder(nume + " " + ore/60 + " ore ");
+        if (ore%60 != 0) sb.append(ore%60 + " minute");
+        return sb.toString();
     }
     
     

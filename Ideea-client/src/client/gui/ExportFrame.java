@@ -9,6 +9,7 @@ import client.controller.ActivitateController;
 import client.controller.AngajatController;
 import db.Activitate;
 import db.Angajat;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -28,7 +29,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author Razvan
  */
 public class ExportFrame extends javax.swing.JFrame {
-    private String csvPath = "E:\\IdeeaProiect\\Test";
+    //private String csvPath = "E:\\IdeeaProiect\\Test";
 
     /**
      * Creates new form ExportFrame
@@ -39,7 +40,7 @@ public class ExportFrame extends javax.swing.JFrame {
         jDateChooser1.setDate(new Date());
         jDateChooser2.setDate(new Date());
         
-        
+        getContentPane().setBackground(Color.WHITE); 
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -73,7 +74,9 @@ public class ExportFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Pana la:");
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Export");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

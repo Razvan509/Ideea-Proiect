@@ -10,6 +10,7 @@ import client.controller.AngajatController;
 import static client.gui.AdminFrame.logger;
 import db.Activitate;
 import db.Angajat;
+import java.awt.Color;
 import java.io.File;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
@@ -42,6 +43,8 @@ public class AngajatiLenesiFrame extends javax.swing.JFrame {
         model = new DefaultListModel();
         model.removeAllElements();
         jList1.setModel(model);
+        
+        getContentPane().setBackground(Color.WHITE);
         
         jDateChooser1.setDate(new Date());
         jDateChooser2.setDate(new Date());
@@ -134,7 +137,9 @@ public class AngajatiLenesiFrame extends javax.swing.JFrame {
 
         jDateChooser2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Afisare");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +150,9 @@ public class AngajatiLenesiFrame extends javax.swing.JFrame {
         jList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Export");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

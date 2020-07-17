@@ -10,6 +10,7 @@ import client.controller.DictionarController;
 import db.Activitate;
 import db.Angajat;
 import db.Proiect;
+import java.awt.Color;
 import java.awt.Font;
 import java.nio.file.Paths;
 import java.rmi.RemoteException;
@@ -55,6 +56,7 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        getContentPane().setBackground(Color.WHITE); 
         
         afisare();
         calculeazaTimp(jDateChooser1.getDate());
@@ -208,7 +210,9 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Modifica");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +239,7 @@ public class ModificaPontajFrame extends javax.swing.JFrame {
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jCheckBox1.setText("Corp?");
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {

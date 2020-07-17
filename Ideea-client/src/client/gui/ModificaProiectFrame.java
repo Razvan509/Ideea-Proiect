@@ -6,6 +6,7 @@
 package client.gui;
 
 import db.Proiect;
+import java.awt.Color;
 import java.nio.file.Paths;
 import javax.swing.JOptionPane;
 import org.apache.log4j.PropertyConfigurator;
@@ -42,6 +43,7 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        getContentPane().setBackground(Color.WHITE); 
     }
 
     /**
@@ -120,7 +122,9 @@ public class ModificaProiectFrame extends javax.swing.JFrame {
 
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Schimba");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

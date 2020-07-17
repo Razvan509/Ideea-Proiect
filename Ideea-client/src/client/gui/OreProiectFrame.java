@@ -9,6 +9,7 @@ import client.controller.ActivitateController;
 import client.controller.ProiectController;
 import static client.gui.AdminFrame.logger;
 import db.Proiect;
+import java.awt.Color;
 import java.awt.Font;
 import java.rmi.RemoteException;
 import java.util.Date;
@@ -47,6 +48,7 @@ public class OreProiectFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        getContentPane().setBackground(Color.WHITE); 
     }
     
     public void populareTabel(){
@@ -93,7 +95,9 @@ public class OreProiectFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Afisare");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

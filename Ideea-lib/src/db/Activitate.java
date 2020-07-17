@@ -30,36 +30,26 @@ public class Activitate implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
     @ManyToOne
     @JoinColumn(nullable = false)
     private Angajat angajat;
-    
     @ManyToOne
     @JoinColumn(nullable = false)
     private Proiect proiect;
-    
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataOra;
-    
     @Column(nullable = false)
     private int cod;
-    
     @Column(nullable = false)
     private int oreMunca;
-    
     @Column(nullable = false)
     private int minuteMunca;
-    
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataPontaj;
-    
     private char corp;
-    
     private String etaj;
-    
     private String detalii;
 
     public long getId() {

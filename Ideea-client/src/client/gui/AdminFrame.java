@@ -71,15 +71,17 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         table.setFont(new Font("Tahoma", Font.PLAIN, 18));
         table.setRowHeight(30);
         table.setName("In derulare");
-        
+        table.setVisible(true);
         
         
         
         JScrollPane scrollpane = new JScrollPane(table);
-        scrollpane.setPreferredSize(new Dimension(500, 700));
+        //scrollpane.setPreferredSize(new Dimension(500, 700));
         scrollpane.getVerticalScrollBar().setUnitIncrement(16); 
-        add(scrollpane, BorderLayout.CENTER);
-        //logger.info("s.au setat chestii");
+        scrollpane.setVisible(true);
+        add(scrollpane);
+        
+        
         
         // ArrayList<String> angjPontVechi = new ArrayList<>();
         try {
@@ -112,7 +114,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             for(int i=0;i<angajati.size();i++){
                 if(!(angajati.get(i).isAdmin())){
                     lastActiv = ActivitateController.getInstance().getLastDateActivityByAngajat(angajati.get(i));
-                    if((lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj()))){
+                    if(lastActiv != null && (lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj()))){
                         output+= angajati.get(i).getNume() + "\n";
                     }
                 }   
@@ -120,6 +122,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
             //logger.info("s-au terminat activitatile");
             UIManager.put("OptionPane.messageFont", new Font("Tahoma", Font.BOLD, 14));
             JOptionPane.showMessageDialog(null, output);
+            
         } catch (RemoteException ex) {
             logger.error("Eroare la preluarea angajatilor!",ex);
             JOptionPane.showMessageDialog(null, "Eroare");
@@ -183,15 +186,27 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        jMenu1.setText("Angajat");
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBorderPainted(false);
 
+        jMenu1.setBackground(new java.awt.Color(51, 51, 255));
+        jMenu1.setBorder(null);
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu1.setText("Angajat");
+        jMenu1.setBorderPainted(true);
+
+        jMenuItem1.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem1.setText("Adauga Angajat");
+        jMenuItem1.setBorder(null);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -199,7 +214,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem14.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem14.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem14.setText("Modifica Angajat");
+        jMenuItem14.setBorder(null);
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem14ActionPerformed(evt);
@@ -207,7 +225,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem14);
 
+        jMenuItem6.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem6.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem6.setText("Angajati Activi");
+        jMenuItem6.setBorder(null);
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -215,7 +236,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem6);
 
+        jMenuItem8.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem8.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem8.setText("Angajati Inactivi");
+        jMenuItem8.setBorder(null);
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -223,7 +247,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem8);
 
+        jMenuItem11.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem11.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem11.setText("Angajati Nepontati");
+        jMenuItem11.setBorder(null);
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
@@ -231,7 +258,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem11);
 
+        jMenuItem10.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem10.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem10.setText("Adauga pontaj");
+        jMenuItem10.setBorder(null);
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem10ActionPerformed(evt);
@@ -239,7 +269,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem10);
 
+        jMenuItem7.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem7.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem7.setText("Modifica pontaj");
+        jMenuItem7.setBorder(null);
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -247,7 +280,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem7);
 
+        jMenuItem9.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem9.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem9.setText("Pontaje");
+        jMenuItem9.setBorder(null);
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -255,7 +291,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu1.add(jMenuItem9);
 
+        jMenuItem15.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem15.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem15.setText("Export");
+        jMenuItem15.setBorder(null);
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
@@ -265,9 +304,14 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(51, 51, 255));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Proiect");
 
+        jMenuItem2.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem2.setText("Adauga Proiect");
+        jMenuItem2.setBorder(null);
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -275,7 +319,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem3.setText("Proiecte suspendate");
+        jMenuItem3.setBorder(null);
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -283,7 +330,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem4.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem4.setText("Proiecte terminate");
+        jMenuItem4.setBorder(null);
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -291,7 +341,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem5.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem5.setText("Modifica proiect");
+        jMenuItem5.setBorder(null);
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -299,7 +352,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem5);
 
+        jMenuItem12.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem12.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem12.setText("Ore proiecte");
+        jMenuItem12.setBorder(null);
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem12ActionPerformed(evt);
@@ -307,7 +363,10 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         });
         jMenu2.add(jMenuItem12);
 
+        jMenuItem13.setBackground(new java.awt.Color(51, 51, 255));
+        jMenuItem13.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem13.setText("Rapoarte");
+        jMenuItem13.setBorder(null);
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem13ActionPerformed(evt);
@@ -317,6 +376,8 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBackground(new java.awt.Color(51, 51, 255));
+        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("Delogare");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -340,7 +401,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 747, Short.MAX_VALUE)
+            .addGap(0, 757, Short.MAX_VALUE)
         );
 
         pack();
@@ -524,7 +585,7 @@ public class AdminFrame extends javax.swing.JFrame implements Subscriber{
         switch(string){
             case TopicsEnum.PROIECT_ORA_MODIFICAT:{
                 table.repaint();
-                System.out.println("Daca nu dai repaint, te bat sa moara mama!");
+                
             }break;
         }
     }

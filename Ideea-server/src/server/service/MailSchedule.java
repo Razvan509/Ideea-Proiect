@@ -28,7 +28,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author lane
  */
-public class MailSchedule extends TimerTask  implements Runnable{
+public class MailSchedule implements Runnable{
     private final String TIMEOUT = "15000";
     
     
@@ -73,7 +73,7 @@ public class MailSchedule extends TimerTask  implements Runnable{
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
                 
                 
-                String s = "Cei care nu au mai bagat un pontaj de 4 zile sau mai mult sunt: \n";
+                String s = "Cei care nu au mai pontat de 4 zile sau mai mult sunt: \n";
                 Calendar today = Calendar.getInstance();
                 today.add(Calendar.DATE,-5);
                 
@@ -82,13 +82,17 @@ public class MailSchedule extends TimerTask  implements Runnable{
                 ActivitateService activitateService = new ActivitateService();
                 
                 List<Angajat> angajati = angajatService.getAngajatiBYStare("activ");
-                
+                boolean pontati = false;
                 for(int i=0;i<angajati.size();i++){
                     lastActiv = activitateService.getLastDateActivityByAngajat(angajati.get(i));
-                if((lastActiv.getDataPontaj()==null || today.getTime().after(lastActiv.getDataPontaj())) && !angajati.get(i).isAdmin()){
-                    s+= angajati.get(i).getNume() + "\n";
+                    if((lastActiv==null || today.getTime().after(lastActiv.getDataPontaj())) && !angajati.get(i).isAdmin()){
+                        pontati = true;
+                        s+= angajati.get(i).getNume() + "\n";
+                    }
                 }
-            }
+                if (!pontati){
+                    s = "Toata lumea este cu pontajele la zi!";
+                }
 
                 message.setSubject("Angajatii nepontati!");
                 message.setContent(s,"text/plain");

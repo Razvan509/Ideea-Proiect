@@ -11,6 +11,7 @@ import static client.gui.ClientFrame.logger;
 import com.opencsv.CSVWriter;
 import db.Activitate;
 import db.Proiect;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.File;
@@ -52,7 +53,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
     private List<Activitate> activitati;
     private ArrayList<RaportOreAngajat> raport = null;
     
-    private String csvPath = "E:\\IdeeaProiect\\Test";
+    
     private File file;
     
     public RapoarteProiectFrame() {
@@ -123,6 +124,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Angajat", jPanel3);
         jTabbedPane1.addTab("Detaliat", jPanel4);
+        getContentPane().setBackground(Color.WHITE); 
     }
     
     private void populareComboEtapaElement(){
@@ -199,15 +201,15 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
     private void populareAngajatPane(){
         model1.clear();
         long sum = 0;
-        String select="select r.ang_nume,sum(r.act_min)/60 from rapoarte r group by r.ang_nume";
+        String select="select r.ang_nume,sum(r.act_min) from rapoarte r group by r.ang_nume";
         try {
             raport = ActivitateController.getInstance().getRaportOreAngajat(select);
             raport.forEach((r) -> model1.addElement(r));
             
-            for(RaportOreAngajat r:raport){
-                sum+=r.getOre();
-            }
-            model1.addElement("Total ore: " + sum);
+//            for(RaportOreAngajat r:raport){
+//                sum+=r.getOre();
+//            }
+//            model1.addElement("Total ore: " + sum);
         } catch (RemoteException ex) {
             ex.printStackTrace();
         }
@@ -223,7 +225,8 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
         try {
             ArrayList<RaportBrut> act = ActivitateController.getInstance().getRaportOrd(select);
             //act.forEach(System.out::println);
-            
+            RaportBrut rr = act.get(0);
+            model1.addElement("Total ore: " + rr.getMinute());
             for(int i=1;i<act.size();i++){
                 RaportBrut r = act.get(i);
                 if(r.getDescriere().equals("null") && r.getCorp() == 'n' && r.getEtaj().equals("null") && r.getNumeAngajat().equals("null")){
@@ -302,7 +305,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 32767));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -315,6 +318,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
 
         jDateChooser2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        perioadaCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         perioadaCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         perioadaCheckBox.setText("Perioada");
         perioadaCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -334,6 +338,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
             }
         });
 
+        proiectCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         proiectCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         proiectCheckBox.setText("Proiect");
         proiectCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -357,6 +362,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
 
         etajComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        etajCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         etajCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         etajCheckBox.setText("Etaj");
         etajCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +376,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
 
         corpComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        corpCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         corpCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         corpCheckBox.setText("Corp");
         corpCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -378,7 +385,9 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Raport");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,6 +410,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
 
         elementComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        elementCheckBox.setBackground(new java.awt.Color(255, 255, 255));
         elementCheckBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         elementCheckBox.setText("Element");
         elementCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -413,7 +423,9 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jButton3.setBackground(new java.awt.Color(51, 51, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Export");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -529,10 +541,8 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+                .addComponent(jScrollPane1))
         );
-
-        jPanel2.setBackground(new java.awt.Color(255, 51, 153));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -542,7 +552,7 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -556,10 +566,8 @@ public class RapoarteProiectFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
